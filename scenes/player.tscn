@@ -742,6 +742,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_37a1r"]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_p5udc")
 metadata/_edit_group_ = true
 
@@ -751,3 +752,8 @@ animation = &"idle_down_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_37a1r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
