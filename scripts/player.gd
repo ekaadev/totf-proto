@@ -62,6 +62,6 @@ func update_animation():
 			else:
 				last_direction = "down" if velocity.y > 0 else "up"
 		# perbarui bagian ini jika ingin menggunakan animation run
-		animated_sprite.play("walk_" + last_direction)
+		animated_sprite.play(state + last_direction)
 		# debug state animation
 		print(state + last_direction)
