@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=157 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://c3pvlmjs4g1n2" path="res://assets/character/idle/idle.png" id="2_faul6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1shvgapx45ev" path="res://assets/character/run/run_up.png" id="6_abb02"]
 [ext_resource type="Texture2D" uid="uid://bdtqcsdvglbuu" path="res://assets/character/run/run_left_up.png" id="7_mb420"]
 [ext_resource type="Texture2D" uid="uid://l842jphclar7" path="res://assets/character/run/run_right_up.png" id="8_xlthw"]
+[ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="10_t10hx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cysn8"]
 atlas = ExtResource("2_faul6")
@@ -1121,6 +1122,10 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
 animation = &"run_up_right"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+texture = ExtResource("10_t10hx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_37a1r")
