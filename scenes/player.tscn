@@ -1124,7 +1124,6 @@ sprite_frames = SubResource("SpriteFrames_ep6hr")
 animation = &"run_up_right"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("10_t10hx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
