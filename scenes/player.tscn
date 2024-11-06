@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=158 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://c3pvlmjs4g1n2" path="res://assets/character/idle/idle.png" id="2_faul6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtqcsdvglbuu" path="res://assets/character/run/run_left_up.png" id="7_mb420"]
 [ext_resource type="Texture2D" uid="uid://l842jphclar7" path="res://assets/character/run/run_right_up.png" id="8_xlthw"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="10_t10hx"]
+[ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cysn8"]
 atlas = ExtResource("2_faul6")
@@ -1112,24 +1113,34 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_37a1r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dey5d"]
+size = Vector2(19.2, 13.6)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
+collision_mask = 12
 script = ExtResource("1_p5udc")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"run_up_right"
+animation = &"idle_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_t10hx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_37a1r")
+position = Vector2(0.4, 1.6)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_dey5d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
+volume_db = -20.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

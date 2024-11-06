@@ -9,8 +9,8 @@ var last_direction = "down"
 
 var state = "walk_"
 
-# Scene-Tree Node references
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var footstep_sfx = $FootstepsPlayerSFX
 
 # Input for movement
 func get_input():
@@ -36,9 +36,11 @@ func player_movement(input, delta):
 func _physics_process(delta):
 	var input = get_input()
 	player_movement(input, delta)
+	update_sfx()
 	move_and_slide()
 	update_animation()
- 
+	
+
 # Animation
 func update_animation():
 	if velocity == Vector2.ZERO:
@@ -65,3 +67,12 @@ func update_animation():
 		animated_sprite.play(state + last_direction)
 		# debug state animation
 		print(state + last_direction)
+		
+func update_sfx():
+#	check, apakah player bergerak
+	if velocity != Vector2.ZERO:
+#		jika bergerak, check apakah time_left nya kurang dari 0
+		if $Timer.time_left <= 0:
+			footstep_sfx.pitch_scale = randf_range(0.8, 1.2)
+			footstep_sfx.play()
+			$Timer.start(0.4)
