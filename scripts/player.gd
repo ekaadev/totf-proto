@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # movement variable
-const max_speed = 230
+const max_speed = 180
 const accel = 1500
 const friction = 600
 var running = false

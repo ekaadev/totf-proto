@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://cpo6cmx0boqtf"]
+[gd_scene load_steps=10 format=4 uid="uid://cpo6cmx0boqtf"]
 
 [ext_resource type="TileSet" uid="uid://c00cfjqalf5jp" path="res://tilesets/catacombs_tile_set.tres" id="1_7unsn"]
-[ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/mainlevbuild.png" id="2_lymf7"]
+[ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/catacombs/mainlevbuild.png" id="2_lymf7"]
+[ext_resource type="PackedScene" uid="uid://coqi6lcpihy4n" path="res://scenes/components/flame.tscn" id="3_yyhyo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqhkf"]
 texture = ExtResource("2_lymf7")
@@ -2071,8 +2072,11 @@ texture = ExtResource("2_lymf7")
 [sub_resource type="TileSet" id="TileSet_jp32d"]
 sources/0 = SubResource("TileSetAtlasSource_4uixo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttn2l"]
+size = Vector2(10.1802, 48.8355)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6fo4"]
-size = Vector2(13, 380)
+size = Vector2(16.6816, 413.544)
 
 [node name="CatacombsAltar" type="Node2D"]
 position = Vector2(-53, 30)
@@ -2102,6 +2106,7 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_jp32d")
 
 [node name="BatasKanan" type="StaticBody2D" parent="."]
+scale = Vector2(0.987086, 1.00284)
 disable_mode = 2
 collision_layer = 4
 collision_mask = 0
@@ -2109,10 +2114,13 @@ collision_mask = 0
 [node name="Sprite2D" type="Sprite2D" parent="BatasKanan"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatasKanan"]
-position = Vector2(1110, -163)
-shape = SubResource("RectangleShape2D_y6fo4")
+position = Vector2(1122.5, -167.577)
+rotation = -3.14159
+scale = Vector2(1, -8.778)
+shape = SubResource("RectangleShape2D_ttn2l")
 
 [node name="BatasKiri" type="StaticBody2D" parent="."]
+scale = Vector2(1.02941, 1.03256)
 disable_mode = 2
 collision_layer = 4
 collision_mask = 0
@@ -2120,5 +2128,9 @@ collision_mask = 0
 [node name="Sprite2D" type="Sprite2D" parent="BatasKiri"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatasKiri"]
-position = Vector2(520.5, -169)
+position = Vector2(507.089, -161.735)
+scale = Vector2(0.832464, 1)
 shape = SubResource("RectangleShape2D_y6fo4")
+
+[node name="Flame" parent="." instance=ExtResource("3_yyhyo")]
+position = Vector2(808, -721)

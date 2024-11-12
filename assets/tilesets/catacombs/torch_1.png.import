@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt0s8e1vx6k0e"
-path="res://.godot/imported/torch_3.png-699f507de2d6a41f634b401ae9695e10.ctex"
+uid="uid://b40xqvdkv54xh"
+path="res://.godot/imported/torch_1.png-c15913baff702a5db8adfa63a76ddc68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/torch_3.png"
-dest_files=["res://.godot/imported/torch_3.png-699f507de2d6a41f634b401ae9695e10.ctex"]
+source_file="res://assets/tilesets/catacombs/torch_1.png"
+dest_files=["res://.godot/imported/torch_1.png-c15913baff702a5db8adfa63a76ddc68.ctex"]
 
 [params]
 

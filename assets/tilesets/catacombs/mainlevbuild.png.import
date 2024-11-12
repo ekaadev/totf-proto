@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdxxnj37vxd3"
-path="res://.godot/imported/spike_0.png-00df9f9d5d65de0c985a9d0efce385d5.ctex"
+uid="uid://c35i5vorbxl3w"
+path="res://.godot/imported/mainlevbuild.png-8bc342c95e3ce215a522b9e020a4579b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/spike_0.png"
-dest_files=["res://.godot/imported/spike_0.png-00df9f9d5d65de0c985a9d0efce385d5.ctex"]
+source_file="res://assets/tilesets/catacombs/mainlevbuild.png"
+dest_files=["res://.godot/imported/mainlevbuild.png-8bc342c95e3ce215a522b9e020a4579b.ctex"]
 
 [params]
 

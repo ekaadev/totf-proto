@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbnwcxjd8w6x3"
-path="res://.godot/imported/candleB_01.png-43284a33a0f60e35f9d56c2fb7e078e1.ctex"
+uid="uid://cxdxxnj37vxd3"
+path="res://.godot/imported/spike_0.png-de3bdeac0b8ff4ea868432e62d833fae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/candleB_01.png"
-dest_files=["res://.godot/imported/candleB_01.png-43284a33a0f60e35f9d56c2fb7e078e1.ctex"]
+source_file="res://assets/tilesets/catacombs/spike_0.png"
+dest_files=["res://.godot/imported/spike_0.png-de3bdeac0b8ff4ea868432e62d833fae.ctex"]
 
 [params]
 

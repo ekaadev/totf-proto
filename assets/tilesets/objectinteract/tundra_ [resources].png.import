@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgwackryuiye6"
-path="res://.godot/imported/candleB_04.png-1be2c6b15a706814014d5d1651dc5d54.ctex"
+uid="uid://drwsc378ehttb"
+path="res://.godot/imported/tundra_ [resources].png-0dcef57220d46dd77697f8b8cf97bdb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/candleB_04.png"
-dest_files=["res://.godot/imported/candleB_04.png-1be2c6b15a706814014d5d1651dc5d54.ctex"]
+source_file="res://assets/tilesets/objectinteract/tundra_ [resources].png"
+dest_files=["res://.godot/imported/tundra_ [resources].png-0dcef57220d46dd77697f8b8cf97bdb5.ctex"]
 
 [params]
 

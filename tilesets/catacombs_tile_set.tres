@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c00cfjqalf5jp"]
 
-[ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/mainlevbuild.png" id="1_th6sm"]
-[ext_resource type="Texture2D" uid="uid://b6wt4bubemx1o" path="res://assets/tilesets/decorative.png" id="2_u8v6m"]
+[ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/catacombs/mainlevbuild.png" id="1_th6sm"]
+[ext_resource type="Texture2D" uid="uid://b6wt4bubemx1o" path="res://assets/tilesets/catacombs/decorative.png" id="2_u8v6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ca2im"]
 texture = ExtResource("1_th6sm")
@@ -517,9 +517,7 @@ texture = ExtResource("1_th6sm")
 49:14/0 = 0
 50:14/0 = 0
 52:14/0 = 0
-52:14/0/terrain = 0
 53:14/0 = 0
-53:14/0/terrain = 0
 55:14/0 = 0
 56:14/0 = 0
 58:14/0 = 0
@@ -562,9 +560,7 @@ texture = ExtResource("1_th6sm")
 49:15/0 = 0
 50:15/0 = 0
 52:15/0 = 0
-52:15/0/terrain = 0
 53:15/0 = 0
-53:15/0/terrain = 0
 55:15/0 = 0
 56:15/0 = 0
 58:15/0 = 0
@@ -837,9 +833,7 @@ texture = ExtResource("1_th6sm")
 49:23/0 = 0
 50:23/0 = 0
 52:23/0 = 0
-52:23/0/terrain = 0
 53:23/0 = 0
-53:23/0/terrain = 0
 55:23/0 = 0
 56:23/0 = 0
 58:23/0 = 0
@@ -871,9 +865,7 @@ texture = ExtResource("1_th6sm")
 49:24/0 = 0
 50:24/0 = 0
 52:24/0 = 0
-52:24/0/terrain = 0
 53:24/0 = 0
-53:24/0/terrain = 0
 55:24/0 = 0
 56:24/0 = 0
 58:24/0 = 0
