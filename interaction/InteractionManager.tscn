@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cswi6cx1ef1ft"]
+[gd_scene load_steps=4 format=3 uid="uid://cswi6cx1ef1ft"]
 
 [ext_resource type="Script" path="res://interaction/InteractionManager.gd" id="1_mc4ma"]
-[ext_resource type="FontFile" uid="uid://btftcdkutymad" path="res://assets/fonts/NicoPups-Regular.ttf" id="2_x5gth"]
+[ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="2_vbj74"]
+[ext_resource type="PackedScene" uid="uid://bsoca7yqksecu" path="res://ui/healthbar/flame_bar.tscn" id="3_tobib"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_mc4ma")
@@ -15,9 +16,26 @@ offset_left = -62.5
 offset_right = 62.5
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_x5gth")
-theme_override_font_sizes/font_size = 36
+theme_override_colors/font_outline_color = Color(0.000677379, 0.000774766, 0.000172485, 1)
+theme_override_fonts/font = ExtResource("2_vbj74")
+theme_override_font_sizes/font_size = 16
 text = "[E] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FlameBar" parent="CanvasLayer" instance=ExtResource("3_tobib")]
+z_index = 5
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -108.0
+offset_right = 120.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
