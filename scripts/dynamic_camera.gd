@@ -6,7 +6,7 @@ var target_distance = 0
 var center_pos = position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction = center_pos.direction_to(get_local_mouse_position())
 	var target_pos = center_pos + direction * target_distance
 	

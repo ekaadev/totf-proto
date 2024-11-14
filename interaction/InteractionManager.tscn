@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://interaction/InteractionManager.gd" id="1_mc4ma"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="2_vbj74"]
-[ext_resource type="PackedScene" uid="uid://bsoca7yqksecu" path="res://ui/healthbar/flame_bar.tscn" id="3_tobib"]
+[ext_resource type="PackedScene" uid="uid://bsoca7yqksecu" path="res://ui/flamebar/flame_bar.tscn" id="3_tobib"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_mc4ma")
