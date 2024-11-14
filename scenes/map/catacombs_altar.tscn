@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cpo6cmx0boqtf"]
 
-[ext_resource type="TileSet" uid="uid://c00cfjqalf5jp" path="res://tilesets/catacombs_tile_set.tres" id="1_7unsn"]
+[ext_resource type="TileSet" uid="uid://c00cfjqalf5jp" path="res://resources/tilesets/catacombs_tile_set.tres" id="1_7unsn"]
 [ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/catacombs/mainlevbuild.png" id="2_lymf7"]
 [ext_resource type="PackedScene" uid="uid://coqi6lcpihy4n" path="res://scenes/components/flame.tscn" id="3_yyhyo"]
 

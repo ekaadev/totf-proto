@@ -1,6 +1,6 @@
 [gd_scene load_steps=159 format=3 uid="uid://ct0f10b7iq26"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_p5udc"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://c3pvlmjs4g1n2" path="res://assets/character/idle/idle.png" id="2_faul6"]
 [ext_resource type="Texture2D" uid="uid://bmbn5485ii3li" path="res://assets/character/run/run_down.png" id="3_1xqx4"]
 [ext_resource type="Texture2D" uid="uid://gxuce78svmyg" path="res://assets/character/walk/walk.png" id="3_30ysj"]
@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bdtqcsdvglbuu" path="res://assets/character/run/run_left_up.png" id="7_mb420"]
 [ext_resource type="Texture2D" uid="uid://l842jphclar7" path="res://assets/character/run/run_right_up.png" id="8_xlthw"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="10_t10hx"]
-[ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
-[ext_resource type="Script" path="res://scripts/dynamic_camera.gd" id="11_n6acf"]
+[ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://scenes/audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
+[ext_resource type="Script" path="res://scripts/player/dynamic_camera.gd" id="11_n6acf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cysn8"]
 atlas = ExtResource("2_faul6")

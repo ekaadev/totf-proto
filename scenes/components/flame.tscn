@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://coqi6lcpihy4n"]
 
-[ext_resource type="Script" path="res://scripts/flame.gd" id="1_jaeee"]
+[ext_resource type="Script" path="res://scripts/flame/flame.gd" id="1_jaeee"]
 [ext_resource type="Texture2D" uid="uid://drwsc378ehttb" path="res://assets/tilesets/objectinteract/tundra_ [resources].png" id="2_x17yv"]
-[ext_resource type="PackedScene" uid="uid://dg3nfqqy8g1ig" path="res://interaction/interaction_area/interaction_area.tscn" id="3_wct68"]
+[ext_resource type="PackedScene" uid="uid://dg3nfqqy8g1ig" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="3_wct68"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtxhh"]
 atlas = ExtResource("2_x17yv")
@@ -55,8 +55,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwvk"]
 size = Vector2(15, 13.3333)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kuiy0"]
-radius = 13.0171
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkey6"]
 
 [node name="Flame" type="StaticBody2D"]
 z_index = 5
@@ -77,6 +76,6 @@ shape = SubResource("RectangleShape2D_8dwvk")
 [node name="InteractionArea" parent="." instance=ExtResource("3_wct68")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 4.33333)
-shape = SubResource("CircleShape2D_kuiy0")
-debug_color = Color(0.568876, 0.556531, 1.92523e-07, 0.42)
+position = Vector2(0, 5.66667)
+shape = SubResource("CircleShape2D_tkey6")
+debug_color = Color(0.623863, 0.532679, 5.77569e-07, 0.42)
