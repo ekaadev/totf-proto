@@ -34,7 +34,7 @@ func unregister_area(area: InteractionArea):
 	if index != -1:
 		# remove the area from the list of active areas
 		active_areas.remove_at(index)
-		
+
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		# sort the active areas based on the distance to the player
