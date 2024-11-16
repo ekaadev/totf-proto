@@ -875,7 +875,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yfhij")
 }],
 "loop": true,
-"name": &"attack_down",
+"name": &"attack_spear_down",
 "speed": 9.0
 }, {
 "frames": [{
@@ -904,7 +904,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ksdhq")
 }],
 "loop": true,
-"name": &"attack_down_left",
+"name": &"attack_spear_down_left",
 "speed": 9.0
 }, {
 "frames": [{
@@ -933,7 +933,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qfbya")
 }],
 "loop": true,
-"name": &"attack_down_right",
+"name": &"attack_spear_down_right",
 "speed": 9.0
 }, {
 "frames": [{
@@ -962,7 +962,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kni63")
 }],
 "loop": true,
-"name": &"attack_left",
+"name": &"attack_spear_left",
 "speed": 9.0
 }, {
 "frames": [{
@@ -991,7 +991,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_r78of")
 }],
 "loop": true,
-"name": &"attack_right",
+"name": &"attack_spear_right",
 "speed": 9.0
 }, {
 "frames": [{
@@ -1020,7 +1020,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_w0cvw")
 }],
 "loop": true,
-"name": &"attack_up",
+"name": &"attack_spear_up",
 "speed": 9.0
 }, {
 "frames": [{
@@ -1049,7 +1049,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qjle8")
 }],
 "loop": true,
-"name": &"attack_up_left",
+"name": &"attack_spear_up_left",
 "speed": 9.0
 }, {
 "frames": [{
@@ -1078,7 +1078,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2h6w0")
 }],
 "loop": true,
-"name": &"attack_up_right",
+"name": &"attack_spear_up_right",
 "speed": 9.0
 }, {
 "frames": [{
@@ -1636,14 +1636,14 @@ resource_name = "attack_up_right"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_15kuq"]
 _data = {
-"attack_down": SubResource("Animation_wg0my"),
-"attack_down_left": SubResource("Animation_7sxug"),
-"attack_down_right": SubResource("Animation_0qo1k"),
-"attack_left": SubResource("Animation_8qiie"),
-"attack_right": SubResource("Animation_ho1ba"),
-"attack_up": SubResource("Animation_skm6q"),
-"attack_up_left": SubResource("Animation_dp4th"),
-"attack_up_right": SubResource("Animation_u5q43")
+"attack_spear_down": SubResource("Animation_wg0my"),
+"attack_spear_down_left": SubResource("Animation_7sxug"),
+"attack_spear_down_right": SubResource("Animation_0qo1k"),
+"attack_spear_left": SubResource("Animation_8qiie"),
+"attack_spear_right": SubResource("Animation_ho1ba"),
+"attack_spear_up": SubResource("Animation_skm6q"),
+"attack_spear_up_left": SubResource("Animation_dp4th"),
+"attack_spear_up_right": SubResource("Animation_u5q43")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -1654,9 +1654,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"attack_down"
-frame = 6
-frame_progress = 0.398812
+animation = &"attack_spear_up_right"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_t10hx")
