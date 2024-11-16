@@ -1,4 +1,4 @@
-[gd_scene load_steps=235 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=238 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://scenes/audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
 [ext_resource type="Script" path="res://scripts/player/dynamic_camera.gd" id="11_n6acf"]
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="13_cgujj"]
+[ext_resource type="Script" path="res://scripts/NodeStateMachine.gd" id="14_abd0o"]
+[ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
+[ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mllx"]
 atlas = ExtResource("2_3ohkj")
@@ -1654,9 +1657,12 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"attack_spear_up_right"
+animation = &"idle_down_left"
+frame = 1
+frame_progress = 0.976619
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("10_t10hx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1689,3 +1695,17 @@ libraries = {
 
 [node name="FootstepTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("14_abd0o")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
+script = ExtResource("15_51b4e")
+player = NodePath("../..")
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
+script = ExtResource("16_3fu6t")
+player = NodePath("../..")
+animation_sprite = NodePath("../../AnimatedSprite2D")
