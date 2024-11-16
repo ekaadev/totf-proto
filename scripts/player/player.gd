@@ -19,7 +19,7 @@ func get_input():
 	
 # Control & Adjust Movement
 func player_movement(input, delta):
-	# jika bergerak
+	#jika bergerak
 	if input:
 		# jika running, set velocity lebih cepat dari velocity normal
 		running = Input.is_action_pressed("run")
@@ -31,7 +31,7 @@ func player_movement(input, delta):
 	else:
 		# jika tidak bergerak, set velocity menjadi nol
 		velocity = velocity.move_toward(Vector2(0,0), delta * friction)
-
+	
 # Movement & Animation
 func _physics_process(delta):
 	var input = get_input()
@@ -39,7 +39,6 @@ func _physics_process(delta):
 	update_sfx()
 	move_and_slide()
 	update_animation()
-	
 
 # Animation
 func update_animation():
@@ -62,17 +61,20 @@ func update_animation():
 				else:
 					last_direction = "down_left"
 			else:
-				last_direction = "down" if velocity.y > 0 else "up"
+				if velocity.y > 0:
+					last_direction = "down"
+				else:
+					last_direction = "up"
 		# perbarui bagian ini jika ingin menggunakan animation run
 		animated_sprite.play(state + last_direction)
 		# debug state animation
-		print(state + last_direction)
+		# print(state + last_direction)
 		
 func update_sfx():
 #	check, apakah player bergerak
 	if velocity != Vector2.ZERO:
 #		jika bergerak, check apakah time_left nya kurang dari 0
-		if $Timer.time_left <= 0:
+		if $FootstepTimer.time_left <= 0:
 			footstep_sfx.pitch_scale = randf_range(0.8, 1.2)
 			footstep_sfx.play()
-			$Timer.start(0.4)
+			$FootstepTimer.start(0.4)

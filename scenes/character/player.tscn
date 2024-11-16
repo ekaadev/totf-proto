@@ -1608,7 +1608,7 @@ animations = [{
 size = Vector2(27.2, 13.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qb5w"]
-size = Vector2(27.6, 28)
+size = Vector2(36.8, 28)
 
 [sub_resource type="Animation" id="Animation_wg0my"]
 resource_name = "attack_down"
@@ -1619,20 +1619,20 @@ resource_name = "attack_down_left"
 [sub_resource type="Animation" id="Animation_0qo1k"]
 resource_name = "attack_down_right"
 
-[sub_resource type="Animation" id="Animation_skm6q"]
-resource_name = "attack_up"
-
-[sub_resource type="Animation" id="Animation_u5q43"]
-resource_name = "attack_up_right"
-
-[sub_resource type="Animation" id="Animation_dp4th"]
-resource_name = "attack_up_left"
+[sub_resource type="Animation" id="Animation_8qiie"]
+resource_name = "attack_left"
 
 [sub_resource type="Animation" id="Animation_ho1ba"]
 resource_name = "attack_right"
 
-[sub_resource type="Animation" id="Animation_8qiie"]
-resource_name = "attack_left"
+[sub_resource type="Animation" id="Animation_skm6q"]
+resource_name = "attack_up"
+
+[sub_resource type="Animation" id="Animation_dp4th"]
+resource_name = "attack_up_left"
+
+[sub_resource type="Animation" id="Animation_u5q43"]
+resource_name = "attack_up_right"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_15kuq"]
 _data = {
@@ -1654,9 +1654,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"attack_up_right"
-frame = 1
-frame_progress = 0.700074
+animation = &"attack_down"
+frame = 6
+frame_progress = 0.398812
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_t10hx")
@@ -1674,14 +1674,11 @@ script = ExtResource("11_n6acf")
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -20.0
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="HitboxComponent" parent="." instance=ExtResource("13_cgujj")]
-collision_mask = 0
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0.600001, -3.2)
+position = Vector2(5.2, -3.2)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qb5w")
 one_way_collision_margin = 0.0
@@ -1691,3 +1688,6 @@ debug_color = Color(0.993136, 0, 0.242055, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_15kuq")
 }
+
+[node name="FootstepTimer" type="Timer" parent="."]
+one_shot = true
