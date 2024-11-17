@@ -1,6 +1,8 @@
+class_name Player
 extends CharacterBody2D
 
 var running = false
+var player_direction: Vector2
 
 @onready var footstep_sfx = $FootstepsPlayerSFX
 

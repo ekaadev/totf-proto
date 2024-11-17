@@ -1,47 +1,37 @@
 extends NodeState
 
-@export var player: CharacterBody2D
+@export var player: Player
 @export var animation_sprite: AnimatedSprite2D
 
 @export var max_speed = 180
 @export var accel = 1500
 @export var friction = 600
 
-var direction: Vector2
-var last_direction = "down"
 
 func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
-	direction = GameInputEvents.movement_input()
+	var direction = GameInputEvents.movement_input()
 
-	if direction.x != 0 and direction.y != 0:
-		if direction.x > 0:
-			last_direction = "up_right" if direction.y < 0 else "down_right"
-		else:
-			last_direction = "up_left" if direction.y < 0 else "down_left"
-	else:
-		# horizontal or vertical
-		if abs(direction.x) > abs(direction.y):
-			if direction.x > 0:
-				last_direction = "down_right"
-			else:
-				last_direction = "down_left"
-		else:
-			if direction.y > 0:
-				last_direction = "down"
-			else:
-				last_direction = "up"
-	animation_sprite.play("walk_" + last_direction)
+	if direction == Vector2.UP:
+		animation_sprite.play("walk_up")
+	elif direction == Vector2.DOWN:
+		animation_sprite.play("walk_down")
+	elif direction == Vector2.LEFT:
+		animation_sprite.play("walk_left")
+	elif direction == Vector2.RIGHT:
+		animation_sprite.play("walk_right")
+
+	if direction != Vector2.ZERO:
+		player.player_direction = direction
 
 	# can improve with smooth movement
 	player.velocity = direction * max_speed
-
 	player.move_and_slide()
 
 func _on_next_transitions() -> void:
-	if direction == Vector2.ZERO:
+	if !GameInputEvents.is_movement_input():
 		transition.emit("Idle")
 
 func _on_enter() -> void:

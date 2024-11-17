@@ -1,41 +1,28 @@
 extends NodeState
 
-@export var player: CharacterBody2D
+@export var player: Player
 @export var animation_sprite: AnimatedSprite2D
 
-var direction: Vector2
-var last_direction = "down"
 
 func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta: float) -> void:
-	direction = GameInputEvents.movement_input()
-
-	if direction == Vector2.ZERO:
-		animation_sprite.play("idle_" + last_direction)
+	if player.player_direction == Vector2.UP:
+		animation_sprite.play("idle_up")
+	elif player.player_direction == Vector2.DOWN:
+		animation_sprite.play("idle_down")
+	elif player.player_direction == Vector2.LEFT:
+		animation_sprite.play("idle_left")
+	elif player.player_direction == Vector2.RIGHT:
+		animation_sprite.play("idle_right")
 	else:
-		if direction.x != 0 and direction.y != 0:
-			if direction.x > 0:
-				last_direction = "up_right" if direction.y < 0 else "down_right"
-			else:
-				last_direction = "up_left" if direction.y < 0 else "down_left"
-		else:
-			# horizontal atau vertical
-			if abs(direction.x) > abs(direction.y):
-				if direction.x > 0:
-					last_direction = "down_right"
-				else:
-					last_direction = "down_left"
-			else:
-				if direction.y > 0:
-					last_direction = "down"
-				else:
-					last_direction = "up"
-		animation_sprite.play("idle_" + last_direction)
+		animation_sprite.play("idle_down")
 
 func _on_next_transitions() -> void:
-	if direction != Vector2.ZERO:
+	GameInputEvents.movement_input()
+
+	if GameInputEvents.is_movement_input():
 		transition.emit("Walk")
 
 func _on_enter() -> void:
