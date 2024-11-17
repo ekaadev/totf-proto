@@ -1171,6 +1171,16 @@ animations = [{
 "name": &"idle_down_right",
 "speed": 9.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iuppf")
@@ -1519,6 +1529,16 @@ animations = [{
 "name": &"walk_down_right",
 "speed": 9.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fpge")
@@ -1657,9 +1677,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"idle_down_left"
-frame = 1
-frame_progress = 0.976619
+animation = &"idle_down_right"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -1683,7 +1701,6 @@ collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(5.2, -3.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qb5w")
 one_way_collision_margin = 0.0
 debug_color = Color(0.993136, 0, 0.242055, 0.42)
