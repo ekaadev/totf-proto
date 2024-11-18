@@ -11,9 +11,9 @@
 [node name="CatacombsAltar" parent="Map" instance=ExtResource("1_w2mwe")]
 position = Vector2(29, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_tnkvk")]
-position = Vector2(750, -288)
-
 [node name="Enemy" parent="." instance=ExtResource("3_qrgc3")]
 position = Vector2(1075, -631)
 scale = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("1_tnkvk")]
+position = Vector2(750, -288)
