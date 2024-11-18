@@ -1,4 +1,4 @@
-[gd_scene load_steps=271 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=272 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/NodeStateMachine.gd" id="14_abd0o"]
 [ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
+[ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mllx"]
 atlas = ExtResource("2_3ohkj")
@@ -1006,7 +1007,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yfhij")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_spear_down",
 "speed": 9.0
 }, {
@@ -1093,7 +1094,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kni63")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_spear_left",
 "speed": 9.0
 }, {
@@ -1122,7 +1123,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r78of")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_spear_right",
 "speed": 9.0
 }, {
@@ -1151,7 +1152,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w0cvw")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_spear_up",
 "speed": 9.0
 }, {
@@ -1898,13 +1899,12 @@ _data = {
 scale = Vector2(2.5, 2.5)
 collision_mask = 12
 script = ExtResource("1_p5udc")
+current_tool = 1
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ep6hr")
-animation = &"walk_right"
-frame = 5
-frame_progress = 0.277888
+animation = &"attack_spear_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -1951,5 +1951,10 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
 script = ExtResource("16_3fu6t")
+player = NodePath("../..")
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="BasicAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
+script = ExtResource("19_5uauw")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
