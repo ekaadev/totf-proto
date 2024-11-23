@@ -23,4 +23,4 @@ func transition():
 # transition will be running on physics process
 func _physics_process(_delta: float) -> void:
 	transition()
-
+	print(name)
