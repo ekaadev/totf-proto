@@ -19,3 +19,6 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity = direction.normalized() * 100
 	move_and_collide(velocity * delta)
+
+func take_damage(damage: int) -> void:
+	find_child("HealthComponent").health -= damage - find_child("HealthComponent").DEF
