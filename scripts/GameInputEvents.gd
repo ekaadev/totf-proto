@@ -26,3 +26,8 @@ static func use_tool() -> bool:
     var use_tool_value: bool = Input.is_action_just_pressed("basic_attack")
 
     return use_tool_value
+
+static func use_daash() -> bool:
+    var use_dash_value: bool = Input.is_action_just_pressed("dash")
+
+    return use_dash_value

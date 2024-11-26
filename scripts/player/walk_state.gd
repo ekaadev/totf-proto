@@ -37,6 +37,10 @@ func _on_next_transitions() -> void:
 	if player.current_tool == DataTypes.Tools.Spear && GameInputEvents.use_tool():
 		transition.emit("BasicAttack")
 
+	if GameInputEvents.use_daash():
+		print("Dash")
+
+
 func _on_enter() -> void:
 	pass
 
