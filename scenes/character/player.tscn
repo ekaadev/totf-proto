@@ -1,4 +1,4 @@
-[gd_scene load_steps=269 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=270 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
+[ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mllx"]
 atlas = ExtResource("2_3ohkj")
@@ -2185,6 +2186,11 @@ script = ExtResource("19_5uauw")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
 animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
+script = ExtResource("20_qjdlj")
+player = NodePath("../..")
+animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
