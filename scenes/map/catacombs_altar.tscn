@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cpo6cmx0boqtf"]
+[gd_scene load_steps=13 format=4 uid="uid://cpo6cmx0boqtf"]
 
 [ext_resource type="TileSet" uid="uid://c00cfjqalf5jp" path="res://resources/tilesets/catacombs_tile_set.tres" id="1_7unsn"]
 [ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/catacombs/mainlevbuild.png" id="2_lymf7"]
@@ -2078,6 +2078,15 @@ size = Vector2(10.1802, 48.8355)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6fo4"]
 size = Vector2(16.6816, 413.544)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6177"]
+size = Vector2(1181, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdj4m"]
+size = Vector2(449, 193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds18w"]
+size = Vector2(448, 174)
+
 [node name="CatacombsAltar" type="Node2D"]
 position = Vector2(-53, 30)
 
@@ -2111,8 +2120,6 @@ disable_mode = 2
 collision_layer = 4
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="BatasKanan"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatasKanan"]
 position = Vector2(1122.5, -167.577)
 rotation = -3.14159
@@ -2125,12 +2132,34 @@ disable_mode = 2
 collision_layer = 4
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="BatasKiri"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatasKiri"]
 position = Vector2(507.089, -161.735)
 scale = Vector2(0.832464, 1)
 shape = SubResource("RectangleShape2D_y6fo4")
+
+[node name="BatasBawah" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatasBawah"]
+position = Vector2(817.5, 966)
+shape = SubResource("RectangleShape2D_u6177")
+
+[node name="BatasBawah2" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatasBawah2"]
+position = Vector2(304.5, -289.5)
+shape = SubResource("RectangleShape2D_sdj4m")
+
+[node name="BatasBawah3" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatasBawah3"]
+position = Vector2(1327, -299)
+shape = SubResource("RectangleShape2D_ds18w")
 
 [node name="Flame" parent="." instance=ExtResource("3_yyhyo")]
 position = Vector2(808, -721)
