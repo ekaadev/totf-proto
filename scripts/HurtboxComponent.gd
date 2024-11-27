@@ -2,8 +2,7 @@ extends Area2D
 class_name HurtboxComponent
 
 func _init() -> void:
-	collision_layer = 0
-	collision_mask = 1
+	pass
 
 
 func _ready() -> void:

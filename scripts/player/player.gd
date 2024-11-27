@@ -18,3 +18,6 @@ func update_sfx():
 			footstep_sfx.pitch_scale = randf_range(0.8, 1.2)
 			footstep_sfx.play()
 			$FootstepTimer.start(0.4)
+
+func take_damage(damage: int) -> void:
+	find_child("HealthPlayerComponent").health -= damage
