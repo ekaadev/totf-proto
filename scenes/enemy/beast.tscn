@@ -270,7 +270,7 @@ radius = 8.8
 z_index = 2
 scale = Vector2(5, 5)
 collision_layer = 6
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("1_p3m3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -287,6 +287,7 @@ autoplay = "idle_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.2, -2.38419e-07)
 shape = SubResource("CapsuleShape2D_fjk54")
+disabled = true
 
 [node name="PlayerDetecion" type="Area2D" parent="."]
 collision_layer = 0

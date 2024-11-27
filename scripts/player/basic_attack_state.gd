@@ -13,6 +13,9 @@ func _on_physics_process(_delta : float) -> void:
 func _on_next_transitions() -> void:
 	if !animation_sprite.is_playing():
 		transition.emit("Idle")
+	
+	if GameInputEvents.use_daash():
+		transition.emit("Dash")
 
 func _on_enter() -> void:
 	if player.player_direction == Vector2.UP:

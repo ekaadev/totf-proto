@@ -29,8 +29,8 @@ func _on_next_transitions() -> void:
 		transition.emit("BasicAttack")
 	
 	if GameInputEvents.use_daash():
-		print("Dash")
-
+		transition.emit("Dash")
+		
 func _on_enter() -> void:
 	pass
 
