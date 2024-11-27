@@ -14,7 +14,7 @@ func _on_next_transitions() -> void:
 	if !animation_sprite.is_playing():
 		transition.emit("Idle")
 	
-	if GameInputEvents.use_daash():
+	if GameInputEvents.use_daash() && owner.find_child("StaminaPlayerComponent").stamina >= 20:
 		transition.emit("Dash")
 
 func _on_enter() -> void:
@@ -33,6 +33,8 @@ func _on_enter() -> void:
 	else:
 		animation_sprite.play("attack_spear_down")
 		animation_player.play("attack_down")
+	
+	owner.take_stamina(10)
 
 func _on_exit() -> void:
 	animation_sprite.stop()

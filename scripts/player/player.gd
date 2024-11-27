@@ -21,3 +21,6 @@ func update_sfx():
 
 func take_damage(damage: int) -> void:
 	find_child("HealthPlayerComponent").health -= damage
+
+func take_stamina(stamina: int) -> void:
+	find_child("StaminaPlayerComponent").stamina -= stamina

@@ -1,4 +1,4 @@
-[gd_scene load_steps=310 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=313 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://scripts/player/health_player_component.gd" id="22_abncw"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="25_81gg4"]
+[ext_resource type="Script" path="res://scripts/player/stamina_player_component.gd" id="25_mq4v3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mllx"]
 atlas = ExtResource("2_3ohkj")
@@ -2116,6 +2117,16 @@ expand_margin_bottom = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjw7r"]
 bg_color = Color(0.368627, 0.113725, 0.0901961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuhxr"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgso4"]
+bg_color = Color(0.12549, 0.282353, 0.192157, 1)
+
 [sub_resource type="Animation" id="Animation_oxtd6"]
 length = 0.001
 tracks/0/type = "value"
@@ -2495,6 +2506,9 @@ animation_player = NodePath("../../AnimationPlayer")
 [node name="HealthPlayerComponent" type="Node" parent="."]
 script = ExtResource("22_abncw")
 
+[node name="StaminaPlayerComponent" type="Node" parent="."]
+script = ExtResource("25_mq4v3")
+
 [node name="UIPlayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="UIPlayer"]
@@ -2505,6 +2519,17 @@ offset_right = 330.0
 offset_bottom = 33.0
 theme_override_styles/background = SubResource("StyleBoxFlat_2ebk7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pjw7r")
+value = 100.0
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="UIPlayer"]
+z_index = 5
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 290.0
+offset_bottom = 48.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tuhxr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bgso4")
 value = 100.0
 show_percentage = false
 

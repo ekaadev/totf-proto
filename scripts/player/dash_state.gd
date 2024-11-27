@@ -79,6 +79,7 @@ func _on_enter() -> void:
 			player.position + (Vector2.RIGHT * dash_distance), 
 			0.25).set_ease(Tween.EASE_OUT)
 	
+	owner.take_stamina(20)
 	await tween.finished
 	can_dash = false
 	# Reset dash distance

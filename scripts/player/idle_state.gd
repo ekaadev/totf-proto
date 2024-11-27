@@ -4,8 +4,9 @@ extends NodeState
 @export var animation_sprite: AnimatedSprite2D
 
 
-func _on_process(_delta : float) -> void:
-	pass
+func _on_process(delta : float) -> void:
+	if owner.find_child("StaminaPlayerComponent").stamina < 100:
+		owner.find_child("StaminaPlayerComponent").regen_stamina(delta)
 
 func _on_physics_process(_delta: float) -> void:
 	if player.player_direction == Vector2.UP:
@@ -25,14 +26,15 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_movement_input():
 		transition.emit("Walk")
 
-	if player.current_tool == DataTypes.Tools.Spear && GameInputEvents.use_tool():
+	if player.current_tool == DataTypes.Tools.Spear && GameInputEvents.use_tool() && owner.find_child("StaminaPlayerComponent").stamina >= 10:
 		transition.emit("BasicAttack")
 	
-	if GameInputEvents.use_daash():
+	if GameInputEvents.use_daash() && owner.find_child("StaminaPlayerComponent").stamina >= 20:
 		transition.emit("Dash")
 		
 func _on_enter() -> void:
-	pass
+	owner.find_child("StaminaPlayerComponent").can_regen = true
 
 func _on_exit() -> void:
 	animation_sprite.stop()
+	owner.find_child("StaminaPlayerComponent").can_regen = false
