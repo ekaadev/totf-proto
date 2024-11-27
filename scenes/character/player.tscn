@@ -1,4 +1,4 @@
-[gd_scene load_steps=308 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=310 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
 [ext_resource type="Script" path="res://scripts/player/health_player_component.gd" id="22_abncw"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
+[ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="25_81gg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mllx"]
 atlas = ExtResource("2_3ohkj")
@@ -2165,6 +2166,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UIPlayer/Label:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_eqhr5"]
 resource_name = "attack_down"
@@ -2372,13 +2385,30 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_3auek"]
+resource_name = "player_slained"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UIPlayer/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6r8hv"]
 _data = {
 "RESET": SubResource("Animation_oxtd6"),
 "attack_down": SubResource("Animation_eqhr5"),
 "attack_left": SubResource("Animation_kelya"),
 "attack_right": SubResource("Animation_eopvi"),
-"attack_up": SubResource("Animation_8kssh")
+"attack_up": SubResource("Animation_8kssh"),
+"player_slained": SubResource("Animation_3auek")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -2456,10 +2486,11 @@ script = ExtResource("20_qjdlj")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite")]
+[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite", "animation_player")]
 script = ExtResource("23_cxyck")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="HealthPlayerComponent" type="Node" parent="."]
 script = ExtResource("22_abncw")
@@ -2476,6 +2507,26 @@ theme_override_styles/background = SubResource("StyleBoxFlat_2ebk7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pjw7r")
 value = 100.0
 show_percentage = false
+
+[node name="Label" type="Label" parent="UIPlayer"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -24.0
+offset_right = 126.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("25_81gg4")
+theme_override_font_sizes/font_size = 48
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

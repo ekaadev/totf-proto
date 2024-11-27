@@ -2,6 +2,7 @@ extends NodeState
 
 @export var player: Player
 @export var animation_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -23,6 +24,8 @@ func _on_enter() -> void:
 		animation_sprite.play("death_right")
 	
 	await animation_sprite.animation_finished
+	animation_player.play("player_slained")
+	await animation_player.animation_finished
 
 func _on_exit() -> void:
 	pass
