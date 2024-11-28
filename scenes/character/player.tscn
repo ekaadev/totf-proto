@@ -2460,7 +2460,6 @@ one_way_collision_margin = 0.0
 debug_color = Color(0.993136, 0, 0.242055, 0.42)
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("16_imlii")]
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 2
 
