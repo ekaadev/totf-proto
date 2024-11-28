@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://bgbyqyno35ex1"]
+[gd_scene load_steps=6 format=4 uid="uid://bgbyqyno35ex1"]
 
 [ext_resource type="Texture2D" uid="uid://c35i5vorbxl3w" path="res://assets/tilesets/catacombs/mainlevbuild.png" id="1_8dttg"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="1_trgxx"]
 [ext_resource type="PackedScene" uid="uid://bin5p8801t1ms" path="res://scenes/items/potionR.tscn" id="2_bdd7p"]
-[ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="4_io15j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lugmw"]
 texture = ExtResource("1_8dttg")
@@ -1147,16 +1146,8 @@ tile_map_data = PackedByteArray("AAAXAAcAAAA0ABEAAAAXAAYAAAA0ABQAAAAXAAUAAAA1ABE
 tile_set = SubResource("TileSet_kfjwe")
 
 [node name="Player" parent="." instance=ExtResource("1_trgxx")]
-position = Vector2(200, 536)
+position = Vector2(544, 328)
 
 [node name="PotionR" parent="." instance=ExtResource("2_bdd7p")]
 position = Vector2(384, 200)
-
-[node name="Beast" parent="." instance=ExtResource("4_io15j")]
-position = Vector2(1016, 160)
-
-[node name="PotionR2" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(512, 528)
-
-[node name="PotionR3" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(896, 480)
+healthRestore = null

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkdmyv6nbvv7i"]
+[gd_scene load_steps=8 format=3 uid="uid://bin5p8801t1ms"]
 
 [ext_resource type="Texture2D" uid="uid://5m521n6wh56" path="res://assets/items/potion_red.png" id="1_aap5b"]
+[ext_resource type="Script" path="res://scripts/items/potionR.gd" id="1_ha7p2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pruu8"]
 atlas = ExtResource("1_aap5b")
@@ -31,18 +32,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_846d2"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t0ao"]
+size = Vector2(12, 12)
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(3, 3)
+collision_layer = 32
+script = ExtResource("1_ha7p2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_81e2y")
 frame_progress = 0.50003
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_846d2")
+shape = SubResource("RectangleShape2D_1t0ao")

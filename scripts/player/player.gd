@@ -24,3 +24,6 @@ func take_damage(damage: int) -> void:
 
 func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina
+
+func heal(damage: int) -> void:
+	find_child("HealthPlayerComponent").health += damage
