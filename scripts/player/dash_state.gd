@@ -13,6 +13,8 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta: float) -> void:
 	pass
 
+# on next transitions function
+# if player is not dashing, emit the idle transition
 func _on_next_transitions() -> void:
 	if !can_dash:
 		transition.emit("Idle")
@@ -78,7 +80,9 @@ func _on_enter() -> void:
 		tween.tween_property(player, "position", 
 			player.position + (Vector2.RIGHT * dash_distance), 
 			0.25).set_ease(Tween.EASE_OUT)
-	
+
+	# Play the dash animation	
+	# take stamina from player
 	owner.take_stamina(20)
 	await tween.finished
 	can_dash = false

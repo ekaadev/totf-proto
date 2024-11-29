@@ -1,7 +1,11 @@
 extends EnemyState
 
+# BEAST FOLLOW STATE
+
 @onready var direction: Vector2
     
+# process function
+# update the animation based on the player direction
 func _process(_delta: float) -> void:
     direction = owner.direction
     update_animation()
@@ -11,6 +15,8 @@ func update_animation():
     var x_diff = abs(direction.x)
     var y_diff = abs(direction.y)
     
+    # Check which direction has the greatest difference
+    # and play the corresponding animation
     if x_diff > y_diff:
         # Horizontal movement is primary
         if direction.x < 0:
@@ -26,17 +32,27 @@ func update_animation():
             # Player is below beast
             animation_player.play("move_down")
 
+# on enter function
+# set physics process to true
+# set process to true
+# update the animation
 func enter():
     super.enter()
     owner.set_physics_process(true)
     set_process(true)
     update_animation()
 
+# on exit function
+# set physics process to false
+# set process to false
 func exit():
     super.exit()
     owner.set_physics_process(false)
     set_process(false)
 
+# on next transitions function
+# if the player is close to the beast, emit the spike attack transition
+# beacuse beast direection refference is the player position
 func transition():
     var distance = owner.direction.length()
 

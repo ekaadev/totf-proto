@@ -3,6 +3,10 @@ extends EnemyState
 var can_transition: bool = false
 @onready var direction: Vector2
 
+# on enter function
+# play the attack animation based on the player direction
+# wait for the animation to finish
+# set can transition to true, if the animation is finished
 func enter():
 	super.enter()
 	direction = player.position - owner.position
@@ -27,6 +31,10 @@ func enter():
 	await animation_player.animation_finished
 	can_transition = true
 
+# on transition function
+# if can transition is true
+# set can transition to false
+# change the state to Follow
 func transition():
 	if can_transition:
 		can_transition = false

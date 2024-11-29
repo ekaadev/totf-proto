@@ -19,8 +19,10 @@ func update_sfx():
 			footstep_sfx.play()
 			$FootstepTimer.start(0.4)
 
+# find component health from player and decrease the health with damage from enemy
 func take_damage(damage: int) -> void:
 	find_child("HealthPlayerComponent").health -= damage
 
+# find component stamina from player and decrease the stamina with stamina from action
 func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina

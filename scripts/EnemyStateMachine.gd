@@ -3,6 +3,7 @@ extends Node2D
 var current_state: EnemyState
 var previous_state: EnemyState
 
+# initialize state machine
 func _ready() -> void:
 	current_state = get_child(0) as EnemyState
 	previous_state = current_state

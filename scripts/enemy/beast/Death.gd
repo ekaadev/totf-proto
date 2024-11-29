@@ -1,5 +1,13 @@
 extends EnemyState
 
+# BEAST DEATH STATE
+
+# on enter function
+# play the death animation
+# wait for the animation to finish
+# play the boss slained animation
+# wait for the animation to finish
+# queue free the owner
 func enter():
     super.enter()
     animation_player.play("death")
