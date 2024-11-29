@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://coqi6lcpihy4n"]
+
+[ext_resource type="Script" path="res://scripts/flame/flame.gd" id="1_jaeee"]
+[ext_resource type="Texture2D" uid="uid://drwsc378ehttb" path="res://assets/tilesets/objectinteract/tundra_ [resources].png" id="2_x17yv"]
+[ext_resource type="PackedScene" uid="uid://dg3nfqqy8g1ig" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="3_wct68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtxhh"]
+atlas = ExtResource("2_x17yv")
+region = Rect2(96, 116, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82hv2"]
+atlas = ExtResource("2_x17yv")
+region = Rect2(112, 116, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehh7h"]
+atlas = ExtResource("2_x17yv")
+region = Rect2(128, 116, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0pg4"]
+atlas = ExtResource("2_x17yv")
+region = Rect2(144, 116, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57teo"]
+atlas = ExtResource("2_x17yv")
+region = Rect2(160, 116, 16, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7cka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtxhh")
+}],
+"loop": true,
+"name": &"idle_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82hv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehh7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0pg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57teo")
+}],
+"loop": true,
+"name": &"idle_on",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwvk"]
+size = Vector2(15, 13.3333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkey6"]
+
+[node name="Flame" type="StaticBody2D"]
+z_index = 5
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_jaeee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v7cka")
+animation = &"idle_off"
+frame_progress = 0.674145
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.166667, 6)
+shape = SubResource("RectangleShape2D_8dwvk")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_wct68")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 5.66667)
+shape = SubResource("CircleShape2D_tkey6")
+debug_color = Color(0.623863, 0.532679, 5.77569e-07, 0.42)

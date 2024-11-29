@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://0bmiqkhcwhwu"]
+
+[ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="1_tnkvk"]
+[ext_resource type="PackedScene" uid="uid://cpo6cmx0boqtf" path="res://scenes/map/catacombs_altar.tscn" id="1_w2mwe"]
+[ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="3_tgman"]
+[ext_resource type="PackedScene" uid="uid://duf7lghpjxbqk" path="res://scenes/enemy/warrior.tscn" id="4_yip3h"]
+
+[node name="World" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="CatacombsAltar" parent="Map" instance=ExtResource("1_w2mwe")]
+position = Vector2(29, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_tnkvk")]
+position = Vector2(834, 150)
+
+[node name="Beast" parent="." instance=ExtResource("3_tgman")]
+position = Vector2(491, -582)
+
+[node name="warrior" parent="." instance=ExtResource("4_yip3h")]
+position = Vector2(1429, -572)
+scale = Vector2(5, 5)
