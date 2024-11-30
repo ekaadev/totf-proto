@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://dtcfevfv8d6tg"]
+[gd_scene load_steps=32 format=3 uid="uid://dtcfevfv8d6tg"]
 
 [ext_resource type="Texture2D" uid="uid://v2m2rqo7x01p" path="res://assets/enemy/Beast/Beast.png" id="1_brlhd"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/beast.gd" id="1_p3m3q"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="2_854fr"]
+[ext_resource type="Texture2D" uid="uid://cgocv4ifp703d" path="res://assets/enemy/Beast/Shadow.png" id="3_bg845"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Idle.gd" id="3_pvaqe"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Follow.gd" id="4_mjxg5"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/SpikeAttack.gd" id="5_5bfxt"]
@@ -420,6 +421,10 @@ scale = Vector2(5, 5)
 collision_layer = 6
 collision_mask = 0
 script = ExtResource("1_p3m3q")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+texture = ExtResource("3_bg845")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_brlhd")
