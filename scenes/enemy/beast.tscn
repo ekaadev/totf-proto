@@ -423,7 +423,7 @@ collision_mask = 0
 script = ExtResource("1_p3m3q")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
+show_behind_parent = true
 texture = ExtResource("3_bg845")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

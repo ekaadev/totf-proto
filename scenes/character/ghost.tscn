@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1342kr51y72f"]
+
+[ext_resource type="Texture2D" uid="uid://bysqw2ombac8c" path="res://assets/character/ghost.png" id="1_2s8x1"]
+[ext_resource type="Script" path="res://scripts/player/ghost.gd" id="2_c2erv"]
+
+[node name="Ghost" type="Sprite2D"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_2s8x1")
+script = ExtResource("2_c2erv")
