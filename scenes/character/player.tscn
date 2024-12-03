@@ -2471,7 +2471,7 @@ debug_color = Color(0.914391, 0.26454, 0.317591, 0.42)
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.07
+wait_time = 0.063
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("14_abd0o")

@@ -6,13 +6,14 @@ extends NodeState
 
 var can_dash = true
 var dash_direction: Vector2 = Vector2.ZERO
+var is_dashing = false
+
 
 func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta: float) -> void:
 	pass
-
 # on next transitions function
 # if player is not dashing, emit the idle transition
 func _on_next_transitions() -> void:
@@ -81,6 +82,11 @@ func _on_enter() -> void:
 	elif player.player_direction == Vector2.RIGHT:
 		tween.tween_property(player, "position", 
 			player.position + (Vector2.RIGHT * dash_distance), 
+			0.25).set_ease(Tween.EASE_OUT)
+	else:
+		# If the player is not moving
+		tween.tween_property(player, "position", 
+			player.position + (Vector2.DOWN * dash_distance), 
 			0.25).set_ease(Tween.EASE_OUT)
 
 	# Play the dash animation	
