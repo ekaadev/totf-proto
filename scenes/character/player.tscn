@@ -1,4 +1,4 @@
-[gd_scene load_steps=314 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=313 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://l842jphclar7" path="res://assets/character/run/run_right_up.png" id="8_xlthw"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="10_t10hx"]
 [ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://scenes/audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
-[ext_resource type="Script" path="res://scripts/player/dynamic_camera.gd" id="11_n6acf"]
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="13_cgujj"]
 [ext_resource type="Script" path="res://scripts/NodeStateMachine.gd" id="14_abd0o"]
 [ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
@@ -2446,7 +2445,6 @@ shape = SubResource("RectangleShape2D_dey5d")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
-script = ExtResource("11_n6acf")
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -20.0
