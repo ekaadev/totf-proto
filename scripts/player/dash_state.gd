@@ -91,7 +91,7 @@ func _on_enter() -> void:
 
 	# Play the dash animation	
 	# take stamina from player
-	owner.take_stamina(20)
+	owner.take_stamina(30)
 	await tween.finished
 
 	owner.ghost_timer.stop()

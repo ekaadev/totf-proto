@@ -41,7 +41,7 @@ func _on_next_transitions() -> void:
 		# change to state basic attack
 		transition.emit("BasicAttack")
 	
-	if GameInputEvents.use_daash() && owner.find_child("StaminaPlayerComponent").stamina >= 20:
+	if GameInputEvents.use_daash() && owner.find_child("StaminaPlayerComponent").stamina >= 30:
 		# change to state dash
 		transition.emit("Dash")
 		
