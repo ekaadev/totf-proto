@@ -5,7 +5,7 @@ extends NodeState
 @export var player: Player
 @export var animation_sprite: AnimatedSprite2D
 
-@export var max_speed = 180
+@export var max_speed = 200
 @export var accel = 1500
 @export var friction = 600
 

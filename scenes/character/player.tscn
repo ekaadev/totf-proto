@@ -2486,7 +2486,7 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("16_3fu6t")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
-max_speed = 250
+max_speed = 200
 
 [node name="BasicAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite", "animation_player")]
 script = ExtResource("19_5uauw")
