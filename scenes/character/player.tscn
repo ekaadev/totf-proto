@@ -1,8 +1,7 @@
-[gd_scene load_steps=313 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=315 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://bl6mm26n1usn7" path="res://assets/attack/spear/attack_spear.png" id="2_3ohkj"]
-[ext_resource type="PackedScene" uid="uid://b1342kr51y72f" path="res://scenes/character/ghost.tscn" id="2_amb46"]
 [ext_resource type="Texture2D" uid="uid://c3pvlmjs4g1n2" path="res://assets/character/idle/idle.png" id="2_faul6"]
 [ext_resource type="Texture2D" uid="uid://bmbn5485ii3li" path="res://assets/character/run/run_down.png" id="3_1xqx4"]
 [ext_resource type="Texture2D" uid="uid://gxuce78svmyg" path="res://assets/character/walk/walk.png" id="3_30ysj"]
@@ -2107,6 +2106,20 @@ size = Vector2(0, 0)
 radius = 5.2
 height = 17.6
 
+[sub_resource type="Gradient" id="Gradient_bqt3y"]
+colors = PackedColorArray(1, 0.705454, 0.133941, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xd8oo"]
+gradient = SubResource("Gradient_bqt3y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ruo6f"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_xd8oo")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ebk7"]
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 2.0
@@ -2426,7 +2439,6 @@ _data = {
 scale = Vector2(1.5, 1.5)
 collision_mask = 12
 script = ExtResource("1_p5udc")
-ghost_node = ExtResource("2_amb46")
 current_tool = 1
 metadata/_edit_group_ = true
 
@@ -2467,11 +2479,15 @@ collision_mask = 2
 shape = SubResource("CapsuleShape2D_1jrpv")
 debug_color = Color(0.914391, 0.26454, 0.317591, 0.42)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 10.6667)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_ruo6f")
+
 [node name="FootstepTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.063
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("14_abd0o")
@@ -2486,7 +2502,6 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("16_3fu6t")
 player = NodePath("../..")
 animation_sprite = NodePath("../../AnimatedSprite2D")
-max_speed = 200
 
 [node name="BasicAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_sprite", "animation_player")]
 script = ExtResource("19_5uauw")
@@ -2559,5 +2574,3 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_6r8hv")
 }
-
-[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

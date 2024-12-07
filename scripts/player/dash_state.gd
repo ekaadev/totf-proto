@@ -21,7 +21,7 @@ func _on_next_transitions() -> void:
 		transition.emit("Idle")
 
 func _on_enter() -> void:
-	owner.ghost_timer.start()
+	owner.gpu_particles.emitting = true
 
 	# Create a raycast to check for collisions
 	var space_state = player.get_world_2d().direct_space_state
@@ -94,7 +94,7 @@ func _on_enter() -> void:
 	owner.take_stamina(30)
 	await tween.finished
 
-	owner.ghost_timer.stop()
+	owner.gpu_particles.emitting = false
 
 	can_dash = false
 	# Reset dash distance

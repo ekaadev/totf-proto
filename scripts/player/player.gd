@@ -1,14 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
-@export var ghost_node: PackedScene
-
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
 var player_direction: Vector2
 
 @onready var footstep_sfx = $FootstepsPlayerSFX
-
-@onready var ghost_timer = $GhostTimer
+@onready var gpu_particles = $GPUParticles2D
 
 # Movement & Animation
 func _physics_process(_delta):
@@ -30,11 +27,3 @@ func take_damage(damage: int) -> void:
 # find component stamina from player and decrease the stamina with stamina from action
 func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina
-
-func add_ghost():
-	var ghost = ghost_node.instantiate()
-	ghost.set_property(position, scale)
-	get_tree().current_scene.add_child(ghost)
-
-func _on_ghost_timer_timeout() -> void:
-	add_ghost()
