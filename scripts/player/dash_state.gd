@@ -2,7 +2,7 @@ extends NodeState
 
 @export var player: Player
 @export var animation_sprite: AnimatedSprite2D
-@export var dash_distance: float = 200.0
+@export var dash_distance: float = 150.0
 
 var can_dash = true
 var dash_direction: Vector2 = Vector2.ZERO
@@ -98,7 +98,7 @@ func _on_enter() -> void:
 
 	can_dash = false
 	# Reset dash distance
-	dash_distance = 200.0  
+	dash_distance = 150.0  
 
 func _on_exit() -> void:
 	pass
