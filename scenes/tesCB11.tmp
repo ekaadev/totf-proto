@@ -1159,14 +1159,14 @@ position = Vector2(1016, 160)
 [node name="Spider" parent="." instance=ExtResource("5_7ycrx")]
 position = Vector2(80, 400)
 
-[node name="Spider2" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(24, 584)
-
 [node name="PotionR2" parent="." instance=ExtResource("2_bdd7p")]
 position = Vector2(512, 528)
 
 [node name="PotionR3" parent="." instance=ExtResource("2_bdd7p")]
 position = Vector2(896, 480)
 
+[node name="Spider2" parent="." instance=ExtResource("5_7ycrx")]
+position = Vector2(24, 472)
+
 [node name="Spider3" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(312, 296)
+position = Vector2(128, 336)

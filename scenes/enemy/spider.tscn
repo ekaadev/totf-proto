@@ -1,7 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://djsga2hkqkdyh"]
+[gd_scene load_steps=59 format=3 uid="uid://djsga2hkqkdyh"]
 
 [ext_resource type="Texture2D" uid="uid://cfndub00fuf8v" path="res://assets/enemy/Spider/attack_side.png" id="1_2lpvn"]
 [ext_resource type="Script" path="res://scripts/enemy/spider.gd" id="1_wq7qh"]
+[ext_resource type="Texture2D" uid="uid://bhmmpsntxuxks" path="res://assets/enemy/Spider/death.png" id="3_3j7tf"]
 [ext_resource type="Texture2D" uid="uid://dwsu1tw35ho7b" path="res://assets/enemy/Spider/idle_side.png" id="3_ggiq8"]
 [ext_resource type="Texture2D" uid="uid://b6fos330wpqtj" path="res://assets/enemy/Spider/run_down.png" id="5_rbfc7"]
 [ext_resource type="Texture2D" uid="uid://yhvixqyciyf" path="res://assets/enemy/Spider/run_side.png" id="6_7vhot"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/enemy/spider/Follow.gd" id="11_50xl7"]
 [ext_resource type="PackedScene" uid="uid://qpq6mf7j2s4k" path="res://scenes/HitboxComponent.tscn" id="11_ngl4e"]
 [ext_resource type="Script" path="res://scripts/enemy/spider/Death.gd" id="11_wtmj0"]
+[ext_resource type="Script" path="res://scripts/enemy/spider/Attack.gd" id="12_vi0fd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyhlk"]
 atlas = ExtResource("1_2lpvn")
@@ -40,6 +42,42 @@ region = Rect2(64, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b1f2"]
 atlas = ExtResource("1_2lpvn")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47q68"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njq5p"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw34t"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjjwd"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_664o4"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdvfy"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jkpp"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3b0t"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tirut"]
+atlas = ExtResource("3_3j7tf")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnshq"]
 atlas = ExtResource("3_ggiq8")
@@ -161,9 +199,41 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7b1f2")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_side",
 "speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47q68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njq5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw34t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjjwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_664o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdvfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jkpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3b0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tirut")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -259,11 +329,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0d48"]
-radius = 5.5
-height = 11.0
+radius = 11.5
+height = 23.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwskb"]
+radius = 14.5
+height = 29.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjmvc"]
-radius = 7.51665
+radius = 17.5
 
 [node name="Spider" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -273,18 +347,26 @@ script = ExtResource("1_wq7qh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_etob5")
-animation = &"run_side"
+animation = &"death"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+visible = false
 shape = SubResource("CapsuleShape2D_d0d48")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CapsuleShape2D_vwskb")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("10_wp523")]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_d0d48")
 debug_color = Color(0.967424, 0, 0.474342, 0.42)
 
@@ -307,5 +389,10 @@ script = ExtResource("10_cdy17")
 [node name="Follow" type="Node2D" parent="EnemyStateMachine"]
 script = ExtResource("11_50xl7")
 
+[node name="Attack" type="Node2D" parent="EnemyStateMachine"]
+script = ExtResource("12_vi0fd")
+
 [node name="Death" type="Node2D" parent="EnemyStateMachine"]
 script = ExtResource("11_wtmj0")
+
+[connection signal="body_entered" from="PlayerDetection" to="EnemyStateMachine/Follow" method="_on_player_detection_body_entered"]

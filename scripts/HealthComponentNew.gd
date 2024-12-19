@@ -12,6 +12,6 @@ func setHealth(value):
 	currentHealth = min(value, maxHealth)
 	print(currentHealth)
 	
-	if value <= 0:
+	if value <= 0 and owner.state != owner.STATE_DEATH:
 		hurtbox.call_deferred("set_disabled", true)
-		owner.find_child("EnemyStateMachine").change_state("Death")
+		owner.state.change_state("Death")
