@@ -1,10 +1,10 @@
 [gd_scene load_steps=47 format=3 uid="uid://djsga2hkqkdyh"]
 
-[ext_resource type="Texture2D" uid="uid://cfndub00fuf8v" path="res://assets/enemy/Spider/attack_left.png" id="1_2lpvn"]
+[ext_resource type="Texture2D" uid="uid://cfndub00fuf8v" path="res://assets/enemy/Spider/attack_side.png" id="1_2lpvn"]
 [ext_resource type="Script" path="res://scripts/enemy/spider.gd" id="1_wq7qh"]
-[ext_resource type="Texture2D" uid="uid://dwsu1tw35ho7b" path="res://assets/enemy/Spider/idle_left.png" id="3_ggiq8"]
+[ext_resource type="Texture2D" uid="uid://dwsu1tw35ho7b" path="res://assets/enemy/Spider/idle_side.png" id="3_ggiq8"]
 [ext_resource type="Texture2D" uid="uid://b6fos330wpqtj" path="res://assets/enemy/Spider/run_down.png" id="5_rbfc7"]
-[ext_resource type="Texture2D" uid="uid://yhvixqyciyf" path="res://assets/enemy/Spider/run_left.png" id="6_7vhot"]
+[ext_resource type="Texture2D" uid="uid://yhvixqyciyf" path="res://assets/enemy/Spider/run_side.png" id="6_7vhot"]
 [ext_resource type="Texture2D" uid="uid://omyi8lf2fkj2" path="res://assets/enemy/Spider/run_up.png" id="8_f4vd6"]
 [ext_resource type="Script" path="res://scripts/HealthComponentNew.gd" id="9_howeq"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="10_cdy17"]
@@ -259,8 +259,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0d48"]
-radius = 4.5
-height = 10.0
+radius = 5.5
+height = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjmvc"]
 radius = 7.51665
@@ -273,10 +273,10 @@ script = ExtResource("1_wq7qh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_etob5")
-animation = &"run_down"
+animation = &"run_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_d0d48")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -284,7 +284,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(-0.5, 2)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_d0d48")
 debug_color = Color(0.967424, 0, 0.474342, 0.42)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwsu1tw35ho7b"
-path="res://.godot/imported/idle_left.png-4eeef16a356c7cd0449cc06ec6ca0514.ctex"
+uid="uid://cfndub00fuf8v"
+path="res://.godot/imported/attack_side.png-df47b185ce597d6bd5ab69ca618e1448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/Spider/idle_left.png"
-dest_files=["res://.godot/imported/idle_left.png-4eeef16a356c7cd0449cc06ec6ca0514.ctex"]
+source_file="res://assets/enemy/Spider/attack_side.png"
+dest_files=["res://.godot/imported/attack_side.png-df47b185ce597d6bd5ab69ca618e1448.ctex"]
 
 [params]
 

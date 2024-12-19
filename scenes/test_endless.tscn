@@ -1166,7 +1166,7 @@ position = Vector2(512, 528)
 position = Vector2(896, 480)
 
 [node name="Spider2" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(32, 472)
+position = Vector2(24, 472)
 
 [node name="Spider3" parent="." instance=ExtResource("5_7ycrx")]
 position = Vector2(128, 336)

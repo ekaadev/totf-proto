@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iwk82hjchsu1"
-path="res://.godot/imported/hit_left.png-b39375f73da142ac9495e32b4f4f48ef.ctex"
+uid="uid://yhvixqyciyf"
+path="res://.godot/imported/run_side.png-fbf33992defce62d51fc56b0956fa316.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/Spider/hit_left.png"
-dest_files=["res://.godot/imported/hit_left.png-b39375f73da142ac9495e32b4f4f48ef.ctex"]
+source_file="res://assets/enemy/Spider/run_side.png"
+dest_files=["res://.godot/imported/run_side.png-fbf33992defce62d51fc56b0956fa316.ctex"]
 
 [params]
 
