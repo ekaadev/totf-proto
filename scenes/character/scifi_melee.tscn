@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://424kqgtdd7pt"]
+
+[ext_resource type="Texture2D" uid="uid://46cgiwm8kcos" path="res://assets/scifi-character/Sci-fi hero 64x65.png" id="1_ysekj"]
+
+[node name="ScifiMelee" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ysekj")
+offset = Vector2(12, -7)
+hframes = 13
+vframes = 19
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
