@@ -3,7 +3,7 @@ extends NodeState
 # PLAYER WALK STATE
 
 @export var player: Player
-@export var animation_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 
 @export var max_speed = 200
 @export var accel = 1500
@@ -21,14 +21,40 @@ func _on_process(delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	var direction = GameInputEvents.movement_input()
 
-	if direction == Vector2.UP:
-		animation_sprite.play("walk_up")
-	elif direction == Vector2.DOWN:
-		animation_sprite.play("walk_down")
-	elif direction == Vector2.LEFT:
-		animation_sprite.play("walk_left")
-	elif direction == Vector2.RIGHT:
-		animation_sprite.play("walk_right")
+	if direction.x != 0 and direction.y != 0:
+		if direction.y > 0:
+			if direction.x < 0:
+				owner.get_node("Sprite2D").flip_h = true
+				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
+				animation_player.play("run_down")
+			else:
+				owner.get_node("Sprite2D").flip_h = false
+				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
+				animation_player.play("run_down")
+		else:
+			if direction.x < 0:
+				owner.get_node("Sprite2D").flip_h = true
+				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
+				animation_player.play("run_up")
+			else:
+				owner.get_node("Sprite2D").flip_h = false
+				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
+				animation_player.play("run_up")
+	else:
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				owner.get_node("Sprite2D").flip_h = false
+				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
+				animation_player.play("run_lr")
+			else:
+				owner.get_node("Sprite2D").flip_h = true
+				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
+				animation_player.play("run_lr")
+		else:
+			if direction.y > 0:
+				animation_player.play("run_down")
+			else:
+				animation_player.play("run_up")
 
 	if direction != Vector2.ZERO:
 		player.player_direction = direction
@@ -50,7 +76,10 @@ func _on_next_transitions() -> void:
 		# change to state basic attack
 		transition.emit("BasicAttack")
 
-	if GameInputEvents.use_daash() && owner.find_child("StaminaPlayerComponent").stamina >= 30:
+	if player.current_tool == DataTypes.Tools.Spear && GameInputEvents.use_slash() && owner.find_child("StaminaPlayerComponent").stamina >= 5:
+		transition.emit("SlashAttack")
+
+	if GameInputEvents.use_dash() && owner.find_child("StaminaPlayerComponent").stamina >= 30:
 		# change to state dash
 		transition.emit("Dash")
 
@@ -63,5 +92,5 @@ func _on_enter() -> void:
 # stop the animation
 # set the can_regen to false
 func _on_exit() -> void:
-	animation_sprite.stop()
+	animation_player.stop()
 	owner.find_child("StaminaPlayerComponent").can_regen = false

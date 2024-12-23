@@ -14,5 +14,6 @@ func _on_area_entered(hitbox: HitboxComponent) -> void:
 		print("Hitbox is null")
 	
 	if owner.has_method("take_damage"):
+		print("Taking damage from " + hitbox.owner.name)
 		owner.take_damage(hitbox.damage)
 	

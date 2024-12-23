@@ -1,7 +1,5 @@
 extends NodeState
 
-# PLAYER BASIC ATTACK STATE
-
 @export var player: Player
 @export var animation_player: AnimationPlayer
 
@@ -39,38 +37,38 @@ func _on_enter() -> void:
 			if direction.x < 0:
 				owner.get_node("Sprite2D").flip_h = true
 				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
-				animation_player.play("chop_down")
+				animation_player.play("slash_down")
 			else:
 				owner.get_node("Sprite2D").flip_h = false
 				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
-				animation_player.play("chop_down")
+				animation_player.play("slash_down")
 		else:
 			if direction.x < 0:
 				owner.get_node("Sprite2D").flip_h = true
 				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
-				animation_player.play("chop_up")
+				animation_player.play("slash_up")
 			else:
 				owner.get_node("Sprite2D").flip_h = false
 				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
-				animation_player.play("chop_up")
+				animation_player.play("slash_up")
 	else:
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				owner.get_node("Sprite2D").flip_h = false
 				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
-				animation_player.play("chop_lr")
+				animation_player.play("slash_lr")
 			else:
 				owner.get_node("Sprite2D").flip_h = true
 				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
-				animation_player.play("chop_lr")
+				animation_player.play("slash_lr")
 		else:
 			if direction.y > 0:
-				animation_player.play("chop_down")
+				animation_player.play("slash_down")
 			else:
-				animation_player.play("chop_up")
+				animation_player.play("slash_up")
 	
 
-	owner.take_stamina(3)
+	owner.take_stamina(5)
 
 # on exit function
 # stop the animation

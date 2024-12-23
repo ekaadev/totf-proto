@@ -1,8 +1,8 @@
 extends NodeState
 
 @export var player: Player
-@export var animation_sprite: AnimatedSprite2D
-@export var dash_distance: float = 150.0
+@export var animation_player: AnimationPlayer
+@export var dash_distance: float = 100.0
 
 var can_dash = true
 var dash_direction: Vector2 = Vector2.ZERO
@@ -67,28 +67,56 @@ func _on_enter() -> void:
 	
 	# Perform dash based on direction
 	var tween = create_tween()
-	if player.player_direction == Vector2.UP:
-		tween.tween_property(player, "position", 
-			player.position + (Vector2.UP * dash_distance), 
-			0.25).set_ease(Tween.EASE_OUT)
-	elif player.player_direction == Vector2.DOWN:
-		tween.tween_property(player, "position", 
-			player.position + (Vector2.DOWN * dash_distance), 
-			0.25).set_ease(Tween.EASE_OUT)
-	elif player.player_direction == Vector2.LEFT:
-		tween.tween_property(player, "position", 
-			player.position + (Vector2.LEFT * dash_distance), 
-			0.25).set_ease(Tween.EASE_OUT)
-	elif player.player_direction == Vector2.RIGHT:
-		tween.tween_property(player, "position", 
-			player.position + (Vector2.RIGHT * dash_distance), 
-			0.25).set_ease(Tween.EASE_OUT)
-	else:
-		# If the player is not moving
-		tween.tween_property(player, "position", 
-			player.position + (Vector2.DOWN * dash_distance), 
-			0.25).set_ease(Tween.EASE_OUT)
 
+	var direction = player.player_direction
+
+	if direction.x != 0 and direction.y != 0:
+		if direction.y > 0:
+			if direction.x < 0:
+				owner.get_node("Sprite2D").flip_h = true
+				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
+				tween.tween_property(player, "position", 
+					player.position + (direction.normalized() * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+			else:
+				owner.get_node("Sprite2D").flip_h = false
+				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
+				tween.tween_property(player, "position", 
+					player.position + (direction.normalized() * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+		else:
+			if direction.x < 0:
+				owner.get_node("Sprite2D").flip_h = true
+				owner.get_node("Sprite2D").offset = Vector2(-12.5, -7)
+				tween.tween_property(player, "position", 
+					player.position + (direction.normalized() * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+			else:
+				owner.get_node("Sprite2D").flip_h = false
+				owner.get_node("Sprite2D").offset = Vector2(12.5, -7)
+				tween.tween_property(player, "position", 
+					player.position + (direction.normalized() * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+	else:
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				tween.tween_property(player, "position", 
+					player.position + (Vector2.RIGHT * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+			else:
+				tween.tween_property(player, "position", 
+					player.position + (Vector2.LEFT * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+		else:
+			if direction.y > 0:
+				tween.tween_property(player, "position", 
+					player.position + (Vector2.DOWN * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+			else:
+				tween.tween_property(player, "position", 
+					player.position + (Vector2.UP * dash_distance), 
+					0.25).set_ease(Tween.EASE_OUT)
+					
 	# Play the dash animation	
 	# take stamina from player
 	owner.take_stamina(30)
@@ -98,7 +126,7 @@ func _on_enter() -> void:
 
 	can_dash = false
 	# Reset dash distance
-	dash_distance = 150.0  
+	dash_distance = 100.0  
 
 func _on_exit() -> void:
 	pass

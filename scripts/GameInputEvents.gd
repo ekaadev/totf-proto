@@ -7,16 +7,7 @@ static var direction: Vector2
 # Player cant move diagonally
 # Return: Vector2
 static func movement_input() -> Vector2:
-    if Input.is_action_pressed("left"):
-        direction = Vector2.LEFT
-    elif Input.is_action_pressed("right"):
-        direction = Vector2.RIGHT
-    elif Input.is_action_pressed("up"):
-        direction = Vector2.UP
-    elif Input.is_action_pressed("down"):
-        direction = Vector2.DOWN
-    else:
-        direction = Vector2.ZERO
+    direction = Input.get_vector("left", "right", "up", "down")
 
     return direction
 
@@ -35,9 +26,14 @@ static func use_tool() -> bool:
 
     return use_tool_value
 
+static func use_slash() -> bool:
+    var use_slash_value: bool = Input.is_action_just_pressed("slash_attack")
+
+    return use_slash_value
+
 # Function to check if player is using dash
 # Return: bool
-static func use_daash() -> bool:
+static func use_dash() -> bool:
     var use_dash_value: bool = Input.is_action_just_pressed("dash")
 
     return use_dash_value
