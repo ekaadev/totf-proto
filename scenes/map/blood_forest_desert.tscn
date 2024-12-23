@@ -1734,10 +1734,10 @@ collision_mask = 0
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("3_orpuk")
-offset = Vector2(0, -60)
+offset = Vector2(0, -66)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticGiganticSword"]
-position = Vector2(0, -10)
+position = Vector2(0, -19)
 polygon = PackedVector2Array(-24, 26, -10, 29, 44, 10, 47, 3, -18, 16)
 one_way_collision_margin = 0.0
 
@@ -1769,10 +1769,10 @@ y_sort_enabled = true
 position = Vector2(995, 555)
 scale = Vector2(3, 3)
 texture = ExtResource("4_tndq5")
-offset = Vector2(0, -13)
+offset = Vector2(0, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(979, 574)
+position = Vector2(981, 561)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_41bk3")
 
@@ -1831,3 +1831,4 @@ shape = SubResource("RectangleShape2D_mp8k6")
 
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(597, 218)
+scale = Vector2(2, 2)
