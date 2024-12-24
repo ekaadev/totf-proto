@@ -347,12 +347,9 @@ script = ExtResource("1_wq7qh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_etob5")
-animation = &"death"
-frame = 8
-frame_progress = 1.0
+animation = &"idle_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_d0d48")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
