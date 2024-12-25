@@ -15,7 +15,7 @@ var DEF = 0
 # Health Value
 # This value is used to store the health
 # Default value is 500 (Debugging = 20)
-@export var health = 20:
+@export var health = 100:
 	set(value):
 		health = value
 		progress_bar.value = value

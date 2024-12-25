@@ -413,7 +413,7 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo66a"]
-bg_color = Color(0.368627, 0.113725, 0.0901961, 1)
+bg_color = Color(0.760784, 0.290196, 0.243137, 1)
 
 [node name="Beast" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -502,8 +502,7 @@ grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_qwev3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_oo66a")
-max_value = 1000.0
-value = 1000.0
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]

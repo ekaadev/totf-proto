@@ -22,7 +22,7 @@ func _on_next_transitions() -> void:
 		# change to state idle
 		transition.emit("Idle")
 	
-	if GameInputEvents.use_dash() && owner.find_child("StaminaPlayerComponent").stamina >= 20:
+	if GameInputEvents.use_dash() && owner.find_child("StaminaPlayerComponent").stamina >= 20 && !animation_player.is_playing():
 		# change to state dash
 		transition.emit("Dash")
 
