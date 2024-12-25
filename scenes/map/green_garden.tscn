@@ -12,6 +12,26 @@
 [ext_resource type="Texture2D" uid="uid://cgrqjv54wrhfd" path="res://assets/tilesets/greengarden/Texture/TX Shadow Plant.png" id="10_x30gl"]
 [ext_resource type="Texture2D" uid="uid://b4vx30rjvm853" path="res://assets/tilesets/particle/yellow_leaves.png" id="11_deovy"]
 
+[sub_resource type="Environment" id="Environment_tont8"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.25
+glow_bloom = 0.3
+glow_blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_n5lch"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_isqod"]
+gradient = SubResource("Gradient_n5lch")
+width = 1280
+height = 1280
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w5m17"]
 texture = ExtResource("1_vssng")
 0:0/0 = 0
@@ -4232,28 +4252,19 @@ texture = ExtResource("10_x30gl")
 [sub_resource type="TileSet" id="TileSet_rbk75"]
 sources/0 = SubResource("TileSetAtlasSource_2oxjo")
 
-[sub_resource type="Environment" id="Environment_tont8"]
-background_mode = 3
-tonemap_mode = 3
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.25
-glow_bloom = 0.3
-glow_blend_mode = 0
-
-[sub_resource type="Gradient" id="Gradient_n5lch"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_isqod"]
-gradient = SubResource("Gradient_n5lch")
-width = 1280
-height = 1280
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="GreenGarden" type="Node2D"]
 y_sort_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tont8")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.165656, 0.165656, 0.165656, 1)
+blend_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(646, 321)
+texture = SubResource("GradientTexture2D_isqod")
 
 [node name="Grass" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -4351,14 +4362,3 @@ tile_set = SubResource("TileSet_aig7u")
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAPAAgAAAAGAAwAAAAPAAkAAAAGAA0AAAAQAAgAAAAHAAwAAAAQAAkAAAAHAA0AAAAOAAAAAAAGAAwAAAAOAAEAAAAGAA0AAAAPAAAAAAAHAAwAAAAPAAEAAAAHAA0AAAASAP7/AAAGAAwAAAASAP//AAAGAA0AAAATAP7/AAAHAAwAAAATAP//AAAHAA0AAAAcAAAAAAAGAAwAAAAcAAEAAAAGAA0AAAAdAAAAAAAHAAwAAAAdAAEAAAAHAA0AAAAHABEAAAAGAAwAAAAHABIAAAAGAA0AAAAIABEAAAAHAAwAAAAIABIAAAAHAA0AAAA=")
 tile_set = SubResource("TileSet_rbk75")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tont8")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.165656, 0.165656, 0.165656, 1)
-blend_mode = 2
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(646, 321)
-texture = SubResource("GradientTexture2D_isqod")

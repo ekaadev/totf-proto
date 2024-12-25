@@ -416,7 +416,7 @@ expand_margin_bottom = 2.0
 bg_color = Color(0.368627, 0.113725, 0.0901961, 1)
 
 [node name="Beast" type="CharacterBody2D"]
-z_index = 2
+y_sort_enabled = true
 scale = Vector2(5, 5)
 collision_layer = 6
 collision_mask = 0
@@ -427,6 +427,8 @@ show_behind_parent = true
 texture = ExtResource("3_bg845")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture = ExtResource("1_brlhd")
 hframes = 10
 vframes = 10
@@ -443,6 +445,7 @@ shape = SubResource("CapsuleShape2D_fjk54")
 disabled = true
 
 [node name="PlayerDetecion" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetecion"]

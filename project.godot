@@ -36,8 +36,11 @@ folder_colors={
 "res://assets/": "orange",
 "res://audio/": "red",
 "res://interaction/": "yellow",
+"res://misc/": "yellow",
+"res://resources/": "teal",
 "res://scenes/": "purple",
 "res://scripts/": "blue",
+"res://shaders/": "green",
 "res://tilesets/": "teal",
 "res://ui/": "gray"
 }
