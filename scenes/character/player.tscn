@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=60 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="16_imlii"]
+[ext_resource type="Texture2D" uid="uid://c61xo3k3xwmfd" path="res://assets/avatar/avatar-2.png" id="17_kmu84"]
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
 [ext_resource type="Script" path="res://scripts/player/health_player_component.gd" id="22_abncw"]
@@ -41,24 +42,24 @@ gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_xd8oo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ebk7"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjw7r"]
-bg_color = Color(0.368627, 0.113725, 0.0901961, 1)
+bg_color = Color(0.761484, 0.288975, 0.242525, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuhxr"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgso4"]
-bg_color = Color(0.12549, 0.282353, 0.192157, 1)
+bg_color = Color(0.280413, 0.556921, 0.396782, 1)
 
 [sub_resource type="Animation" id="Animation_oxtd6"]
 length = 0.001
@@ -983,12 +984,17 @@ script = ExtResource("25_mq4v3")
 
 [node name="UIPlayer" type="CanvasLayer" parent="."]
 
+[node name="Avatar" type="Sprite2D" parent="UIPlayer"]
+position = Vector2(65, 50)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_kmu84")
+
 [node name="HealthBar" type="ProgressBar" parent="UIPlayer"]
 z_index = 5
-offset_left = 50.0
-offset_top = 25.0
-offset_right = 330.0
-offset_bottom = 33.0
+offset_left = 100.0
+offset_top = 30.0
+offset_right = 380.0
+offset_bottom = 38.0
 theme_override_styles/background = SubResource("StyleBoxFlat_2ebk7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pjw7r")
 value = 100.0
@@ -996,10 +1002,10 @@ show_percentage = false
 
 [node name="StaminaBar" type="ProgressBar" parent="UIPlayer"]
 z_index = 5
-offset_left = 50.0
-offset_top = 40.0
-offset_right = 290.0
-offset_bottom = 48.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 340.0
+offset_bottom = 58.0
 theme_override_styles/background = SubResource("StyleBoxFlat_tuhxr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bgso4")
 value = 100.0

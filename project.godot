@@ -111,5 +111,5 @@ slash_attack={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.187176, 0.187176, 0.187176, 1)
+environment/defaults/default_clear_color=Color(0.0627451, 0.0627451, 0.0627451, 1)
 viewport/hdr_2d=true
