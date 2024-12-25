@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d0x2boss3u4dx" path="res://assets/tilesets/greengarden/wall-new.png" id="4_lm15f"]
 [ext_resource type="Texture2D" uid="uid://ct511thvlppmg" path="res://assets/tilesets/greengarden/Texture/TX Props.png" id="6_8g8j6"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="6_wdbjg"]
+[ext_resource type="Texture2D" uid="uid://b3e31sytq8btj" path="res://assets/tilesets/particle/green-leaves.png" id="9_pupq7"]
 [ext_resource type="Texture2D" uid="uid://b12c61qpeia84" path="res://assets/tilesets/greengarden/Texture/TX Shadow.png" id="9_t5x0h"]
 [ext_resource type="Texture2D" uid="uid://cgrqjv54wrhfd" path="res://assets/tilesets/greengarden/Texture/TX Shadow Plant.png" id="10_x30gl"]
-[ext_resource type="Texture2D" uid="uid://b4vx30rjvm853" path="res://assets/tilesets/particle/yellow_leaves.png" id="11_deovy"]
 
 [sub_resource type="Environment" id="Environment_tont8"]
 background_mode = 3
@@ -3200,8 +3200,8 @@ initial_velocity_max = 80.0
 angular_velocity_min = -1.60933e-05
 angular_velocity_max = 50.0
 gravity = Vector3(0, 10, 0)
-scale_min = 0.3
-scale_max = 0.3
+scale_min = 0.5
+scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_uqyre")
 anim_offset_max = 1.0
 
@@ -4345,7 +4345,7 @@ material = SubResource("CanvasItemMaterial_lrqi7")
 position = Vector2(656, 146)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_havc4")
-texture = ExtResource("11_deovy")
+texture = ExtResource("9_pupq7")
 visibility_rect = Rect2(-600, -100, 1000, 600)
 
 [node name="ShadowOfTree" type="TileMapLayer" parent="."]
