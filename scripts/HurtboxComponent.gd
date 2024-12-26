@@ -10,10 +10,11 @@ func _ready() -> void:
 
 # on area entered, check if hitbox is null, if not null, take damage
 func _on_area_entered(hitbox: HitboxComponent) -> void:
+	var total_damage: float = hitbox.damage * hitbox.damage_multiplier
+
 	if hitbox == null:
 		print("Hitbox is null")
 	
 	if owner.has_method("take_damage"):
-		print("Taking damage from " + hitbox.owner.name)
-		owner.take_damage(hitbox.damage)
+		owner.take_damage(total_damage)
 	

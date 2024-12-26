@@ -2,14 +2,15 @@ class_name Player
 extends CharacterBody2D
 
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
-var player_direction: Vector2
-
-@onready var footstep_sfx = $FootstepsPlayerSFX
-@onready var gpu_particles = $GPUParticles2D
 # UI HealthBar
 @onready var health_bar = $"UIComponents/HealthBar"
 # Hurtbox Component
 @onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
+@onready var footstep_sfx = $FootstepsPlayerSFX
+@onready var gpu_particles = $GPUParticles2D
+# attribute for player
+@export var current_level: float = 0.1
+var player_direction: Vector2
 
 # Movement & Animation
 func _physics_process(_delta):
@@ -24,9 +25,12 @@ func update_sfx():
 			footstep_sfx.play()
 			$FootstepTimer.start(0.4)
 
+func get_current_level() -> float:
+	return current_level
+
 # find component health from player and decrease the health with damage from enemy
-func take_damage(damage: int) -> void:
-	find_child("HealthComponent").health -= damage
+func take_damage(total_damage: float) -> void:
+	find_child("HealthComponent").health -= total_damage
 
 # find component stamina from player and decrease the stamina with stamina from action
 func take_stamina(stamina: int) -> void:

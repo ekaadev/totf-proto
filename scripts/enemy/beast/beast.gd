@@ -4,10 +4,10 @@ extends CharacterBody2D
 @onready var health_bar = $"UIComponents/HealthBar"
 # Hurtbox Component
 @onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
-
-
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $Sprite2D
+
+@export var current_level: float = 0.1
 
 var direction: Vector2
 
@@ -43,10 +43,13 @@ func _physics_process(delta: float) -> void:
 	# - A Vector2 representing the remaining motion after collision.
 	move_and_collide(velocity * delta)
 
+func get_current_level() -> float:
+	return current_level
+
 # take damage function
 # find the health component from the enemy and decrease the health with the damage from the player
-func take_damage(damage: int) -> void:
-	find_child("HealthComponent").health -= damage - find_child("HealthComponent").DEF
+func take_damage(total_damage: float) -> void:
+	find_child("HealthComponent").health -= total_damage - find_child("HealthComponent").DEF
 
 # Set the progress bar to invisible
 # Set the hurtbox to disabled
