@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="13_cgujj"]
 [ext_resource type="Script" path="res://scripts/NodeStateMachine.gd" id="14_abd0o"]
 [ext_resource type="Texture2D" uid="uid://b0hxdwfysp4ic" path="res://assets/scifi-character/Buff sprites.png" id="14_x4ycm"]
+[ext_resource type="PackedScene" uid="uid://b0he3prqmydvy" path="res://scenes/HealthComponent.tscn" id="15_34ex0"]
 [ext_resource type="Script" path="res://scripts/player/idle_state.gd" id="15_51b4e"]
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="16_imlii"]
 [ext_resource type="Texture2D" uid="uid://c61xo3k3xwmfd" path="res://assets/avatar/avatar-2.png" id="17_kmu84"]
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
-[ext_resource type="Script" path="res://scripts/player/health_player_component.gd" id="22_abncw"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="25_81gg4"]
 [ext_resource type="Script" path="res://scripts/player/stamina_player_component.gd" id="25_mq4v3"]
@@ -66,7 +66,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UIPlayer/Label:self_modulate")
+tracks/0/path = NodePath("UIComponents/Label:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -553,7 +553,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UIPlayer/Label:self_modulate")
+tracks/0/path = NodePath("UIComponents/Label:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -976,20 +976,19 @@ script = ExtResource("23_cxyck")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="HealthPlayerComponent" type="Node" parent="."]
-script = ExtResource("22_abncw")
+[node name="HealthComponent" parent="." instance=ExtResource("15_34ex0")]
 
 [node name="StaminaPlayerComponent" type="Node" parent="."]
 script = ExtResource("25_mq4v3")
 
-[node name="UIPlayer" type="CanvasLayer" parent="."]
+[node name="UIComponents" type="CanvasLayer" parent="."]
 
-[node name="Avatar" type="Sprite2D" parent="UIPlayer"]
+[node name="Avatar" type="Sprite2D" parent="UIComponents"]
 position = Vector2(65, 50)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("17_kmu84")
 
-[node name="HealthBar" type="ProgressBar" parent="UIPlayer"]
+[node name="HealthBar" type="ProgressBar" parent="UIComponents"]
 z_index = 5
 offset_left = 100.0
 offset_top = 30.0
@@ -1000,7 +999,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pjw7r")
 value = 100.0
 show_percentage = false
 
-[node name="StaminaBar" type="ProgressBar" parent="UIPlayer"]
+[node name="StaminaBar" type="ProgressBar" parent="UIComponents"]
 z_index = 5
 offset_left = 100.0
 offset_top = 50.0
@@ -1011,7 +1010,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bgso4")
 value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="UIPlayer"]
+[node name="Label" type="Label" parent="UIComponents"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 5
 anchors_preset = 8

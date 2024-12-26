@@ -3,7 +3,7 @@ extends EnemyState
 # BEAST IDLE STATE
 
 @onready var collision = $"../../PlayerDetecion/CollisionShape2D"
-@onready var progress_bar = owner.find_child("ProgressBar")
+@onready var health_bar = owner.find_child("HealthBar")
 
 # player entered
 # set the value, from signal on player detection body entered
@@ -13,7 +13,7 @@ var player_entered: bool = false:
 	set(value):
 		player_entered = value
 		collision.set_deferred("disabled", value)
-		progress_bar.set_deferred("visible", value)
+		health_bar.set_deferred("visible", value)
 
 # on transition function
 # if the player entered the beast detection area

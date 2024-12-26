@@ -1,7 +1,7 @@
 extends Node
 
 # ui stamina bar component
-@onready var stamina_bar = $"../UIPlayer/StaminaBar"
+@onready var stamina_bar = $"../UIComponents/StaminaBar"
 
 # stamina properties
 var can_regen = true

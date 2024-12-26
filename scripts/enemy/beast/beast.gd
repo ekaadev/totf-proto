@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# UI HealthBar
+@onready var health_bar = $"UIComponents/HealthBar"
+# Hurtbox Component
+@onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
+
+
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $Sprite2D
 
@@ -41,3 +47,14 @@ func _physics_process(delta: float) -> void:
 # find the health component from the enemy and decrease the health with the damage from the player
 func take_damage(damage: int) -> void:
 	find_child("HealthComponent").health -= damage - find_child("HealthComponent").DEF
+
+# Set the progress bar to invisible
+# Set the hurtbox to disabled
+# Change the state to Death
+func set_off_health_component() -> void:
+	health_bar.visible = false
+	hurtbox.call_deferred("set_disabled", true)
+	owner.find_child("EnemyStateMachine").change_state("Death")
+
+func increase_defense() -> void:
+	find_child("HealthComponent").DEF = 5

@@ -6,6 +6,10 @@ var player_direction: Vector2
 
 @onready var footstep_sfx = $FootstepsPlayerSFX
 @onready var gpu_particles = $GPUParticles2D
+# UI HealthBar
+@onready var health_bar = $"UIComponents/HealthBar"
+# Hurtbox Component
+@onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
 
 # Movement & Animation
 func _physics_process(_delta):
@@ -22,8 +26,15 @@ func update_sfx():
 
 # find component health from player and decrease the health with damage from enemy
 func take_damage(damage: int) -> void:
-	find_child("HealthPlayerComponent").health -= damage
+	find_child("HealthComponent").health -= damage
 
 # find component stamina from player and decrease the stamina with stamina from action
 func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina
+
+func set_off_health_component() -> void:
+	hurtbox.call_deferred("set_disabled", true)
+	owner.find_child("StateMachine").transition_to("Death")
+
+func increase_defense() -> void:
+	pass
