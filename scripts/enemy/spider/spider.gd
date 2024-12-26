@@ -3,13 +3,12 @@ extends CharacterBody2D
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $AnimatedSprite2D
 @onready var healthComponent = $HealthComponentNew
-@onready var state = $EnemyStateMachine
-
 @onready var hitbox = $HitboxComponent/CollisionShape2D
 @onready var playerDetection = $PlayerDetection/CollisionShape2D
 
 var playerDetectionCooldown = 0
 
+@onready var state = $EnemyStateMachine
 @onready var STATE_FOLLOW = $EnemyStateMachine/Follow
 @onready var STATE_ATTACK = $EnemyStateMachine/Attack
 @onready var STATE_DEATH = $EnemyStateMachine/Death
@@ -19,12 +18,21 @@ var distance: Vector2
 
 var scatterPhases = 32
 
-var dirArray = [Vector2(-1, 0), Vector2(1, 0), Vector2(0, -1), Vector2(0, 1)]
+var dirArray = [
+	Vector2(-1, 0), # left
+	Vector2(1, 0),  # right
+	Vector2(0, -1), # up
+	Vector2(0, 1)   # down
+]
+
+@export var maxHealth = 10
 
 func _ready() -> void:
+	healthComponent.maxHealth = maxHealth
+	
 	randomize()
 	
-	direction = Vector2(-1, 0)
+	direction = dirArray[0]
 
 func _process(delta: float) -> void:
 	if sprite.get_frame() >= 3 and sprite.animation == "attack_side":
