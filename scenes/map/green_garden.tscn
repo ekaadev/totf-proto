@@ -4360,10 +4360,10 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAPAAgAAAAGAAwAAAAPAAkAAAAGAA0AAAAQAAgAAAAHAAwAAAAQAAkAAAAHAA0AAAAOAAAAAAAGAAwAAAAOAAEAAAAGAA0AAAAPAAAAAAAHAAwAAAAPAAEAAAAHAA0AAAASAP7/AAAGAAwAAAASAP//AAAGAA0AAAATAP7/AAAHAAwAAAATAP//AAAHAA0AAAAcAAAAAAAGAAwAAAAcAAEAAAAGAA0AAAAdAAAAAAAHAAwAAAAdAAEAAAAHAA0AAAAHABEAAAAGAAwAAAAHABIAAAAGAA0AAAAIABEAAAAHAAwAAAAIABIAAAAHAA0AAAA=")
 tile_set = SubResource("TileSet_rbk75")
 
-[node name="Player" parent="." instance=ExtResource("6_wdbjg")]
-position = Vector2(703, 451)
-scale = Vector2(2, 2)
-
 [node name="Dummy" parent="." instance=ExtResource("12_j1a4d")]
-position = Vector2(481, 521)
+position = Vector2(340, 165)
 scale = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." instance=ExtResource("6_wdbjg")]
+position = Vector2(353, 362)
+scale = Vector2(2, 2)

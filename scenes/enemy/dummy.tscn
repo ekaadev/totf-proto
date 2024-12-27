@@ -46,3 +46,6 @@ z_index = 1
 position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_ld6t2")
 debug_color = Color(0.949981, 0.146153, 0.433217, 0.42)
+
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(-5, -30)
