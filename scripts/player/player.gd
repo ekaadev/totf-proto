@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
 @onready var footstep_sfx = $FootstepsPlayerSFX
 @onready var gpu_particles = $GPUParticles2D
+@onready var state = $StateMachine
 # attribute for player
 @export var current_level: float = 0.1
 var player_direction: Vector2
@@ -18,7 +19,7 @@ func _physics_process(_delta):
 
 func update_sfx():
 #	check, apakah player bergerak
-	if velocity != Vector2.ZERO:
+	if state.current_node_state_name == "walk":
 #		jika bergerak, check apakah time_left nya kurang dari 0
 		if $FootstepTimer.time_left <= 0:
 			footstep_sfx.pitch_scale = randf_range(0.8, 1.2)
