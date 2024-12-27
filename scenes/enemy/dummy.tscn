@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1meuydxs0uod"]
+
+[ext_resource type="Script" path="res://scripts/enemy/dummy/dummy.gd" id="1_cif30"]
+[ext_resource type="Texture2D" uid="uid://drklqf4y5mdu6" path="res://assets/tilesets/objectinteract/dummy.png" id="1_q0lyo"]
+[ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="2_2g1gb"]
+[ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="3_afu4a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vw86d"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld6t2"]
+radius = 11.0
+
+[node name="Dummy" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 6
+collision_mask = 0
+script = ExtResource("1_cif30")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_q0lyo")
+offset = Vector2(0, -10)
+
+[node name="Shadow" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shadow"]
+z_index = -1
+texture = ExtResource("2_2g1gb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(1, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vw86d")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_afu4a")]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+z_index = 1
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_ld6t2")
+debug_color = Color(0.949981, 0.146153, 0.433217, 0.42)

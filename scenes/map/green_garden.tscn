@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://7dg76f6c60fu"]
+[gd_scene load_steps=49 format=4 uid="uid://7dg76f6c60fu"]
 
 [ext_resource type="Texture2D" uid="uid://cfuy1yt5ql8ei" path="res://assets/tilesets/greengarden/Texture/TX Tileset Grass.png" id="1_vssng"]
 [ext_resource type="Texture2D" uid="uid://2ei421spunyw" path="res://assets/tilesets/greengarden/Texture/TX Struct.png" id="2_62q84"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bd5jxp88gsou7" path="res://assets/tilesets/particle/green_leaves-export.png" id="9_et8kb"]
 [ext_resource type="Texture2D" uid="uid://b12c61qpeia84" path="res://assets/tilesets/greengarden/Texture/TX Shadow.png" id="9_t5x0h"]
 [ext_resource type="Texture2D" uid="uid://cgrqjv54wrhfd" path="res://assets/tilesets/greengarden/Texture/TX Shadow Plant.png" id="10_x30gl"]
+[ext_resource type="PackedScene" uid="uid://d1meuydxs0uod" path="res://scenes/enemy/dummy.tscn" id="12_j1a4d"]
 
 [sub_resource type="Environment" id="Environment_tont8"]
 background_mode = 3
@@ -4336,10 +4337,6 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAOAAIAAAAcAAcAAAAOAAMAAAAcAAgAAAAOAAQAAAAcAAkAAAAPAAIAAAAdAAcAAAAPAAMAAAAdAAgAAAAPAAQAAAAdAAkAAAAcAAIAAAAcAAcAAAAcAAMAAAAcAAgAAAAcAAQAAAAcAAkAAAAdAAIAAAAdAAcAAAAdAAMAAAAdAAgAAAAdAAQAAAAdAAkAAAA=")
 tile_set = SubResource("TileSet_iff3r")
 
-[node name="Player" parent="." instance=ExtResource("6_wdbjg")]
-position = Vector2(703, 451)
-scale = Vector2(2, 2)
-
 [node name="Leaf" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_lrqi7")
 position = Vector2(656, 146)
@@ -4362,3 +4359,11 @@ tile_set = SubResource("TileSet_aig7u")
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAPAAgAAAAGAAwAAAAPAAkAAAAGAA0AAAAQAAgAAAAHAAwAAAAQAAkAAAAHAA0AAAAOAAAAAAAGAAwAAAAOAAEAAAAGAA0AAAAPAAAAAAAHAAwAAAAPAAEAAAAHAA0AAAASAP7/AAAGAAwAAAASAP//AAAGAA0AAAATAP7/AAAHAAwAAAATAP//AAAHAA0AAAAcAAAAAAAGAAwAAAAcAAEAAAAGAA0AAAAdAAAAAAAHAAwAAAAdAAEAAAAHAA0AAAAHABEAAAAGAAwAAAAHABIAAAAGAA0AAAAIABEAAAAHAAwAAAAIABIAAAAHAA0AAAA=")
 tile_set = SubResource("TileSet_rbk75")
+
+[node name="Player" parent="." instance=ExtResource("6_wdbjg")]
+position = Vector2(703, 451)
+scale = Vector2(2, 2)
+
+[node name="Dummy" parent="." instance=ExtResource("12_j1a4d")]
+position = Vector2(481, 521)
+scale = Vector2(1.5, 1.5)
