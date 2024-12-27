@@ -871,6 +871,7 @@ collision_mask = 12
 script = ExtResource("1_p5udc")
 current_tool = 1
 metadata/_edit_group_ = true
+metadata/_edit_horizontal_guides_ = [26.0, 74.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("13_8o4wp")
@@ -989,23 +990,43 @@ position = Vector2(65, 50)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("17_kmu84")
 
-[node name="HealthBar" type="ProgressBar" parent="UIComponents"]
-z_index = 5
+[node name="HPLabel" type="Label" parent="UIComponents"]
 offset_left = 100.0
 offset_top = 30.0
-offset_right = 380.0
-offset_bottom = 38.0
+offset_right = 140.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("25_81gg4")
+theme_override_font_sizes/font_size = 16
+text = "HP"
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="UIComponents"]
+z_index = 5
+offset_left = 130.0
+offset_top = 34.0
+offset_right = 410.0
+offset_bottom = 42.0
 theme_override_styles/background = SubResource("StyleBoxFlat_2ebk7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pjw7r")
 value = 100.0
 show_percentage = false
 
+[node name="StaminaLabel" type="Label" parent="UIComponents"]
+offset_left = 100.0
+offset_top = 53.0
+offset_right = 140.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("25_81gg4")
+theme_override_font_sizes/font_size = 16
+text = "ST"
+vertical_alignment = 1
+
 [node name="StaminaBar" type="ProgressBar" parent="UIComponents"]
 z_index = 5
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 340.0
-offset_bottom = 58.0
+offset_left = 130.0
+offset_top = 58.0
+offset_right = 370.0
+offset_bottom = 66.0
 theme_override_styles/background = SubResource("StyleBoxFlat_tuhxr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bgso4")
 value = 100.0
