@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1meuydxs0uod"]
+[gd_scene load_steps=12 format=3 uid="uid://d1meuydxs0uod"]
 
 [ext_resource type="Script" path="res://scripts/enemy/dummy/dummy.gd" id="1_cif30"]
 [ext_resource type="Texture2D" uid="uid://drklqf4y5mdu6" path="res://assets/tilesets/objectinteract/dummy.png" id="1_q0lyo"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="2_2g1gb"]
+[ext_resource type="Shader" uid="uid://cfriugvop3hk" path="res://shaders/hit_flash.tres" id="2_18hn6"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="3_afu4a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wug0d"]
+resource_local_to_scene = true
+shader = ExtResource("2_18hn6")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vw86d"]
 radius = 7.0
@@ -11,6 +18,43 @@ height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld6t2"]
 radius = 11.0
+
+[sub_resource type="Animation" id="Animation_yvw0r"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lbcjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvwsl"]
+_data = {
+"RESET": SubResource("Animation_lbcjd"),
+"hit_flash": SubResource("Animation_yvw0r")
+}
 
 [node name="Dummy" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -21,6 +65,7 @@ script = ExtResource("1_cif30")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_wug0d")
 texture = ExtResource("1_q0lyo")
 offset = Vector2(0, -10)
 
@@ -49,3 +94,8 @@ debug_color = Color(0.949981, 0.146153, 0.433217, 0.42)
 
 [node name="DamageNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(-5, -30)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hvwsl")
+}

@@ -4361,7 +4361,11 @@ tile_map_data = PackedByteArray("AAAPAAgAAAAGAAwAAAAPAAkAAAAGAA0AAAAQAAgAAAAHAAw
 tile_set = SubResource("TileSet_rbk75")
 
 [node name="Dummy" parent="." instance=ExtResource("12_j1a4d")]
-position = Vector2(340, 165)
+position = Vector2(319, 186)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dummy2" parent="." instance=ExtResource("12_j1a4d")]
+position = Vector2(1059, 280)
 scale = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("6_wdbjg")]
