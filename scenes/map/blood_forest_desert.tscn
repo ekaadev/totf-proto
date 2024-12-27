@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=38 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Texture2D" uid="uid://jat3r5r8xqp6" path="res://assets/tilesets/bloodforestdesert/Blood Desert Tileset.png" id="2_44gum"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bj00bvk20pp1s" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/forest pole 2.png" id="6_cm8jq"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="13_1qajk"]
+[ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
 background_mode = 3
@@ -1896,3 +1897,5 @@ scale = Vector2(2, 2)
 
 [node name="Beast" parent="." instance=ExtResource("13_1qajk")]
 position = Vector2(597, 132)
+
+[node name="Fog" parent="." instance=ExtResource("14_mrr87")]

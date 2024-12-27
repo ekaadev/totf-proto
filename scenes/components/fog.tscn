@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://067ylbweu5ys"]
+
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="1_v337p"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_as3vc"]
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ceqqt"]
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_as3vc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43jgu"]
+shader = ExtResource("1_v337p")
+shader_parameter/color = Color(0.977937, 0.977937, 0.977937, 0.0745098)
+shader_parameter/OCTAVES = 4
+shader_parameter/enable_pixelation = true
+shader_parameter/pixelation_amount = 1000
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(1, 0)
+shader_parameter/fog_mask = SubResource("NoiseTexture2D_ceqqt")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ef6b"]
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwfgm"]
+noise = SubResource("FastNoiseLite_7ef6b")
+
+[node name="Fog" type="TextureRect"]
+z_index = 1
+material = SubResource("ShaderMaterial_43jgu")
+offset_left = -29.0
+offset_top = -22.0
+offset_right = 1304.0
+offset_bottom = 754.0
+texture = SubResource("NoiseTexture2D_vwfgm")

@@ -4256,6 +4256,13 @@ sources/0 = SubResource("TileSetAtlasSource_2oxjo")
 [node name="GreenGarden" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -304.0
+offset_top = -550.0
+offset_right = 1566.0
+offset_bottom = 1320.0
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tont8")
 
