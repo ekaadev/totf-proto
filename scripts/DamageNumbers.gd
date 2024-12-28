@@ -10,11 +10,11 @@ func display_damage_number(total_damage: float, position: Vector2) -> void:
 
 	var color = "#f1f1f1"
 
-	number.label_settings.font = load("res://assets/fonts/NicoBold-Regular.ttf")
+	number.label_settings.font = load("res://assets/fonts/m6x11plus.ttf")
 	number.label_settings.font_color = color
-	number.label_settings.font_size = 16
+	number.label_settings.font_size = 24
 	number.label_settings.outline_color = "#101010"
-	number.label_settings.outline_size = 5
+	number.label_settings.outline_size = 4
 
 	call_deferred("add_child", number)
 

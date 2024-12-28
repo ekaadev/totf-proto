@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=62 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="16_imlii"]
 [ext_resource type="Texture2D" uid="uid://c61xo3k3xwmfd" path="res://assets/avatar/avatar-2.png" id="17_kmu84"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="18_isyj3"]
 [ext_resource type="PackedScene" uid="uid://f4ewe5rkw7de" path="res://scenes/ui/ui_keybinds.tscn" id="19_1rq7r"]
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
@@ -992,11 +993,13 @@ texture = ExtResource("17_kmu84")
 
 [node name="HPLabel" type="Label" parent="UIComponents"]
 offset_left = 100.0
-offset_top = 30.0
+offset_top = 25.0
 offset_right = 140.0
-offset_bottom = 53.0
-theme_override_fonts/font = ExtResource("25_81gg4")
-theme_override_font_sizes/font_size = 16
+offset_bottom = 49.0
+theme_override_colors/font_outline_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_isyj3")
+theme_override_font_sizes/font_size = 24
 text = "HP"
 vertical_alignment = 1
 
@@ -1013,12 +1016,14 @@ show_percentage = false
 
 [node name="StaminaLabel" type="Label" parent="UIComponents"]
 offset_left = 100.0
-offset_top = 53.0
+offset_top = 49.0
 offset_right = 140.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("25_81gg4")
-theme_override_font_sizes/font_size = 16
-text = "ST"
+offset_bottom = 73.0
+theme_override_colors/font_outline_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_isyj3")
+theme_override_font_sizes/font_size = 24
+text = "SP"
 vertical_alignment = 1
 
 [node name="StaminaBar" type="ProgressBar" parent="UIComponents"]
