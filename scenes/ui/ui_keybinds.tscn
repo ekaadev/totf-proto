@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://f4ewe5rkw7de"]
+[gd_scene load_steps=15 format=3 uid="uid://f4ewe5rkw7de"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_keybinds.gd" id="1_40r7m"]
 [ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/keybind/Keyboard Extras.png" id="1_rdxoo"]
@@ -22,6 +22,10 @@ region = Rect2(33, 66, 13, 12)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hylo3"]
 atlas = ExtResource("1_x7ax7")
 region = Rect2(49, 34, 13, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_m6xij"]
+base_font = ExtResource("2_andru")
+spacing_glyph = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1sn6"]
 atlas = ExtResource("1_rdxoo")
@@ -90,9 +94,10 @@ stretch_mode = 4
 
 [node name="Move" type="Label" parent="MarginContainer/HBoxContainer/Move"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.156863, 0.156863, 0.156863, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("2_andru")
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
 theme_override_font_sizes/font_size = 14
 text = "Move"
 vertical_alignment = 1
@@ -109,9 +114,10 @@ stretch_mode = 4
 
 [node name="Dash" type="Label" parent="MarginContainer/HBoxContainer/Dash"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.156863, 0.156863, 0.156863, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("2_andru")
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
 theme_override_font_sizes/font_size = 14
 text = "Dash"
 
@@ -127,9 +133,10 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Chop"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.156863, 0.156863, 0.156863, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("2_andru")
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
 theme_override_font_sizes/font_size = 14
 text = "Chop"
 
@@ -145,8 +152,9 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slash"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.156863, 0.156863, 0.156863, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("2_andru")
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
 theme_override_font_sizes/font_size = 14
 text = "Slash"
