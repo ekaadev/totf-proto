@@ -7,12 +7,12 @@ frequency = 0.001
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ceqqt"]
 seamless = true
-seamless_blend_skirt = 0.3
+seamless_blend_skirt = 1.0
 noise = SubResource("FastNoiseLite_as3vc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43jgu"]
 shader = ExtResource("1_v337p")
-shader_parameter/color = Color(0.977937, 0.977937, 0.977937, 0.0745098)
+shader_parameter/color = Color(0.976471, 0.976471, 0.976471, 0.0431373)
 shader_parameter/OCTAVES = 4
 shader_parameter/enable_pixelation = true
 shader_parameter/pixelation_amount = 1000
@@ -25,6 +25,7 @@ shader_parameter/fog_mask = SubResource("NoiseTexture2D_ceqqt")
 frequency = 0.001
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwfgm"]
+seamless_blend_skirt = 0.581
 noise = SubResource("FastNoiseLite_7ef6b")
 
 [node name="Fog" type="TextureRect"]

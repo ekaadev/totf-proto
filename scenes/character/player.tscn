@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=61 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/player/walk_state.gd" id="16_3fu6t"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="16_imlii"]
 [ext_resource type="Texture2D" uid="uid://c61xo3k3xwmfd" path="res://assets/avatar/avatar-2.png" id="17_kmu84"]
+[ext_resource type="PackedScene" uid="uid://f4ewe5rkw7de" path="res://scenes/ui/ui_keybinds.tscn" id="19_1rq7r"]
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
@@ -871,7 +872,6 @@ collision_mask = 12
 script = ExtResource("1_p5udc")
 current_tool = 1
 metadata/_edit_group_ = true
-metadata/_edit_horizontal_guides_ = [26.0, 74.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("13_8o4wp")
@@ -1051,6 +1051,8 @@ theme_override_font_sizes/font_size = 48
 text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UIKeybinds" parent="." instance=ExtResource("19_1rq7r")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
