@@ -1,5 +1,7 @@
-[gd_scene load_steps=49 format=4 uid="uid://7dg76f6c60fu"]
+[gd_scene load_steps=51 format=4 uid="uid://7dg76f6c60fu"]
 
+[ext_resource type="PackedScene" uid="uid://dea0p2nuty07s" path="res://scenes/ui/scene_transistion.tscn" id="1_aaa03"]
+[ext_resource type="Script" path="res://scripts/map/green_garden.gd" id="1_mgl6s"]
 [ext_resource type="Texture2D" uid="uid://cfuy1yt5ql8ei" path="res://assets/tilesets/greengarden/Texture/TX Tileset Grass.png" id="1_vssng"]
 [ext_resource type="Texture2D" uid="uid://2ei421spunyw" path="res://assets/tilesets/greengarden/Texture/TX Struct.png" id="2_62q84"]
 [ext_resource type="Texture2D" uid="uid://bi60u1dbcg0ai" path="res://assets/tilesets/greengarden/Texture/TX Tileset Wall.png" id="3_tb3al"]
@@ -4255,6 +4257,13 @@ sources/0 = SubResource("TileSetAtlasSource_2oxjo")
 
 [node name="GreenGarden" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_mgl6s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="SceneTransistion" parent="CanvasLayer" instance=ExtResource("1_aaa03")]
 
 [node name="Background" type="ColorRect" parent="."]
 offset_left = -304.0

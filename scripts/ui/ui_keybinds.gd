@@ -15,7 +15,7 @@ func ui_keybind_idle() -> void:
 	var tween = create_tween()
 	tween.tween_property(
 		layout_keybinds, "position:y", 658, 0.5
-	).set_ease(Tween.EASE_IN_OUT).set_delay(0.05)
+	).set_ease(Tween.EASE_IN_OUT).set_delay(0.15)
 	await tween.finished
 
 func ui_keybind_not_idle() -> void:
