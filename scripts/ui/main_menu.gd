@@ -1,11 +1,12 @@
 extends Control
 
-@onready var transition = $SceneTransistion/AnimationPlayer
+@onready var ui_transition_sideways = $UITransitionSideways 
+@onready var transition = $UITransitionSideways/SceneTransistion/AnimationPlayer
 
 var green_garden = preload("res://scenes/map/green_garden.tscn")
 
 func _on_start_button_pressed() -> void:
-	$SceneTransistion.visible = true
+	ui_transition_sideways.visible = true
 	transition.play("rect_in")
 	await transition.animation_finished
 	call_deferred("_change_scene_to_green_garden")

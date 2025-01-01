@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_su2fj"]
-[ext_resource type="PackedScene" uid="uid://dea0p2nuty07s" path="res://scenes/ui/scene_transistion.tscn" id="3_knhhr"]
+[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,10 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-
-[node name="SceneTransistion" parent="." instance=ExtResource("3_knhhr")]
-visible = false
-layout_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -80,6 +76,9 @@ focus_previous = NodePath("../StartButton")
 theme = ExtResource("1_su2fj")
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
+
+[node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
+visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

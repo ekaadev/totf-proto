@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://s24h3exhkf26"]
+
+[ext_resource type="PackedScene" uid="uid://dea0p2nuty07s" path="res://scenes/ui/scene_transistion.tscn" id="1_gjg3c"]
+
+[node name="UITransitionSideways" type="CanvasLayer"]
+layer = 5
+
+[node name="SceneTransistion" parent="." instance=ExtResource("1_gjg3c")]
