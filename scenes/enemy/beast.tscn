@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtcfevfv8d6tg"]
+[gd_scene load_steps=37 format=3 uid="uid://dtcfevfv8d6tg"]
 
 [ext_resource type="Texture2D" uid="uid://v2m2rqo7x01p" path="res://assets/enemy/Beast/Beast.png" id="1_brlhd"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/beast.gd" id="1_p3m3q"]
@@ -19,6 +19,43 @@ resource_local_to_scene = true
 shader = ExtResource("3_erito")
 shader_parameter/enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_voei0"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qcm8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5jts"]
+_data = {
+"RESET": SubResource("Animation_qcm8i"),
+"hit_flash": SubResource("Animation_voei0")
+}
 
 [sub_resource type="Animation" id="Animation_623ns"]
 length = 0.001
@@ -81,18 +118,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_amcdx"]
@@ -288,22 +313,6 @@ tracks/0/keys = {
 "values": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]
 }
 
-[sub_resource type="Animation" id="Animation_isyyh"]
-resource_name = "hit_flash"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_yk7wx"]
 resource_name = "idle_down"
 length = 0.666678
@@ -420,7 +429,6 @@ _data = {
 "attack_up": SubResource("Animation_hawj2"),
 "boss_slained": SubResource("Animation_82oqa"),
 "death": SubResource("Animation_gg0lr"),
-"hit_flash": SubResource("Animation_isyyh"),
 "idle_down": SubResource("Animation_yk7wx"),
 "idle_lr": SubResource("Animation_11wmw"),
 "idle_up": SubResource("Animation_ldrwg"),
@@ -469,6 +477,11 @@ material = SubResource("ShaderMaterial_m1wx6")
 texture = ExtResource("1_brlhd")
 hframes = 10
 vframes = 10
+
+[node name="HitAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u5jts")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,7 +1,9 @@
-[gd_scene load_steps=39 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=41 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
+[ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
 [ext_resource type="Texture2D" uid="uid://jat3r5r8xqp6" path="res://assets/tilesets/bloodforestdesert/Blood Desert Tileset.png" id="2_44gum"]
+[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="2_54oyx"]
 [ext_resource type="Texture2D" uid="uid://yt551cm1v0ks" path="res://assets/tilesets/bloodforestdesert/background2.png" id="2_oqp75"]
 [ext_resource type="Texture2D" uid="uid://cmkwu8547weuw" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/sword 1.png" id="3_8260w"]
 [ext_resource type="Texture2D" uid="uid://bhhx8vjdmg4ul" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Gigantic Sword.png" id="3_orpuk"]
@@ -1263,8 +1265,12 @@ hue_variation_max = -2.23517e-08
 
 [node name="BloodForestDesert" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_y03tr")
 
 [node name="PostProcessing" parent="." instance=ExtResource("14_5dvd5")]
+
+[node name="UITransitionSideways" parent="." instance=ExtResource("2_54oyx")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ed1ya")
