@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=22 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_su2fj"]
 [ext_resource type="Texture2D" uid="uid://b4goes401cffa" path="res://assets/ui/bg/bg-flame.png" id="2_t5mb7"]
+[ext_resource type="PackedScene" uid="uid://v3gpjpfayyaa" path="res://scenes/ui/background_twirl.tscn" id="3_01x4k"]
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
 [ext_resource type="Texture2D" uid="uid://db66d6lxuyh33" path="res://assets/ui/panel/panel-ui.png" id="4_okcig"]
@@ -124,8 +125,8 @@ texture = ExtResource("5_wlae3")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(112, 208, 80, 28)
+texture_margin_bottom = 5.0
+region_rect = Rect2(208, 210, 80, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mei81"]
 content_margin_left = 64.0
@@ -136,7 +137,7 @@ texture = ExtResource("5_wlae3")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 7.0
+texture_margin_bottom = 5.0
 region_rect = Rect2(208, 210, 80, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db8l0"]
@@ -161,6 +162,7 @@ grow_vertical = 2
 script = ExtResource("1_op3ql")
 
 [node name="ColorRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -168,6 +170,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_t5mb7")
+
+[node name="BackgroundTwirl" parent="." instance=ExtResource("3_01x4k")]
+layer = -1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -3,6 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dea0p2nuty07s" path="res://scenes/ui/scene_transistion.tscn" id="1_gjg3c"]
 
 [node name="UITransitionSideways" type="CanvasLayer"]
-layer = 5
+layer = 3
 
 [node name="SceneTransistion" parent="." instance=ExtResource("1_gjg3c")]
