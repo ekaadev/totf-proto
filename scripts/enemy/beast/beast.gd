@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $Sprite2D
+@onready var damage_number_origin = $DamageNumbersOrigin
+@onready var animation_player = $AnimationPlayer
 
 @export var current_level: float = 0.1
 
@@ -49,6 +51,8 @@ func get_current_level() -> float:
 # take damage function
 # find the health component from the enemy and decrease the health with the damage from the player
 func take_damage(total_damage: float) -> void:
+	DamageNumbers.display_damage_number(total_damage, damage_number_origin.global_position)
+	animation_player.play("hit_flash")
 	find_child("HealthComponent").health -= total_damage - find_child("HealthComponent").DEF
 
 # Set the progress bar to invisible

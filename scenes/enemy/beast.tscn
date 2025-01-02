@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://dtcfevfv8d6tg"]
+[gd_scene load_steps=35 format=3 uid="uid://dtcfevfv8d6tg"]
 
 [ext_resource type="Texture2D" uid="uid://v2m2rqo7x01p" path="res://assets/enemy/Beast/Beast.png" id="1_brlhd"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/beast.gd" id="1_p3m3q"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="2_854fr"]
 [ext_resource type="Texture2D" uid="uid://cgocv4ifp703d" path="res://assets/enemy/Beast/Shadow.png" id="3_bg845"]
+[ext_resource type="Shader" uid="uid://cfriugvop3hk" path="res://shaders/hit_flash.tres" id="3_erito"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Idle.gd" id="3_pvaqe"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Follow.gd" id="4_mjxg5"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/SpikeAttack.gd" id="5_5bfxt"]
@@ -12,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="9_5qd0k"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="10_1w8sj"]
 [ext_resource type="PackedScene" uid="uid://b0he3prqmydvy" path="res://scenes/HealthComponent.tscn" id="12_bimx5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1wx6"]
+resource_local_to_scene = true
+shader = ExtResource("3_erito")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_623ns"]
 length = 0.001
@@ -74,6 +81,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_amcdx"]
@@ -377,6 +396,22 @@ tracks/0/keys = {
 "values": [30, 31, 32, 33, 34, 35]
 }
 
+[sub_resource type="Animation" id="Animation_isyyh"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycrwt"]
 _data = {
 "RESET": SubResource("Animation_623ns"),
@@ -385,6 +420,7 @@ _data = {
 "attack_up": SubResource("Animation_hawj2"),
 "boss_slained": SubResource("Animation_82oqa"),
 "death": SubResource("Animation_gg0lr"),
+"hit_flash": SubResource("Animation_isyyh"),
 "idle_down": SubResource("Animation_yk7wx"),
 "idle_lr": SubResource("Animation_11wmw"),
 "idle_up": SubResource("Animation_ldrwg"),
@@ -429,6 +465,7 @@ texture = ExtResource("3_bg845")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_m1wx6")
 texture = ExtResource("1_brlhd")
 hframes = 10
 vframes = 10
@@ -483,6 +520,9 @@ damage = 20
 shape = SubResource("CircleShape2D_fk467")
 disabled = true
 debug_color = Color(0.638397, 0.523081, 0.143036, 0.42)
+
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(-2, -19.6667)
 
 [node name="UIComponents" type="CanvasLayer" parent="."]
 
