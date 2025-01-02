@@ -1,7 +1,7 @@
 extends Node
 
 # ui stamina bar component
-@onready var stamina_bar = $"../UIComponents/StaminaBar"
+@onready var stamina_bar = $"../HUDAvatarPlayer/MarginContainer/HBoxContainer/VBoxContainer/TextureRect/ManaPower"
 
 # stamina properties
 var can_regen = true

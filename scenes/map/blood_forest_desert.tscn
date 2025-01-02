@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=39 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Texture2D" uid="uid://jat3r5r8xqp6" path="res://assets/tilesets/bloodforestdesert/Blood Desert Tileset.png" id="2_44gum"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://nsc8ucbr5asa" path="res://scenes/ui/post_processing_vhs.tscn" id="14_5dvd5"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
+[ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="15_q8ui3"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
 background_mode = 3
@@ -1263,6 +1264,8 @@ hue_variation_max = -2.23517e-08
 [node name="BloodForestDesert" type="Node2D"]
 y_sort_enabled = true
 
+[node name="PostProcessing" parent="." instance=ExtResource("14_5dvd5")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ed1ya")
 
@@ -1890,9 +1893,10 @@ process_material = SubResource("ParticleProcessMaterial_khnxn")
 visibility_rect = Rect2(-640, -100, 1280, 500)
 
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
-position = Vector2(596, 384)
+position = Vector2(596, 442)
 scale = Vector2(2, 2)
 
 [node name="Fog" parent="." instance=ExtResource("14_mrr87")]
 
-[node name="PostProcessing" parent="." instance=ExtResource("14_5dvd5")]
+[node name="Beast" parent="." instance=ExtResource("15_q8ui3")]
+position = Vector2(607, 96)

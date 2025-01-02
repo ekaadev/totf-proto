@@ -13,12 +13,13 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7roo"]
 bg_color = Color(1, 0.344608, 0.264538, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0a7t"]
@@ -28,12 +29,13 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyerq"]
 bg_color = Color(0.826739, 0.821191, 7.70092e-07, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [node name="HUDAvatarPlayer" type="CanvasLayer"]
@@ -68,19 +70,19 @@ layout_mode = 0
 offset_left = 3.0
 offset_top = 101.0
 offset_right = 173.0
-offset_bottom = 117.0
+offset_bottom = 111.0
 theme_override_styles/background = SubResource("StyleBoxFlat_oow4t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_h7roo")
-value = 10.0
+value = 100.0
 show_percentage = false
 
 [node name="ManaPower" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
 layout_mode = 0
 offset_left = 12.0
-offset_top = 120.0
+offset_top = 118.0
 offset_right = 182.0
-offset_bottom = 136.0
+offset_bottom = 128.0
 theme_override_styles/background = SubResource("StyleBoxFlat_p0a7t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cyerq")
-value = 10.0
+value = 100.0
 show_percentage = false

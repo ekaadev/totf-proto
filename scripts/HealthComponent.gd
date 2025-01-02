@@ -6,10 +6,14 @@ extends Node
 # UPDATE SOON: HEALTH COMPONENT CAN APPLY TO ALL ENTITY (PLAYER, ENEMY)
 
 # Component Properties
+
 # UI HealthBar
-@onready var health_bar = $"../UIComponents/HealthBar"
+# @onready var health_bar = $"../UIComponents/HealthBar"
+@onready var health_bar_player = $"../HUDAvatarPlayer/MarginContainer/HBoxContainer/VBoxContainer/TextureRect/HealthBar" if owner.name == "Player" else null
 # Hurtbox Component
 @onready var hurtbox = $"../HurtboxComponent/CollisionShape2D"
+
+@export var enity_max_health: int = 100
 
 var DEF = 0
 # Health Value
@@ -18,13 +22,20 @@ var DEF = 0
 @export var health: int = 100:
 	set(value):
 		health = value
-		health_bar.value = value
+		
+		# health_bar.value = value
+
+		if health_bar_player:
+			health_bar_player.value = value
+
 		print(str(health) + " ", owner.name)
+		
 		# Check if health is less than or equal to 0
 		# call the set_off_health_component function
 		# Check if health is less than or equal to half of the max value
 		# Set the DEF to 5
+
 		if value <= 0:
 			owner.set_off_health_component()
-		elif value <= health_bar.max_value / 2 and DEF == 0:
+		elif value <= float(enity_max_health) / 2 and DEF == 0:
 			owner.increase_defense()

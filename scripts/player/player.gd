@@ -2,8 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
-# UI HealthBar
-@onready var health_bar = $"UIComponents/HealthBar"
 # Hurtbox Component
 @onready var hurtbox = $"HurtboxComponent/CollisionShape2D"
 @onready var footstep_sfx = $FootstepsPlayerSFX
