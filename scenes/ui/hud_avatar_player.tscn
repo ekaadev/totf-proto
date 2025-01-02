@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://gokg1o4278qw"]
+[gd_scene load_steps=8 format=3 uid="uid://gokg1o4278qw"]
 
 [ext_resource type="Texture2D" uid="uid://ja8qow4ngxfk" path="res://assets/ui/hud/hud-new.png" id="1_mt84d"]
+[ext_resource type="Texture2D" uid="uid://cnkxjp8rj5n3a" path="res://assets/avatar/texture-bg-avatar.png" id="2_cyx1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gno58"]
 atlas = ExtResource("1_mt84d")
@@ -86,3 +87,14 @@ theme_override_styles/background = SubResource("StyleBoxFlat_p0a7t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cyerq")
 value = 100.0
 show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = 15.0
+offset_top = -66.0
+offset_right = 111.0
+offset_bottom = 30.0
+rotation = 0.159375
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("2_cyx1j")
