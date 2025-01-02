@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://gokg1o4278qw"]
+
+[ext_resource type="Texture2D" uid="uid://ja8qow4ngxfk" path="res://assets/ui/hud/hud-new.png" id="1_mt84d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gno58"]
+atlas = ExtResource("1_mt84d")
+region = Rect2(45, 5, 220, 95)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oow4t"]
+bg_color = Color(0.444429, 0, 0.0950496, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7roo"]
+bg_color = Color(1, 0.344608, 0.264538, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0a7t"]
+bg_color = Color(0.520884, 0.520225, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyerq"]
+bg_color = Color(0.826739, 0.821191, 7.70092e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="HUDAvatarPlayer" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_right = -32
+theme_override_constants/margin_bottom = 128
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_gno58")
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 101.0
+offset_right = 173.0
+offset_bottom = 117.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oow4t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h7roo")
+value = 10.0
+show_percentage = false
+
+[node name="ManaPower" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 120.0
+offset_right = 182.0
+offset_bottom = 136.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p0a7t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cyerq")
+value = 10.0
+show_percentage = false
