@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://f4ewe5rkw7de"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_keybinds.gd" id="1_40r7m"]
-[ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/keybind/Keyboard Extras.png" id="1_rdxoo"]
-[ext_resource type="Texture2D" uid="uid://bbjhv71y3oh4a" path="res://assets/ui/keybind/Keyboard Letters and Symbols.png" id="1_x7ax7"]
+[ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="1_rdxoo"]
+[ext_resource type="Texture2D" uid="uid://bbjhv71y3oh4a" path="res://assets/ui/hud/keybind/Keyboard Letters and Symbols.png" id="1_x7ax7"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_andru"]
-[ext_resource type="Texture2D" uid="uid://5e41hklv8nin" path="res://assets/ui/keybind/mouse-right-click.png" id="4_kfnw4"]
-[ext_resource type="Texture2D" uid="uid://ewyrv7gxrmrs" path="res://assets/ui/keybind/mouse-left-click.png" id="5_2dggj"]
+[ext_resource type="Texture2D" uid="uid://5e41hklv8nin" path="res://assets/ui/hud/keybind/mouse-right-click.png" id="4_kfnw4"]
+[ext_resource type="Texture2D" uid="uid://ewyrv7gxrmrs" path="res://assets/ui/hud/keybind/mouse-left-click.png" id="5_2dggj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0f075"]
 atlas = ExtResource("1_x7ax7")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmbn5485ii3li"
-path="res://.godot/imported/run_down.png-27519d65f62c0282fe7f6a2c4060b763.ctex"
+uid="uid://5e41hklv8nin"
+path="res://.godot/imported/mouse-right-click.png-4cee5c186f6447a40e8be573fa86704e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/run/run_down.png"
-dest_files=["res://.godot/imported/run_down.png-27519d65f62c0282fe7f6a2c4060b763.ctex"]
+source_file="res://assets/ui/hud/keybind/mouse-right-click.png"
+dest_files=["res://.godot/imported/mouse-right-click.png-4cee5c186f6447a40e8be573fa86704e.ctex"]
 
 [params]
 

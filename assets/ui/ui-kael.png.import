@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l842jphclar7"
-path="res://.godot/imported/run_right_up.png-39a165551b4b72306635c66205ccd3f7.ctex"
+uid="uid://o3u4f8g50qmp"
+path="res://.godot/imported/ui-kael.png-bdcd4d5bcc83bdc47075bddf2c0ad457.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/run/run_right_up.png"
-dest_files=["res://.godot/imported/run_right_up.png-39a165551b4b72306635c66205ccd3f7.ctex"]
+source_file="res://assets/ui/ui-kael.png"
+dest_files=["res://.godot/imported/ui-kael.png-bdcd4d5bcc83bdc47075bddf2c0ad457.ctex"]
 
 [params]
 

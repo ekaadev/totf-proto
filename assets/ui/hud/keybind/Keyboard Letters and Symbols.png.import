@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqc8i5o0dd6c5"
-path="res://.godot/imported/walk_left_up.png-591633e9ae459133b5d97bf3382b97e2.ctex"
+uid="uid://bbjhv71y3oh4a"
+path="res://.godot/imported/Keyboard Letters and Symbols.png-4a0fdb1a3b04d6d7121807cf82086e2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/walk/walk_left_up.png"
-dest_files=["res://.godot/imported/walk_left_up.png-591633e9ae459133b5d97bf3382b97e2.ctex"]
+source_file="res://assets/ui/hud/keybind/Keyboard Letters and Symbols.png"
+dest_files=["res://.godot/imported/Keyboard Letters and Symbols.png-4a0fdb1a3b04d6d7121807cf82086e2f.ctex"]
 
 [params]
 

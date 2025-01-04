@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=13 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_su2fj"]
@@ -6,151 +6,54 @@
 [ext_resource type="PackedScene" uid="uid://v3gpjpfayyaa" path="res://scenes/ui/background_twirl.tscn" id="3_01x4k"]
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
-[ext_resource type="Texture2D" uid="uid://db66d6lxuyh33" path="res://assets/ui/panel/panel-ui.png" id="4_okcig"]
-[ext_resource type="Texture2D" uid="uid://d3522scx26hxq" path="res://assets/ui/button/button-ui.png" id="5_wlae3"]
+[ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
 
 [sub_resource type="FontVariation" id="FontVariation_gt77m"]
 base_font = ExtResource("3_q88dm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kx76l"]
-texture = ExtResource("4_okcig")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 4.91386
-texture_margin_bottom = 6.87941
-region_rect = Rect2(16, 16, 80, 45)
+texture = ExtResource("5_g01mj")
+texture_margin_left = 14.1405
+texture_margin_top = 14.3581
+texture_margin_right = 15.7954
+texture_margin_bottom = 23.6369
+region_rect = Rect2(16, 16, 134, 76)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw3bv"]
 content_margin_left = 64.0
-content_margin_top = 32.0
+content_margin_top = 24.0
 content_margin_right = 64.0
 content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(16, 112, 80, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rljx"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(208, 114, 80, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4q2fm"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(208, 114, 80, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1qfl"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(16, 112, 80, 28)
+texture = ExtResource("5_g01mj")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 26.0
+region_rect = Rect2(166, 278, 134, 76)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stlsp"]
 content_margin_left = 64.0
 content_margin_top = 32.0
 content_margin_right = 64.0
 content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(16, 16, 80, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ac338"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(112, 16, 80, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ps051"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(208, 18, 80, 26)
+texture = ExtResource("5_g01mj")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 26.0
+region_rect = Rect2(166, 278, 134, 76)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0thiu"]
 content_margin_left = 64.0
-content_margin_top = 32.0
+content_margin_top = 24.0
 content_margin_right = 64.0
 content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(16, 208, 80, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3rdm0"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(208, 210, 80, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mei81"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(208, 210, 80, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db8l0"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_wlae3")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 7.0
-region_rect = Rect2(16, 208, 80, 28)
+texture = ExtResource("5_g01mj")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 26.0
+region_rect = Rect2(166, 278, 134, 76)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -235,9 +138,6 @@ focus_previous = NodePath("../StartButton")
 theme = ExtResource("1_su2fj")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxTexture_aw3bv")
-theme_override_styles/hover = SubResource("StyleBoxTexture_6rljx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_4q2fm")
-theme_override_styles/normal = SubResource("StyleBoxTexture_w1qfl")
 text = "EXIT"
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
@@ -251,10 +151,6 @@ focus_previous = NodePath("../ExitButton")
 theme = ExtResource("1_su2fj")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxTexture_stlsp")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ac338")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ps051")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ps051")
-theme_override_styles/normal = SubResource("StyleBoxTexture_stlsp")
 text = "PLAY"
 
 [node name="OptionButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
@@ -263,9 +159,6 @@ size_flags_vertical = 4
 theme = ExtResource("1_su2fj")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxTexture_0thiu")
-theme_override_styles/hover = SubResource("StyleBoxTexture_3rdm0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mei81")
-theme_override_styles/normal = SubResource("StyleBoxTexture_db8l0")
 text = "OPTION"
 
 [node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]

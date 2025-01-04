@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl6mm26n1usn7"
-path="res://.godot/imported/attack_spear.png-126a0b8be10cfc070cc2ca8ae64d3c94.ctex"
+uid="uid://ewyrv7gxrmrs"
+path="res://.godot/imported/mouse-left-click.png-0937065c174a13e60c8782054ed3b96d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/attack/spear/attack_spear.png"
-dest_files=["res://.godot/imported/attack_spear.png-126a0b8be10cfc070cc2ca8ae64d3c94.ctex"]
+source_file="res://assets/ui/hud/keybind/mouse-left-click.png"
+dest_files=["res://.godot/imported/mouse-left-click.png-0937065c174a13e60c8782054ed3b96d.ctex"]
 
 [params]
 
