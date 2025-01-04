@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var damage_number_origin = $DamageNumbersOrigin
 @onready var hit_animation = $HitAnimation
+@onready var state_machine = $EnemyStateMachine
 
 @export var current_level: float = 0.1
 
@@ -24,10 +25,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	direction = player.position - position
 
-	if direction.x < 0:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
+	if state_machine.current_state.name != "Death":
+		if direction.x < 0:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
+
+
 
 # physics process function
 # set the velocity based on the direction
