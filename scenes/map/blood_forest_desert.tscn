@@ -1,14 +1,16 @@
-[gd_scene load_steps=41 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=42 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
 [ext_resource type="Texture2D" uid="uid://jat3r5r8xqp6" path="res://assets/tilesets/bloodforestdesert/Blood Desert Tileset.png" id="2_44gum"]
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="2_54oyx"]
+[ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="2_bxbcl"]
 [ext_resource type="Texture2D" uid="uid://yt551cm1v0ks" path="res://assets/tilesets/bloodforestdesert/background2.png" id="2_oqp75"]
 [ext_resource type="Texture2D" uid="uid://cmkwu8547weuw" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/sword 1.png" id="3_8260w"]
 [ext_resource type="Texture2D" uid="uid://bhhx8vjdmg4ul" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Gigantic Sword.png" id="3_orpuk"]
 [ext_resource type="Texture2D" uid="uid://7aunuwg6xr1k" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree1.png" id="4_ck37k"]
 [ext_resource type="Texture2D" uid="uid://bae1ppyynuook" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree5.png" id="4_doe68"]
+[ext_resource type="PackedScene" uid="uid://c2fteb5eetbpx" path="res://scenes/ui/hud_game_level.tscn" id="4_j8ifs"]
 [ext_resource type="Texture2D" uid="uid://dac75gesrelpd" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Hand grassy.png" id="4_tndq5"]
 [ext_resource type="Texture2D" uid="uid://c08vyx5aa82mk" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Big Rock.png" id="5_dg602"]
 [ext_resource type="Texture2D" uid="uid://bynhyaugem744" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree3.png" id="5_rqirj"]
@@ -16,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://nsc8ucbr5asa" path="res://scenes/ui/post_processing_vhs.tscn" id="14_5dvd5"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
-[ext_resource type="PackedScene" uid="uid://dtcfevfv8d6tg" path="res://scenes/enemy/beast.tscn" id="15_q8ui3"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
 background_mode = 3
@@ -1266,11 +1267,16 @@ hue_variation_max = -2.23517e-08
 [node name="BloodForestDesert" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_y03tr")
+beast_scene = ExtResource("2_bxbcl")
 
 [node name="PostProcessing" parent="." instance=ExtResource("14_5dvd5")]
 
 [node name="UITransitionSideways" parent="." instance=ExtResource("2_54oyx")]
 visible = false
+
+[node name="HUDGameLevel" parent="." instance=ExtResource("4_j8ifs")]
+
+[node name="Fog" parent="." instance=ExtResource("14_mrr87")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ed1ya")
@@ -1898,11 +1904,12 @@ amount = 50
 process_material = SubResource("ParticleProcessMaterial_khnxn")
 visibility_rect = Rect2(-640, -100, 1280, 500)
 
+[node name="BeastSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(596, 442)
 scale = Vector2(2, 2)
 
-[node name="Fog" parent="." instance=ExtResource("14_mrr87")]
-
-[node name="Beast" parent="." instance=ExtResource("15_q8ui3")]
-position = Vector2(607, 96)
+[connection signal="timeout" from="BeastSpawnTimer" to="." method="_on_beast_timer_timeout"]

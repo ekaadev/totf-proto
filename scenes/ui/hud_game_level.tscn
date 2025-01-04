@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2fteb5eetbpx"]
+
+[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_13xm5"]
+[ext_resource type="Texture2D" uid="uid://cnkxjp8rj5n3a" path="res://assets/avatar/texture-bg-avatar.png" id="2_2mxfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7hqy"]
+atlas = ExtResource("2_2mxfn")
+
+[node name="HUDGameLevel" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 128
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_13xm5")
+theme_override_font_sizes/font_size = 48
+text = "Energy 0"
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer/EnergyLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -135.0
+offset_right = 53.5
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_x7hqy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="WaveLabel" type="Label" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_13xm5")
+theme_override_font_sizes/font_size = 32
+text = "Wave 1"
+uppercase = true

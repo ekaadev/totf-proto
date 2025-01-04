@@ -442,7 +442,7 @@ radius = 2.33333
 height = 9.33334
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3miq"]
-radius = 100.0
+radius = 236.085
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ft3t"]
 radius = 8.8

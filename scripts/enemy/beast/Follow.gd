@@ -55,6 +55,10 @@ func exit():
 # beacuse beast direection refference is the player position
 func transition():
     var distance = owner.direction.length()
+    var player_current_state = owner.get_player_state_machine()
 
-    if distance < 80:
+    if player_current_state.current_node_state_name == "death":
+        get_parent().change_state("Death")
+
+    if distance < 80 and player_current_state.current_node_state_name != "death":
         get_parent().change_state("SpikeAttack")

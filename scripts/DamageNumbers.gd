@@ -29,10 +29,10 @@ func display_damage_number(total_damage: float, position: Vector2) -> void:
 	).set_ease(Tween.EASE_OUT)
 	tween.tween_property(
 		number, "position:y", number.position.y, 0.5
-	).set_ease(Tween.EASE_IN).set_delay(0.25)
+	).set_ease(Tween.EASE_IN).set_delay(0.15)
 	tween.tween_property(
 		number, "scale", Vector2.ZERO, 0.25
-	).set_ease(Tween.EASE_IN).set_delay(0.5)
+	).set_ease(Tween.EASE_IN).set_delay(0.25)
 
 	await tween.finished
 	number.queue_free()
