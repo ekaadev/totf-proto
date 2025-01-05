@@ -3,14 +3,21 @@ extends CanvasLayer
 @onready var layout_keybinds = $MarginContainer
 @onready var owner_entity = owner
 @onready var state = owner.get_node("StateMachine")
+@onready var map_name = owner.get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if state.current_node_state_name.to_lower() == "walk":
-		ui_keybind_not_idle()
+
+	if map_name.get_name() != "BloodForestDesert":
+		if state.current_node_state_name.to_lower() == "walk":
+			ui_keybind_not_idle()
+		else:
+			ui_keybind_idle()
 	else:
 		ui_keybind_idle()
+	
 
+	
 func ui_keybind_idle() -> void:
 	var tween = create_tween()
 	tween.tween_property(
