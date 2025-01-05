@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	wave_timer_label.text = str(snapped(time_left, 1))
 
 	var temp_energy = convert_energy_to_string(counter_energy)
-	energy_label.text = "Energy " + temp_energy
+	energy_label.text = temp_energy
 
 	var temp_wave = convert_wave_to_string(counter_wave)
 	wave_label.text = "Wave " + temp_wave
@@ -38,7 +38,7 @@ func _on_beast_add_energy() -> void:
 	counter_energy += 1
 
 func _on_beast_timer_timeout() -> void:
-	if state_player.current_node_state_name != "death":
+	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
 		var new_beast = beast_scene.instantiate()
 
 		# IMPROVE POSITION WITH RANDOM POSITION
@@ -54,9 +54,12 @@ func convert_wave_to_string(wave: int) -> String:
 	return str(wave)
 
 func _on_wave_timer_timeout() -> void:
-	wave_timer.stop()
-	counter_wave += 1
-	wave_timer.wait_time = wait_timer + 5
-	wave_timer.start()
+	if state_player.current_node_state_name == "death":
+		wave_timer.stop()
+	else:
+		wave_timer.stop()
+		counter_wave += 1
+		wave_timer.wait_time = wait_timer + 5
+		wave_timer.start()
 
 	
