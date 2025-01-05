@@ -1,5 +1,7 @@
 extends Node2D
 
+signal notification_energy_collected(energy: int)
+
 @export var beast_scene: PackedScene
 
 @onready var state_player = $Player/StateMachine
@@ -9,6 +11,8 @@ extends Node2D
 @onready var wave_label = $HUDGameLevel/MarginContainer2/HBoxContainer/WaveLabel
 @onready var wave_timer_label = $HUDGameLevel/MarginContainer2/HBoxContainer2/WaveTimerLabel
 @onready var wave_timer = $WaveTimer
+@onready var notification_label = $HUDGameLevel/MarginContainer3/PanelContainer/MarginContainer/HBoxContainer/ToastEnergyLabel
+@onready var container_notification = $HUDGameLevel/MarginContainer3
 
 var counter_energy: int = 0
 var counter_wave: int = 1
@@ -16,6 +20,8 @@ var wait_timer = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	notification_energy_collected.connect(_on_notification_energy_collected)
+
 	ui_scene_transition.visible = true
 	transition.play("rect_out")
 	await transition.animation_finished
@@ -35,7 +41,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_beast_add_energy() -> void:
-	counter_energy += 1
+	var beast_energy = 1
+	counter_energy += beast_energy
+	emit_signal("notification_energy_collected", beast_energy)
 
 func _on_beast_timer_timeout() -> void:
 	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
@@ -62,4 +70,32 @@ func _on_wave_timer_timeout() -> void:
 		wave_timer.wait_time = wait_timer + 5
 		wave_timer.start()
 
-	
+func _on_notification_energy_collected(energy: int) -> void:
+	notification_label.text = "+" + str(energy)
+
+	# Reset notification position and visibility
+	container_notification.position.x = -100
+	container_notification.modulate.a = 1.0
+
+	# Create parallel tweens
+	var tween = create_tween()
+	tween.set_parallel(true)
+
+	# Slide in notification
+	tween.tween_property(
+		container_notification,
+		"position:x",
+		2,  # Target position
+		0.5  # Duration
+	).set_ease(Tween.EASE_OUT_IN)
+
+	# Fade out notification
+	tween.tween_property(
+		container_notification,
+		"modulate:a",
+		0,  # Fully transparent
+		0.5  # Duration
+	).set_ease(Tween.EASE_OUT).set_delay(1)
+
+	await tween.finished
+
