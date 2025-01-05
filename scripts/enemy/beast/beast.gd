@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 # set the velocity based on the direction
 # move and collide the player
 func _physics_process(delta: float) -> void:
-	velocity = direction.normalized() * 100
+	velocity = direction.normalized() * 70
 
 	# Moves the body along the vector `motion` and tries to collide it with the environment.
 	# 

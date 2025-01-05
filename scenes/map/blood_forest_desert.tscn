@@ -1908,8 +1908,13 @@ visibility_rect = Rect2(-640, -100, 1280, 500)
 wait_time = 5.0
 autostart = true
 
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(596, 442)
 scale = Vector2(2, 2)
 
 [connection signal="timeout" from="BeastSpawnTimer" to="." method="_on_beast_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
