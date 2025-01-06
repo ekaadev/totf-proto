@@ -1,12 +1,15 @@
 extends Node2D
 
 signal notification_energy_collected(energy: int)
+signal player_game_over
 
 @export var beast_scene: PackedScene
 
 @onready var state_player = $Player/StateMachine
 @onready var ui_scene_transition = $UITransitionSideways
+@onready var ui_scene_transition_fade = $UITransitionFade
 @onready var transition = $UITransitionSideways/SceneTransistion/AnimationPlayer
+@onready var transition_fade = $UITransitionFade/GameOverAnimation
 @onready var energy_label = $HUDGameLevel/MarginContainer/HBoxContainer/HBoxContainer/EnergyLabel
 @onready var wave_label = $HUDGameLevel/MarginContainer2/HBoxContainer/WaveLabel
 @onready var wave_timer_label = $HUDGameLevel/MarginContainer2/HBoxContainer2/WaveTimerLabel
@@ -17,13 +20,18 @@ signal notification_energy_collected(energy: int)
 var counter_energy: int = 0
 var counter_wave: int = 1
 var wait_timer = 30
+var notification_queue: Array = []
+var is_showing_notification: bool = false
+var has_emitted_game_over: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	notification_energy_collected.connect(_on_notification_energy_collected)
+	player_game_over.connect(on_player_game_over)
 
 	ui_scene_transition.visible = true
 	transition.play("rect_out")
+	wave_timer.start()
 	await transition.animation_finished
 	ui_scene_transition.visible = false
 
@@ -39,11 +47,9 @@ func _process(_delta: float) -> void:
 	var temp_wave = convert_wave_to_string(counter_wave)
 	wave_label.text = "Wave " + temp_wave
 
-
-func _on_beast_add_energy() -> void:
-	var beast_energy = 1
-	counter_energy += beast_energy
-	emit_signal("notification_energy_collected", beast_energy)
+	if state_player.current_node_state_name == "death" and !has_emitted_game_over:
+		has_emitted_game_over = true
+		emit_signal("player_game_over")
 
 func _on_beast_timer_timeout() -> void:
 	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
@@ -70,8 +76,14 @@ func _on_wave_timer_timeout() -> void:
 		wave_timer.wait_time = wait_timer + 5
 		wave_timer.start()
 
+func _on_beast_add_energy() -> void:
+	var beast_energy = randi_range(1, 4)
+	counter_energy += beast_energy
+	notification_queue.append(beast_energy)
+	process_notification_queue()
+
 func _on_notification_energy_collected(energy: int) -> void:
-	notification_label.text = "+" + str(energy)
+	notification_label.text = "Energy x " + str(energy)
 
 	# Reset notification position and visibility
 	container_notification.position.x = -100
@@ -86,8 +98,8 @@ func _on_notification_energy_collected(energy: int) -> void:
 		container_notification,
 		"position:x",
 		2,  # Target position
-		0.5  # Duration
-	).set_ease(Tween.EASE_OUT_IN)
+		0.25  # Duration
+	).set_ease(Tween.EASE_IN_OUT)
 
 	# Fade out notification
 	tween.tween_property(
@@ -95,7 +107,21 @@ func _on_notification_energy_collected(energy: int) -> void:
 		"modulate:a",
 		0,  # Fully transparent
 		0.5  # Duration
-	).set_ease(Tween.EASE_OUT).set_delay(1)
+	).set_ease(Tween.EASE_OUT_IN).set_delay(0.8)
 
 	await tween.finished
+	is_showing_notification = false
+	process_notification_queue()
 
+func process_notification_queue() -> void:
+	if is_showing_notification or notification_queue.is_empty():
+		return
+	
+	is_showing_notification = true
+	var beast_energy = notification_queue.pop_front()
+	emit_signal("notification_energy_collected", beast_energy)
+
+func on_player_game_over() -> void:
+	ui_scene_transition_fade.visible = true
+	transition_fade.play("fade_in")
+	await transition_fade.animation_finished

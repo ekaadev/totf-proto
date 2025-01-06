@@ -917,14 +917,14 @@ volume_db = -20.0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("13_cgujj")]
 collision_mask = 12
-damage = 10
+damage = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 disabled = true
 
 [node name="HitboxComponent2" parent="." instance=ExtResource("13_cgujj")]
 collision_mask = 12
-damage = 30
+damage = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent2"]
 disabled = true

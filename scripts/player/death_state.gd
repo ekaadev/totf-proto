@@ -20,8 +20,9 @@ func _on_enter() -> void:
 	animation_player.play("death")
 	
 	await animation_player.animation_finished
-	animation_player.play("player_slained")
-	await animation_player.animation_finished
+	
+	# animation_player.play("player_slained")
+	# await animation_player.animation_finished
 
 func _on_exit() -> void:
 	pass

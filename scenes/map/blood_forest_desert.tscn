@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=43 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bae1ppyynuook" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree5.png" id="4_doe68"]
 [ext_resource type="PackedScene" uid="uid://c2fteb5eetbpx" path="res://scenes/ui/hud_game_level.tscn" id="4_j8ifs"]
 [ext_resource type="Texture2D" uid="uid://dac75gesrelpd" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Hand grassy.png" id="4_tndq5"]
+[ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="5_7c4ka"]
 [ext_resource type="Texture2D" uid="uid://c08vyx5aa82mk" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Big Rock.png" id="5_dg602"]
 [ext_resource type="Texture2D" uid="uid://bynhyaugem744" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree3.png" id="5_rqirj"]
 [ext_resource type="Texture2D" uid="uid://bj00bvk20pp1s" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/forest pole 2.png" id="6_cm8jq"]
@@ -1274,6 +1275,9 @@ beast_scene = ExtResource("2_bxbcl")
 [node name="UITransitionSideways" parent="." instance=ExtResource("2_54oyx")]
 visible = false
 
+[node name="UITransitionFade" parent="." instance=ExtResource("5_7c4ka")]
+visible = false
+
 [node name="HUDGameLevel" parent="." instance=ExtResource("4_j8ifs")]
 
 [node name="Fog" parent="." instance=ExtResource("14_mrr87")]
@@ -1910,7 +1914,6 @@ autostart = true
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 30.0
-autostart = true
 
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(596, 442)
