@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=14 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_su2fj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
+[ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="8_eacqh"]
 
 [sub_resource type="FontVariation" id="FontVariation_gt77m"]
 base_font = ExtResource("3_q88dm")
@@ -163,6 +164,8 @@ text = "OPTION"
 
 [node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
 visible = false
+
+[node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

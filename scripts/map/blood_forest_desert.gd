@@ -17,6 +17,8 @@ signal player_game_over
 @onready var notification_label = $HUDGameLevel/MarginContainer3/PanelContainer/MarginContainer/HBoxContainer/ToastEnergyLabel
 @onready var container_notification = $HUDGameLevel/MarginContainer3
 
+var game_over_scene = preload("res://scenes/ui/ui_game_over.tscn")
+
 var counter_energy: int = 0
 var counter_wave: int = 1
 var wait_timer = 30
@@ -124,4 +126,9 @@ func process_notification_queue() -> void:
 func on_player_game_over() -> void:
 	ui_scene_transition_fade.visible = true
 	transition_fade.play("fade_in")
+	await get_tree().create_timer(0.5).timeout
 	await transition_fade.animation_finished
+	call_deferred("_change_scene_to_game_over")
+
+func _change_scene_to_game_over() -> void:
+	get_tree().change_scene_to_packed(game_over_scene)

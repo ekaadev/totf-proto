@@ -1,0 +1,180 @@
+[gd_scene load_steps=18 format=3 uid="uid://7m8wkfqqrx7u"]
+
+[ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="1_1v4wg"]
+[ext_resource type="Script" path="res://scripts/ui/ui_game_over.gd" id="1_dgmme"]
+[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_o1brq"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_4tasi"]
+[ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_6ovd4"]
+[ext_resource type="PackedScene" uid="uid://ukhn21vt6xrj" path="res://scenes/ui/ui_keybind_game_over.tscn" id="6_tdxhx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d2h4"]
+bg_color = Color(0.0509804, 0.00392157, 0.00784314, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="FontVariation" id="FontVariation_p0o44"]
+base_font = ExtResource("2_4tasi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ginra"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_632ca"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bvrho"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00upl"]
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+
+[sub_resource type="FontVariation" id="FontVariation_ptqdp"]
+base_font = ExtResource("2_4tasi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87l6o"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flicu"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_twi0j"]
+texture = ExtResource("3_6ovd4")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+region_rect = Rect2(673, 56, 108, 21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igvrq"]
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+
+[node name="UIGameOver" type="CanvasLayer"]
+script = ExtResource("1_dgmme")
+
+[node name="UITransitionFade" parent="." instance=ExtResource("1_1v4wg")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.112268, 0.0733295, 0.0844143, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_o1brq")
+theme_override_font_sizes/font_size = 128
+text = "LIST"
+vertical_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4d2h4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_o1brq")
+theme_override_font_sizes/font_size = 64
+text = "game over"
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GotoGreenGardenButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../GotoMainMenuButton")
+focus_neighbor_bottom = NodePath("../GotoMainMenuButton")
+focus_next = NodePath("../GotoMainMenuButton")
+focus_previous = NodePath("../GotoMainMenuButton")
+theme_override_colors/font_hover_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_focus_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_fonts/font = SubResource("FontVariation_p0o44")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_ginra")
+theme_override_styles/hover = SubResource("StyleBoxTexture_632ca")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bvrho")
+theme_override_styles/normal = SubResource("StyleBoxTexture_00upl")
+text = "Return to Green Garden entrance"
+alignment = 0
+
+[node name="GotoMainMenuButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../GotoGreenGardenButton")
+focus_neighbor_bottom = NodePath("../GotoGreenGardenButton")
+focus_next = NodePath("../GotoGreenGardenButton")
+focus_previous = NodePath("../GotoGreenGardenButton")
+theme_override_colors/font_hover_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_focus_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_fonts/font = SubResource("FontVariation_ptqdp")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_87l6o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flicu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_twi0j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_igvrq")
+text = "Return to Main Menu"
+alignment = 0
+
+[node name="UIKeybindGameOver" parent="." instance=ExtResource("6_tdxhx")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoGreenGardenButton" to="." method="_on_goto_green_garden_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoMainMenuButton" to="." method="_on_goto_main_menu_button_pressed"]
