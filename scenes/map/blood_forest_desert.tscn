@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=42 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://bynhyaugem744" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree3.png" id="5_rqirj"]
 [ext_resource type="Texture2D" uid="uid://bj00bvk20pp1s" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/forest pole 2.png" id="6_cm8jq"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
-[ext_resource type="PackedScene" uid="uid://nsc8ucbr5asa" path="res://scenes/ui/post_processing_vhs.tscn" id="14_5dvd5"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
@@ -1269,8 +1268,6 @@ hue_variation_max = -2.23517e-08
 y_sort_enabled = true
 script = ExtResource("1_y03tr")
 beast_scene = ExtResource("2_bxbcl")
-
-[node name="PostProcessing" parent="." instance=ExtResource("14_5dvd5")]
 
 [node name="UITransitionSideways" parent="." instance=ExtResource("2_54oyx")]
 visible = false

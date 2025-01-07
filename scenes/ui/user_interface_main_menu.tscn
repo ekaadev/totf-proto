@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh8j14aijals0"]
+[gd_scene load_steps=2 format=3 uid="uid://bh8j14aijals0"]
 
 [ext_resource type="PackedScene" uid="uid://cip2sav76d858" path="res://scenes/ui/main_menu.tscn" id="1_xwyq7"]
-[ext_resource type="PackedScene" uid="uid://nsc8ucbr5asa" path="res://scenes/ui/post_processing_vhs.tscn" id="2_8ptg7"]
 
 [node name="UserInterfaceMainMenu" type="CanvasLayer"]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_xwyq7")]
-
-[node name="PostProcessing" parent="." instance=ExtResource("2_8ptg7")]
+offset_top = 1.0
+offset_bottom = 1.0

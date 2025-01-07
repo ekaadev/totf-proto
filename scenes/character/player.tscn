@@ -913,7 +913,8 @@ zoom = Vector2(1.4, 1.4)
 position_smoothing_enabled = true
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
-volume_db = -20.0
+volume_db = -40.0
+bus = &"SFX"
 
 [node name="HitboxComponent" parent="." instance=ExtResource("13_cgujj")]
 collision_mask = 12

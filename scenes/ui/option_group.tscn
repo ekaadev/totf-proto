@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbvvk5rmv5eu4"]
+
+[ext_resource type="Script" path="res://scripts/ui/option_group.gd" id="1_jhjrk"]
+[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_v26kv"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_xhin5"]
+[ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_wlp4v"]
+[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="5_mxkkg"]
+
+[sub_resource type="FontVariation" id="FontVariation_ygud3"]
+base_font = ExtResource("2_xhin5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03b78"]
+texture = ExtResource("3_wlp4v")
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 200.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(672, 374, 111, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q868s"]
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 200.0
+region_rect = Rect2(672, 374, 111, 24)
+
+[sub_resource type="FontVariation" id="FontVariation_raqek"]
+base_font = ExtResource("2_xhin5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdotw"]
+texture = ExtResource("3_wlp4v")
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 200.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(672, 374, 111, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwh0q"]
+
+[node name="OptionGroup" type="CanvasLayer"]
+script = ExtResource("1_jhjrk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_v26kv")
+theme_override_font_sizes/font_size = 128
+text = "option"
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+theme_override_constants/separation = 16
+
+[node name="SoundSettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_focus_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_ygud3")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_03b78")
+theme_override_styles/hover = SubResource("StyleBoxTexture_03b78")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_03b78")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q868s")
+text = "Sound Settings"
+alignment = 0
+
+[node name="DisplaySettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_focus_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_raqek")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_sdotw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sdotw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sdotw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fwh0q")
+text = "Display Settings"
+alignment = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UITransitionSideways" parent="." instance=ExtResource("5_mxkkg")]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SoundSettingsButton" to="." method="_on_sound_settings_button_pressed"]

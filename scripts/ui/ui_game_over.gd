@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var ui_scene_transition_fade = $UITransitionFade
 @onready var transition_fade = $UITransitionFade/GameOverAnimation
+@onready var button_goto_green_garden = $MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoGreenGardenButton
 
 var main_menu_scene = preload("res://scenes/ui/user_interface_main_menu.tscn")
 var green_garden_scene = preload("res://scenes/map/green_garden.tscn")
@@ -9,6 +10,8 @@ var green_garden_scene = preload("res://scenes/map/green_garden.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	button_goto_green_garden.grab_focus()
+
 	ui_scene_transition_fade.visible = true
 	transition_fade.play("fade_out")
 	await transition_fade.animation_finished

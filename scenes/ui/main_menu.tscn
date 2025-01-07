@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=18 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
-[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_su2fj"]
 [ext_resource type="Texture2D" uid="uid://b4goes401cffa" path="res://assets/ui/bg/bg-flame.png" id="2_t5mb7"]
 [ext_resource type="PackedScene" uid="uid://v3gpjpfayyaa" path="res://scenes/ui/background_twirl.tscn" id="3_01x4k"]
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
@@ -12,49 +11,51 @@
 [sub_resource type="FontVariation" id="FontVariation_gt77m"]
 base_font = ExtResource("3_q88dm")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kx76l"]
-texture = ExtResource("5_g01mj")
-texture_margin_left = 14.1405
-texture_margin_top = 14.3581
-texture_margin_right = 15.7954
-texture_margin_bottom = 23.6369
-region_rect = Rect2(16, 16, 134, 76)
+[sub_resource type="FontVariation" id="FontVariation_v1ipa"]
+base_font = ExtResource("3_q88dm")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw3bv"]
-content_margin_left = 64.0
-content_margin_top = 24.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ak6xt"]
 texture = ExtResource("5_g01mj")
-texture_margin_left = 14.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 26.0
-region_rect = Rect2(314, 278, 134, 76)
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stlsp"]
-content_margin_left = 64.0
-content_margin_top = 32.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
-texture = ExtResource("5_g01mj")
-texture_margin_left = 14.0
-texture_margin_top = 12.2291
-texture_margin_right = 14.0
-texture_margin_bottom = 20.0
-region_rect = Rect2(314, 278, 134, 76)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsxgg"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0thiu"]
-content_margin_left = 64.0
-content_margin_top = 24.0
-content_margin_right = 64.0
-content_margin_bottom = 32.0
+[sub_resource type="FontVariation" id="FontVariation_f3b4u"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnft5"]
 texture = ExtResource("5_g01mj")
-texture_margin_left = 14.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 26.0
-region_rect = Rect2(314, 278, 134, 76)
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wox7r"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+
+[sub_resource type="FontVariation" id="FontVariation_ioccy"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omttf"]
+texture = ExtResource("5_g01mj")
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwb62"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -65,8 +66,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op3ql")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
 visible = false
+
+[node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
+
+[node name="BackgroundTwirl" parent="." instance=ExtResource("3_01x4k")]
+layer = -1
+visible = false
+
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,9 +83,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_t5mb7")
-
-[node name="BackgroundTwirl" parent="." instance=ExtResource("3_01x4k")]
-layer = -1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -98,74 +104,75 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = SubResource("FontVariation_gt77m")
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 136
 text = "KAEN"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-alignment = 1
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_kx76l")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+focus_mode = 2
+theme_override_constants/separation = -10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("../StartButton")
-focus_neighbor_bottom = NodePath("../StartButton")
-focus_next = NodePath("../StartButton")
-focus_previous = NodePath("../StartButton")
-theme = ExtResource("1_su2fj")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxTexture_aw3bv")
-text = "EXIT"
-
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_fonts/font = SubResource("FontVariation_v1ipa")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tsxgg")
+text = "PLAY"
+alignment = 0
+
+[node name="OptionButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
-focus_previous = NodePath("../ExitButton")
-theme = ExtResource("1_su2fj")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxTexture_stlsp")
-text = "PLAY"
-
-[node name="OptionButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_su2fj")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxTexture_0thiu")
+focus_previous = NodePath("../StartButton")
+theme_override_fonts/font = SubResource("FontVariation_f3b4u")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wox7r")
 text = "OPTION"
+alignment = 0
 
-[node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
-visible = false
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_fonts/font = SubResource("FontVariation_ioccy")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_iwb62")
+text = "EXIT"
+alignment = 0
 
-[node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
