@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 
 @onready var sound_settings_scene = preload("res://scenes/ui/ui_sound_settings.tscn")
+@onready var display_settings_scene = preload("res://scenes/ui/ui_display_settings.tscn")
 
 var main_menu_scene: PackedScene
 
@@ -27,6 +28,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_back_button_pressed()
+
+
+func _on_display_settings_button_pressed() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
+
+	ui_transition_sideways.visible = true
+	transition_sideways.play("rect_in")
+	await transition_sideways.animation_finished
+	call_deferred("_change_scene_to_display_settings")
+
+func _change_scene_to_display_settings() -> void:
+	get_tree().change_scene_to_packed(display_settings_scene)
 
 func _on_sound_settings_button_pressed() -> void:
 	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)

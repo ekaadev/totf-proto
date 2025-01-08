@@ -25,6 +25,7 @@ InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 DamageNumbers="*res://scripts/DamageNumbers.gd"
 AudioManager="*res://scripts/AudioManager.gd"
 AudioAssets="*res://scripts/AudioAssets.gd"
+DisplayManager="*res://scripts/DisplayManager.gd"
 
 [display]
 
