@@ -115,4 +115,6 @@ size_flags_horizontal = 3
 [node name="UITransitionSideways" parent="." instance=ExtResource("5_mxkkg")]
 visible = false
 
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SoundSettingsButton" to="." method="_on_sound_settings_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SoundSettingsButton" to="." method="_on_sound_settings_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/DisplaySettingsButton" to="." method="_on_display_settings_button_focus_entered"]

@@ -1234,13 +1234,13 @@ height = 46.0
 size = Vector2(214.5, 790)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcgup"]
-size = Vector2(176, 746)
+size = Vector2(353, 821)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enine"]
-size = Vector2(1684, 169)
+size = Vector2(1925, 321)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mp8k6"]
-size = Vector2(1682, 168)
+size = Vector2(1879, 226)
 
 [sub_resource type="Gradient" id="Gradient_t6uah"]
 interpolation_mode = 2
@@ -1878,7 +1878,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-89, 352)
+position = Vector2(-177.5, 389.5)
 shape = SubResource("RectangleShape2D_hcgup")
 
 [node name="UpperWall" type="StaticBody2D" parent="."]
@@ -1887,7 +1887,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
-position = Vector2(666, -91.5)
+position = Vector2(623.5, -167.5)
 shape = SubResource("RectangleShape2D_enine")
 
 [node name="BottomQWall" type="StaticBody2D" parent="."]
@@ -1896,7 +1896,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomQWall"]
-position = Vector2(668, 816)
+position = Vector2(683.5, 845)
 shape = SubResource("RectangleShape2D_mp8k6")
 
 [node name="Fireflies" type="GPUParticles2D" parent="."]

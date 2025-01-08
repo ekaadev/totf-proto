@@ -1,7 +1,9 @@
 extends Node
 
 var menu_music = preload("res://assets/music/bgm/Because I Will Protect You -Reload- - Persona 3 Reload Original Soundtrack.mp3")
-var menu_cursor = preload("res://assets/music/sfx/cursor.wav")
+var menu_cursor = preload("res://assets/music/sfx/SFX_UI_FOCUS.wav")
+var menu_selected = preload("res://assets/music/sfx/SFX_UI_SELECTED.wav")
+var menu_cancel = preload("res://assets/music/sfx/SFX_UI_CANCEL.wav")
 
 @onready var music_player = AudioStreamPlayer.new()
 @onready var sfx_player = AudioStreamPlayer.new()

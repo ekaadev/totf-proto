@@ -24,6 +24,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_start_button_pressed() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
+
 	ui_transition_sideways.visible = true
 	transition.play("rect_in")
 	AudioAssets.stop_music()
@@ -37,6 +39,8 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_option_button_pressed() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
+
 	ui_transition_sideways.visible = true
 	transition.play("rect_in")
 	await transition.animation_finished
@@ -46,4 +50,10 @@ func _change_scene_to_option_group() -> void:
 	get_tree().change_scene_to_packed(option_group)
 
 func _on_start_button_focus_entered() -> void:
-	AudioAssets.play_sfx(AudioAssets.menu_cursor, -40)
+	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)
+
+func _on_option_button_focus_entered() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)
+
+func _on_exit_button_focus_entered() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)

@@ -174,5 +174,7 @@ size_flags_horizontal = 3
 
 [connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
