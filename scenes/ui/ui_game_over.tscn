@@ -175,6 +175,7 @@ text = "Return to Main Menu"
 alignment = 0
 
 [node name="UIKeybindGameOver" parent="." instance=ExtResource("6_tdxhx")]
+layer = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoGreenGardenButton" to="." method="_on_goto_green_garden_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoMainMenuButton" to="." method="_on_goto_main_menu_button_pressed"]
