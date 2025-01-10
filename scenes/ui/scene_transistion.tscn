@@ -113,7 +113,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0.235294, 0.368627, 0.545098, 1)
+color = Color(0.572661, 0.192926, 0.187303, 1)
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -130,7 +130,7 @@ rotation = 0.436332
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
-color = Color(0.0666667, 0.0862745, 0.121569, 1)
+color = Color(0.0560707, 0.0307842, 0.0379576, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

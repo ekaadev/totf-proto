@@ -1,17 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ukhn21vt6xrj"]
+[gd_scene load_steps=5 format=3 uid="uid://ukhn21vt6xrj"]
 
 [ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="1_1lmxu"]
-[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="2_wvapn"]
-[ext_resource type="Texture2D" uid="uid://5e41hklv8nin" path="res://assets/ui/hud/keybind/mouse-right-click.png" id="3_5si04"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="4_dadxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hbn8"]
 atlas = ExtResource("1_1lmxu")
 region = Rect2(98, 18, 28, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdd1k"]
-atlas = ExtResource("3_5si04")
-region = Rect2(2, 2, 11, 12)
 
 [sub_resource type="FontVariation" id="FontVariation_lwurp"]
 base_font = ExtResource("4_dadxa")
@@ -43,16 +37,6 @@ layout_mode = 2
 layout_mode = 2
 texture = SubResource("AtlasTexture_6hbn8")
 stretch_mode = 3
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_wvapn")
-text = "/"
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_rdd1k")
-stretch_mode = 5
 
 [node name="ConfirmLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2

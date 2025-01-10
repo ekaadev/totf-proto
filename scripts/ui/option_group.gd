@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var sound_settings_button = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SoundSettingsButton
 @onready var ui_transition_sideways = $UITransitionSideways 
 @onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
+@onready var info_label = $MarginContainer/VBoxContainer/MarginContainer2/InfoLabel
 
 @onready var sound_settings_scene = preload("res://scenes/ui/ui_sound_settings.tscn")
 @onready var display_settings_scene = preload("res://scenes/ui/ui_display_settings.tscn")
@@ -69,8 +70,10 @@ func _change_scene_to_main_menu() -> void:
 
 
 func _on_sound_settings_button_focus_entered() -> void:
+	info_label.text = "INFO: Sound settings for the game"
 	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)
 
 
 func _on_display_settings_button_focus_entered() -> void:
+	info_label.text = "INFO: Display settings for the game"
 	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=17 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
-[ext_resource type="Texture2D" uid="uid://b4goes401cffa" path="res://assets/ui/bg/bg-flame.png" id="2_t5mb7"]
-[ext_resource type="PackedScene" uid="uid://v3gpjpfayyaa" path="res://scenes/ui/background_twirl.tscn" id="3_01x4k"]
 [ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
+[ext_resource type="PackedScene" uid="uid://ukhn21vt6xrj" path="res://scenes/ui/ui_keybind_game_over.tscn" id="4_iyybv"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
 [ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="8_eacqh"]
 
@@ -71,18 +70,17 @@ visible = false
 
 [node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
 
-[node name="BackgroundTwirl" parent="." instance=ExtResource("3_01x4k")]
-layer = -1
-visible = false
+[node name="UIKeybindGameOver" parent="." instance=ExtResource("4_iyybv")]
+layer = 2
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_t5mb7")
+color = Color(0.113725, 0.0745098, 0.0862745, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -94,7 +92,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
