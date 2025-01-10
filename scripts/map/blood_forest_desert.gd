@@ -41,7 +41,10 @@ func _process(_delta: float) -> void:
 	wait_timer = wave_timer.wait_time
 
 	var time_left = wave_timer.time_left
-	wave_timer_label.text = str(snapped(time_left, 1))
+	if time_left < 3:
+		wave_timer_label.text = str(snapped(time_left, 0.1)) + " SEC"
+	else:
+		wave_timer_label.text = str(snapped(time_left, 1)) + " SEC"
 
 	var temp_energy = convert_energy_to_string(counter_energy)
 	energy_label.text = temp_energy

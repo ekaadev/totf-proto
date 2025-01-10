@@ -11,10 +11,6 @@ region = Rect2(460, 395, 44, 44)
 atlas = ExtResource("3_eemk0")
 region = Rect2(14, 221, 135, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwk0m"]
-atlas = ExtResource("3_eemk0")
-region = Rect2(464, 161, 135, 70)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxm78"]
 texture = ExtResource("3_eemk0")
 region_rect = Rect2(14, 221, 135, 70)
@@ -22,6 +18,10 @@ region_rect = Rect2(14, 221, 135, 70)
 [sub_resource type="AtlasTexture" id="AtlasTexture_32cim"]
 atlas = ExtResource("3_eemk0")
 region = Rect2(476, 251, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwk0m"]
+atlas = ExtResource("3_eemk0")
+region = Rect2(464, 161, 135, 70)
 
 [node name="HUDGameLevel" type="CanvasLayer"]
 
@@ -105,17 +105,6 @@ theme = ExtResource("1_13xm5")
 theme_override_font_sizes/font_size = 48
 text = "00"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer2/WaveTimerLabel"]
-z_index = -1
-layout_mode = 0
-offset_left = -33.0
-offset_top = -52.0
-offset_right = 102.0
-offset_bottom = 44.0
-scale = Vector2(1.5, 1.5)
-texture = SubResource("AtlasTexture_hwk0m")
-stretch_mode = 5
-
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 anchors_preset = 4
 anchor_top = 0.5
@@ -153,3 +142,17 @@ layout_mode = 2
 theme = ExtResource("1_13xm5")
 text = "+ 1"
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = -42.0
+offset_right = -29.0
+offset_bottom = 54.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_hwk0m")
+stretch_mode = 5
