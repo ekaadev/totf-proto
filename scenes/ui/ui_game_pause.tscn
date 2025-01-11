@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvfrlap20uc3b"]
+[gd_scene load_steps=22 format=3 uid="uid://cvfrlap20uc3b"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_game_pause.gd" id="1_w7cqq"]
+[ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="2_jahfs"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_oial5"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_g2j3f"]
+[ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="4_oiicr"]
 
 [sub_resource type="FontVariation" id="FontVariation_s36ig"]
 base_font = ExtResource("2_oial5")
@@ -38,6 +40,23 @@ expand_margin_bottom = 4.0
 base_font = ExtResource("2_oial5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3efx7"]
+bg_color = Color(0.925353, 0.925353, 0.925353, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ric"]
+atlas = ExtResource("4_oiicr")
+region = Rect2(39, 2, 18, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_qhswf"]
+base_font = ExtResource("2_oial5")
+spacing_glyph = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0rpy"]
+atlas = ExtResource("4_oiicr")
+region = Rect2(98, 18, 28, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_cef7w"]
+base_font = ExtResource("2_oial5")
+spacing_glyph = 1
 
 [sub_resource type="Animation" id="Animation_2bw0b"]
 resource_name = "pause_in"
@@ -97,6 +116,30 @@ tracks/4/path = NodePath("MarginContainer2/PauseLabel:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer3:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 710), Vector2(0, 603)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer3:modulate")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.25, 1),
 "update": 0,
@@ -165,6 +208,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 711)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_negrt"]
 resource_name = "pause_out"
@@ -229,6 +296,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer3:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 603), Vector2(0, 711)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer3:modulate")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ua4yu"]
 _data = {
@@ -249,7 +340,7 @@ offset_right = -482.0
 offset_bottom = -11.0
 grow_vertical = 2
 rotation = -0.872665
-color = Color(0, 0.0117647, 0.145098, 0.576471)
+color = Color(0.145098, 0.0117647, 0, 0.576471)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -311,11 +402,79 @@ grow_vertical = 0
 
 [node name="PauseLabel" type="Label" parent="MarginContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.431373, 0.431373, 0.431373, 0.796078)
 theme_override_fonts/font = SubResource("FontVariation_i0gkr")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxFlat_3efx7")
 text = "pause"
+horizontal_alignment = 2
 uppercase = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_right = -640.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="InformationLabel" type="Label" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jahfs")
+theme_override_colors/font_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_font_sizes/font_size = 14
+text = "Info: info"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_h1ric")
+stretch_mode = 5
+
+[node name="BackLabel" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_qhswf")
+theme_override_font_sizes/font_size = 14
+text = "Back"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_q0rpy")
+stretch_mode = 5
+
+[node name="ConfirmLabel" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_cef7w")
+theme_override_font_sizes/font_size = 14
+text = "Confirm"
 
 [node name="PauseAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -326,4 +485,6 @@ libraries = {
 wait_time = 3.0
 autostart = true
 
+[connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/GotoMainMenuButton" to="." method="_on_goto_main_menu_button_focus_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
