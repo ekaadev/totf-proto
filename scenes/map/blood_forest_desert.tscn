@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=43 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c08vyx5aa82mk" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Big Rock.png" id="5_dg602"]
 [ext_resource type="Texture2D" uid="uid://bynhyaugem744" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/Tree3.png" id="5_rqirj"]
 [ext_resource type="Texture2D" uid="uid://bj00bvk20pp1s" path="res://assets/tilesets/bloodforestdesert/Separate Sprites/forest pole 2.png" id="6_cm8jq"]
+[ext_resource type="PackedScene" uid="uid://cvfrlap20uc3b" path="res://scenes/ui/ui_game_pause.tscn" id="6_d8ly8"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
 
@@ -1276,6 +1277,9 @@ visible = false
 visible = false
 
 [node name="HUDGameLevel" parent="." instance=ExtResource("4_j8ifs")]
+
+[node name="UIGamePause" parent="." instance=ExtResource("6_d8ly8")]
+visible = false
 
 [node name="Fog" parent="." instance=ExtResource("14_mrr87")]
 

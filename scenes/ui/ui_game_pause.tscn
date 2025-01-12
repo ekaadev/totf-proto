@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cvfrlap20uc3b"]
+[gd_scene load_steps=23 format=3 uid="uid://cvfrlap20uc3b"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_game_pause.gd" id="1_w7cqq"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="2_jahfs"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_oial5"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_g2j3f"]
 [ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="4_oiicr"]
+[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="6_mjesm"]
 
 [sub_resource type="FontVariation" id="FontVariation_s36ig"]
 base_font = ExtResource("2_oial5")
@@ -57,6 +58,93 @@ region = Rect2(98, 18, 28, 12)
 [sub_resource type="FontVariation" id="FontVariation_cef7w"]
 base_font = ExtResource("2_oial5")
 spacing_glyph = 1
+
+[sub_resource type="Animation" id="Animation_mf7f0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1235, -556)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 724)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer2/PauseLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 711)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_2bw0b"]
 resource_name = "pause_in"
@@ -144,93 +232,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(0.25, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mf7f0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1235, -556)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 724)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer2/PauseLabel:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MarginContainer3:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 711)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MarginContainer3:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_negrt"]
@@ -329,6 +330,7 @@ _data = {
 }
 
 [node name="UIGamePause" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_w7cqq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -340,7 +342,7 @@ offset_right = -482.0
 offset_bottom = -11.0
 grow_vertical = 2
 rotation = -0.872665
-color = Color(0.145098, 0.0117647, 0, 0.576471)
+color = Color(0.145098, 0.0117647, 0, 0.913725)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -481,10 +483,10 @@ libraries = {
 "": SubResource("AnimationLibrary_ua4yu")
 }
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+[node name="UITransitionSideways" parent="." instance=ExtResource("6_mjesm")]
+visible = false
 
 [connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/GotoMainMenuButton" to="." method="_on_goto_main_menu_button_focus_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/GotoMainMenuButton" to="." method="_on_main_menu_button_pressed"]

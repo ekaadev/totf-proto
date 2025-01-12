@@ -16,6 +16,9 @@ signal player_game_over
 @onready var wave_timer = $WaveTimer
 @onready var notification_label = $HUDGameLevel/MarginContainer3/PanelContainer/MarginContainer/HBoxContainer/ToastEnergyLabel
 @onready var container_notification = $HUDGameLevel/MarginContainer3
+@onready var ui_pause = $UIGamePause
+@onready var animation_pause = $UIGamePause/PauseAnimation
+@onready var resume_button = $UIGamePause/MarginContainer/HBoxContainer/VBoxContainer/ResumeButton
 
 var game_over_scene = preload("res://scenes/ui/ui_game_over.tscn")
 
@@ -38,6 +41,10 @@ func _ready() -> void:
 	ui_scene_transition.visible = false
 
 func _process(_delta: float) -> void:
+	if !transition.is_playing():
+		if Input.is_action_just_pressed("pause"):
+			_on_pause_button_pressed()
+
 	wait_timer = wave_timer.wait_time
 
 	var time_left = wave_timer.time_left
@@ -135,3 +142,11 @@ func on_player_game_over() -> void:
 
 func _change_scene_to_game_over() -> void:
 	get_tree().change_scene_to_packed(game_over_scene)
+
+func _on_pause_button_pressed() -> void:
+	resume_button.grab_focus()
+	get_tree().paused = true
+	ui_pause.visible = true
+	animation_pause.play("pause_in")
+	await animation_pause.animation_finished
+
