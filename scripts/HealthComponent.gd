@@ -31,7 +31,7 @@ var DEF = 0
 		print(str(health) + " ", owner.name)
 		
 		# Check if health is less than or equal to 0
-		# call the set_off_health_component function
+		# call the set_off_health_component functions
 		# Check if health is less than or equal to half of the max value
 		# Set the DEF to 5
 

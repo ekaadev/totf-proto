@@ -36,7 +36,7 @@ func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina
 
 func heal(damage: int) -> void:
-	find_child("HealthPlayerComponent").health += damage
+	find_child("HealthComponent").health += damage
 
 func set_off_health_component() -> void:
 	hurtbox.call_deferred("set_disabled", true)
