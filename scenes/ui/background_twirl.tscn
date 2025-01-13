@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://v3gpjpfayyaa"]
+
+[ext_resource type="Shader" path="res://shaders/twirl.gdshader" id="1_am3qd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcdmv"]
+shader = ExtResource("1_am3qd")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 5.0
+shader_parameter/polar_repeat = 5.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 5.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.414068, 0.531574, 0.974117, 1)
+shader_parameter/colour_2 = Color(0.216751, 0.169735, 0.751953, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.1
+shader_parameter/pixel_filter = 3000.0
+
+[node name="BackgroundTwirl" type="CanvasLayer"]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pcdmv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://ukhn21vt6xrj"]
+
+[ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="1_1lmxu"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="4_dadxa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hbn8"]
+atlas = ExtResource("1_1lmxu")
+region = Rect2(98, 18, 28, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_lwurp"]
+base_font = ExtResource("4_dadxa")
+spacing_glyph = 1
+
+[node name="UIKeybindGameOver" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_right = -768.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6hbn8")
+stretch_mode = 3
+
+[node name="ConfirmLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_lwurp")
+theme_override_font_sizes/font_size = 14
+text = "Confirm"

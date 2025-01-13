@@ -1,8 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dtcfevfv8d6tg"]
+[gd_scene load_steps=37 format=3 uid="uid://dtcfevfv8d6tg"]
 
 [ext_resource type="Texture2D" uid="uid://v2m2rqo7x01p" path="res://assets/enemy/Beast/Beast.png" id="1_brlhd"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/beast.gd" id="1_p3m3q"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="2_854fr"]
+[ext_resource type="Texture2D" uid="uid://cgocv4ifp703d" path="res://assets/enemy/Beast/Shadow.png" id="3_bg845"]
+[ext_resource type="Shader" uid="uid://cfriugvop3hk" path="res://shaders/hit_flash.tres" id="3_erito"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Idle.gd" id="3_pvaqe"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/Follow.gd" id="4_mjxg5"]
 [ext_resource type="Script" path="res://scripts/enemy/beast/SpikeAttack.gd" id="5_5bfxt"]
@@ -29,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/Label:self_modulate")
+tracks/1/path = NodePath("UIComponents/Label:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -241,7 +243,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Label:self_modulate")
+tracks/0/path = NodePath("UIComponents/Label:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -393,11 +395,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjk54"]
-radius = 9.8
-height = 19.6
+radius = 2.33333
+height = 9.33334
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3miq"]
-radius = 100.0
+radius = 236.085
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ft3t"]
 radius = 8.8
@@ -412,19 +414,31 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo66a"]
-bg_color = Color(0.368627, 0.113725, 0.0901961, 1)
+bg_color = Color(0.760784, 0.290196, 0.243137, 1)
 
 [node name="Beast" type="CharacterBody2D"]
-z_index = 2
-scale = Vector2(5, 5)
-collision_layer = 6
-collision_mask = 0
+y_sort_enabled = true
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_p3m3q")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("3_bg845")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_m1wx6")
 texture = ExtResource("1_brlhd")
 hframes = 10
 vframes = 10
+
+[node name="HitAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u5jts")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -433,7 +447,8 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.2, -2.38419e-07)
+position = Vector2(-1.90735e-06, -2.98023e-08)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fjk54")
 disabled = true
 
@@ -476,9 +491,12 @@ shape = SubResource("CircleShape2D_fk467")
 disabled = true
 debug_color = Color(0.638397, 0.523081, 0.143036, 0.42)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(-2, -19.6667)
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
+[node name="UIComponents" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="UIComponents"]
 visible = false
 z_index = 5
 anchors_preset = 7
@@ -495,11 +513,10 @@ grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_qwev3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_oo66a")
-max_value = 1000.0
-value = 1000.0
+value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="UI/ProgressBar"]
+[node name="Label" type="Label" parent="UIComponents/HealthBar"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -517,7 +534,7 @@ theme_override_font_sizes/font_size = 32
 text = "BEAST"
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Label" type="Label" parent="UIComponents"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -536,7 +553,6 @@ text = "BOSS SLAIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("9_cu8ii")
+[node name="HealthComponent" parent="." instance=ExtResource("12_bimx5")]
 
 [connection signal="body_entered" from="PlayerDetecion" to="EnemyStateMachine/Idle" method="_on_player_detecion_body_entered"]

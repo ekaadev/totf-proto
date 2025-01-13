@@ -1,0 +1,178 @@
+[gd_scene load_steps=17 format=3 uid="uid://cip2sav76d858"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
+[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
+[ext_resource type="PackedScene" uid="uid://ukhn21vt6xrj" path="res://scenes/ui/ui_keybind_game_over.tscn" id="4_iyybv"]
+[ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
+[ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="8_eacqh"]
+
+[sub_resource type="FontVariation" id="FontVariation_gt77m"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="FontVariation" id="FontVariation_v1ipa"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ak6xt"]
+texture = ExtResource("5_g01mj")
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsxgg"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="FontVariation" id="FontVariation_f3b4u"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnft5"]
+texture = ExtResource("5_g01mj")
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wox7r"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+
+[sub_resource type="FontVariation" id="FontVariation_ioccy"]
+base_font = ExtResource("3_q88dm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omttf"]
+texture = ExtResource("5_g01mj")
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+region_rect = Rect2(674, 191, 108, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwb62"]
+texture_margin_top = 8.0
+expand_margin_left = 250.0
+expand_margin_bottom = 25.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_op3ql")
+
+[node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
+visible = false
+
+[node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
+
+[node name="UIKeybindGameOver" parent="." instance=ExtResource("4_iyybv")]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.0745098, 0.0862745, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_gt77m")
+theme_override_font_sizes/font_size = 136
+text = "KAEN"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+focus_mode = 2
+theme_override_constants/separation = -10
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_fonts/font = SubResource("FontVariation_v1ipa")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tsxgg")
+text = "PLAY"
+alignment = 0
+
+[node name="OptionButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../StartButton")
+theme_override_fonts/font = SubResource("FontVariation_f3b4u")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dnft5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wox7r")
+text = "OPTION"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_fonts/font = SubResource("FontVariation_ioccy")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_omttf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_iwb62")
+text = "EXIT"
+alignment = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

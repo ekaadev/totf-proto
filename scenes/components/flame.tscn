@@ -1,61 +1,73 @@
 [gd_scene load_steps=12 format=3 uid="uid://coqi6lcpihy4n"]
 
 [ext_resource type="Script" path="res://scripts/flame/flame.gd" id="1_jaeee"]
-[ext_resource type="Texture2D" uid="uid://drwsc378ehttb" path="res://assets/tilesets/objectinteract/tundra_ [resources].png" id="2_x17yv"]
+[ext_resource type="Texture2D" uid="uid://d3l3wryi1hadp" path="res://assets/component/flame/Shadow.png" id="2_3kgx4"]
+[ext_resource type="Texture2D" uid="uid://c0i5s73115w1n" path="res://assets/component/flame/flame-energy.png" id="3_lqyu8"]
 [ext_resource type="PackedScene" uid="uid://dg3nfqqy8g1ig" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="3_wct68"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rtxhh"]
-atlas = ExtResource("2_x17yv")
-region = Rect2(96, 116, 16, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_82hv2"]
-atlas = ExtResource("2_x17yv")
-region = Rect2(112, 116, 16, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ehh7h"]
-atlas = ExtResource("2_x17yv")
-region = Rect2(128, 116, 16, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0pg4"]
-atlas = ExtResource("2_x17yv")
-region = Rect2(144, 116, 16, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57teo"]
-atlas = ExtResource("2_x17yv")
-region = Rect2(160, 116, 16, 29)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v7cka"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rtxhh")
-}],
-"loop": true,
-"name": &"idle_off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_82hv2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ehh7h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r0pg4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57teo")
-}],
-"loop": true,
-"name": &"idle_on",
-"speed": 9.0
-}]
+[ext_resource type="Texture2D" uid="uid://dbmdxyliolmxf" path="res://assets/component/flame/Fire+Sparks-Sheet.png" id="4_b1qdp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwvk"]
-size = Vector2(15, 13.3333)
+size = Vector2(12.5556, 3.88889)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tkey6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n44ln"]
+radius = 28.3333
+height = 76.0
+
+[sub_resource type="Animation" id="Animation_r0awd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_40t56"]
+resource_name = "idle_off"
+length = 0.100003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [19, 19, 19]
+}
+
+[sub_resource type="Animation" id="Animation_u6htq"]
+resource_name = "idle_on"
+length = 0.633337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rudes"]
+_data = {
+"RESET": SubResource("Animation_r0awd"),
+"idle_off": SubResource("Animation_40t56"),
+"idle_on": SubResource("Animation_u6htq")
+}
 
 [node name="Flame" type="StaticBody2D"]
 z_index = 5
@@ -64,18 +76,41 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_jaeee")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_v7cka")
-animation = &"idle_off"
-frame_progress = 0.674145
+[node name="Shadow" type="Node2D" parent="."]
+show_behind_parent = true
+position = Vector2(-0.333333, -24)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shadow"]
+position = Vector2(-1.33333, 9)
+scale = Vector2(4, 4)
+texture = ExtResource("2_3kgx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lqyu8")
+
+[node name="Flame" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Flame"]
+position = Vector2(0, -39.3333)
+texture = ExtResource("4_b1qdp")
+hframes = 4
+vframes = 5
+frame = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.166667, 6)
+position = Vector2(-0.166667, 25.8333)
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_8dwvk")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_wct68")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 5.66667)
-shape = SubResource("CircleShape2D_tkey6")
+position = Vector2(-0.333333, 11.6667)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n44ln")
 debug_color = Color(0.623863, 0.532679, 5.77569e-07, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rudes")
+}

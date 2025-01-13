@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://gokg1o4278qw"]
+
+[ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="1_wuul3"]
+[ext_resource type="Texture2D" uid="uid://cnkxjp8rj5n3a" path="res://assets/avatar/texture-bg-avatar.png" id="2_cyx1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gno58"]
+atlas = ExtResource("1_wuul3")
+region = Rect2(464, 32, 176, 76)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oow4t"]
+bg_color = Color(0.444429, 0, 0.0950496, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7roo"]
+bg_color = Color(1, 0.344608, 0.264538, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0a7t"]
+bg_color = Color(0.520884, 0.520225, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyerq"]
+bg_color = Color(0.826739, 0.821191, 7.70092e-07, 1)
+border_color = Color(0, 0, 0, 1)
+
+[node name="HUDAvatarPlayer" type="CanvasLayer"]
+metadata/_edit_vertical_guides_ = [1128.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_right = -24
+theme_override_constants/margin_bottom = 128
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_gno58")
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 83.0
+offset_right = 117.0
+offset_bottom = 93.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oow4t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h7roo")
+value = 100.0
+show_percentage = false
+
+[node name="ManaPower" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 101.0
+offset_right = 131.0
+offset_bottom = 111.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p0a7t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cyerq")
+value = 100.0
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = 10.0
+offset_top = -48.0
+offset_right = 106.0
+offset_bottom = 48.0
+rotation = 0.159375
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_cyx1j")

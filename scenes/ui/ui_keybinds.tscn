@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://f4ewe5rkw7de"]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_keybinds.gd" id="1_40r7m"]
+[ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="1_rdxoo"]
+[ext_resource type="Texture2D" uid="uid://bbjhv71y3oh4a" path="res://assets/ui/hud/keybind/Keyboard Letters and Symbols.png" id="1_x7ax7"]
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_andru"]
+[ext_resource type="Texture2D" uid="uid://5e41hklv8nin" path="res://assets/ui/hud/keybind/mouse-right-click.png" id="4_kfnw4"]
+[ext_resource type="Texture2D" uid="uid://ewyrv7gxrmrs" path="res://assets/ui/hud/keybind/mouse-left-click.png" id="5_2dggj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f075"]
+atlas = ExtResource("1_x7ax7")
+region = Rect2(1, 34, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3otrt"]
+atlas = ExtResource("1_x7ax7")
+region = Rect2(97, 66, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7h1t"]
+atlas = ExtResource("1_x7ax7")
+region = Rect2(33, 66, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hylo3"]
+atlas = ExtResource("1_x7ax7")
+region = Rect2(49, 34, 13, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_m6xij"]
+base_font = ExtResource("2_andru")
+spacing_glyph = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1sn6"]
+atlas = ExtResource("1_rdxoo")
+region = Rect2(65, 34, 30, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11iag"]
+atlas = ExtResource("4_kfnw4")
+region = Rect2(2, 2, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rr3q"]
+atlas = ExtResource("5_2dggj")
+region = Rect2(2, 2, 11, 12)
+
+[node name="UIKeybinds" type="CanvasLayer"]
+script = ExtResource("1_40r7m")
+metadata/_edit_vertical_guides_ = [40.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -766.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Move" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Move"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="A" type="TextureRect" parent="MarginContainer/HBoxContainer/Move/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_0f075")
+stretch_mode = 4
+
+[node name="W" type="TextureRect" parent="MarginContainer/HBoxContainer/Move/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_3otrt")
+stretch_mode = 4
+
+[node name="S" type="TextureRect" parent="MarginContainer/HBoxContainer/Move/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_m7h1t")
+stretch_mode = 4
+
+[node name="D" type="TextureRect" parent="MarginContainer/HBoxContainer/Move/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_hylo3")
+stretch_mode = 4
+
+[node name="Move" type="Label" parent="MarginContainer/HBoxContainer/Move"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
+theme_override_font_sizes/font_size = 14
+text = "Move"
+vertical_alignment = 1
+
+[node name="Dash" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Space" type="TextureRect" parent="MarginContainer/HBoxContainer/Dash"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_b1sn6")
+stretch_mode = 4
+
+[node name="Dash" type="Label" parent="MarginContainer/HBoxContainer/Dash"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
+theme_override_font_sizes/font_size = 14
+text = "Dash"
+
+[node name="Chop" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="LeftClick" type="TextureRect" parent="MarginContainer/HBoxContainer/Chop"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_11iag")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Chop"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
+theme_override_font_sizes/font_size = 14
+text = "Chop"
+
+[node name="Slash" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="RightClick" type="TextureRect" parent="MarginContainer/HBoxContainer/Slash"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_6rr3q")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slash"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_m6xij")
+theme_override_font_sizes/font_size = 14
+text = "Slash"
