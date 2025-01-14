@@ -28,13 +28,13 @@ var dirArray = [
 @export var maxHealth = 10
 
 func _ready() -> void:
-	healthComponent.maxHealth = maxHealth
+	healthComponent.enity_max_health = maxHealth
 	
 	randomize()
 	
 	direction = dirArray[0]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if sprite.get_frame() >= 3 and sprite.animation == "attack_side":
 		hitbox.disabled = false
 	else:
@@ -103,10 +103,18 @@ func _process(delta: float) -> void:
 		sprite.flip_h = false
 
 func _physics_process(delta: float) -> void:
-	velocity = direction.normalized() * 180
+	velocity = direction.normalized() * 70
 	move_and_collide(velocity * delta)
 	
 	distance += velocity * delta
 
-func take_damage(damage: int) -> void:
-	healthComponent.setHealth(healthComponent.getHealth() - damage)
+func take_damage(total_damage: int) -> void:
+	if healthComponent:
+		healthComponent.health -= total_damage - healthComponent.DEF
+		
+
+func set_off_health_component() -> void:
+	state.change_state("Death")
+
+func increase_defense() -> void:
+	pass

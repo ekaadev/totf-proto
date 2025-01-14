@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dhceusdo4njxc"]
+[gd_scene load_steps=66 format=3 uid="uid://nglikocn2eac"]
 
 [ext_resource type="Texture2D" uid="uid://c1ht08j6pyb5t" path="res://assets/enemy/ElectroDog/attack_left.png" id="1_2if4v"]
 [ext_resource type="Script" path="res://scripts/enemy/electro_dog/electro_dog.gd" id="1_oyqan"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwaf0hkljux3i" path="res://assets/enemy/ElectroDog/run_up.png" id="7_yy5p7"]
 [ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="8_ixfwi"]
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="9_lk1lc"]
-[ext_resource type="Script" path="res://scripts/HealthComponentNew.gd" id="10_snv0h"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="11_3hh0j"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="12_32cr5"]
 [ext_resource type="Script" path="res://scripts/enemy/electro_dog/Follow.gd" id="13_kysns"]
 [ext_resource type="Script" path="res://scripts/enemy/electro_dog/Attack.gd" id="14_upqvw"]
@@ -397,6 +397,7 @@ sprite_frames = SubResource("SpriteFrames_8ksc0")
 animation = &"attack_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
 shape = SubResource("CapsuleShape2D_olm2f")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -404,6 +405,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+z_index = -1
 position = Vector2(0, 16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vd6be")
@@ -413,6 +415,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+z_index = -1
 shape = SubResource("CapsuleShape2D_olm2f")
 debug_color = Color(0.967424, 0, 0.474342, 0.42)
 
@@ -422,6 +425,7 @@ collision_mask = 0
 damage = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+z_index = -1
 position = Vector2(0, 16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_15fyx")
@@ -429,7 +433,9 @@ disabled = true
 debug_color = Color(0.638397, 0.523081, 0.143036, 0.42)
 
 [node name="HealthComponentNew" type="Node" parent="."]
-script = ExtResource("10_snv0h")
+script = ExtResource("11_3hh0j")
+enity_max_health = 20
+health = 20
 
 [node name="EnemyStateMachine" type="Node2D" parent="."]
 script = ExtResource("12_32cr5")

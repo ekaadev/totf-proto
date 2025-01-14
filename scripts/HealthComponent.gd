@@ -28,7 +28,7 @@ var DEF = 0
 		if health_bar_player:
 			health_bar_player.value = value
 
-		print(str(health) + " ", owner.name)
+		print(str(health) + " ", str(owner.name) if owner else "unknown")
 		
 		# Check if health is less than or equal to 0
 		# call the set_off_health_component functions

@@ -47,6 +47,6 @@ func transition():
 		player_entered = false
 		get_parent().change_state("Attack")
 
-func _on_player_detection_body_entered(body: Node2D) -> void:
+func _on_player_detection_body_entered(_body: Node2D) -> void:
 	if owner.playerDetectionCooldown <= 0 and get_parent().current_state == self:
 		player_entered = true

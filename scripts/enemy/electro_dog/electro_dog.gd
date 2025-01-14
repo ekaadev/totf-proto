@@ -30,11 +30,11 @@ var dirArray = [
 ]
 
 func _ready() -> void:
-	healthComponent.maxHealth = maxHealth
+	healthComponent.enity_max_health = maxHealth
 	
 	randomize()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if sprite.get_frame() > 1 and sprite.get_frame() < 5 and sprite.animation == "attack_side":
 		hitbox.disabled = false
 	else:
@@ -49,8 +49,17 @@ func _process(delta: float) -> void:
 			direction = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	velocity = direction.normalized() * 200
+	velocity = direction.normalized() * 70
 	move_and_collide(velocity * delta)
 
-func take_damage(damage: int) -> void:
-	healthComponent.setHealth(healthComponent.getHealth() - damage)
+func take_damage(total_damage: int) -> void:
+	if healthComponent:
+		healthComponent.health -= total_damage - healthComponent.DEF
+		
+
+func set_off_health_component() -> void:
+	state.change_state("Death")
+
+func increase_defense() -> void:
+	pass
+
