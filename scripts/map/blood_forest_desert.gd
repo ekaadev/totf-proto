@@ -149,4 +149,3 @@ func _on_pause_button_pressed() -> void:
 	ui_pause.visible = true
 	animation_pause.play("pause_in")
 	await animation_pause.animation_finished
-
