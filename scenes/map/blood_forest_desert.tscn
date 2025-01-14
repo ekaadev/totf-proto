@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=43 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://cvfrlap20uc3b" path="res://scenes/ui/ui_game_pause.tscn" id="6_d8ly8"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
-[ext_resource type="PackedScene" uid="uid://nglikocn2eac" path="res://scenes/enemy/electro_dog.tscn" id="20_yr0to"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
 background_mode = 3
@@ -1920,10 +1919,6 @@ wait_time = 30.0
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(596, 442)
 scale = Vector2(2, 2)
-
-[node name="ElectroDog" parent="." instance=ExtResource("20_yr0to")]
-position = Vector2(557, 314)
-scale = Vector2(0.7, 0.7)
 
 [connection signal="timeout" from="BeastSpawnTimer" to="." method="_on_beast_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

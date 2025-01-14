@@ -340,12 +340,15 @@ height = 29.0
 radius = 17.5
 
 [node name="Spider" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_wq7qh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_etob5")
 animation = &"idle_side"
 
