@@ -33,11 +33,13 @@ func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 
 func _on_main_menu_button_pressed() -> void:
-	ui_transition_sideways.visible = true
-	transition_sideways.play("rect_in")
-	await get_tree().create_timer(0.5).timeout
-	await transition_sideways.animation_finished
-	call_deferred("_change_scene_to_main_menu")
+	# ui_transition_sideways.visible = true
+	# transition_sideways.play("rect_in")
+	# await get_tree().create_timer(0.5).timeout
+	# await transition_sideways.animation_finished
+	# call_deferred("_change_scene_to_main_menu")
+	
+	LoadManager.load_scene("res://scenes/ui/user_interface_main_menu.tscn", "res://scenes/loading/sideways.tscn")
 	get_tree().paused = false
 
 func _change_scene_to_main_menu() -> void:

@@ -331,6 +331,7 @@ _data = {
 
 [node name="UIGamePause" type="CanvasLayer"]
 process_mode = 2
+layer = 4
 script = ExtResource("1_w7cqq")
 
 [node name="ColorRect" type="ColorRect" parent="."]

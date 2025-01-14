@@ -12,19 +12,21 @@ var blood_forest_desert: PackedScene
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_portal")
 
-	blood_forest_desert = load(blood_forest_desert_path)
-	if !blood_forest_desert:
-		push_error("Failed to load blood forest desert scene")
+	# blood_forest_desert = load(blood_forest_desert_path)
+	# if !blood_forest_desert:
+	# 	push_error("Failed to load blood forest desert scene")
 
 func _on_portal():
-	if !blood_forest_desert:
-		push_error("Scene not loaded")
-		return
+	# if !blood_forest_desert:
+	# 	push_error("Scene not loaded")
+	# 	return
 
-	ui_transition_sideways.visible = true
-	transition.play("rect_in")
-	await transition.animation_finished
-	call_deferred("_change_scene_to_blood_forest_desert")
+	LoadManager.load_scene(blood_forest_desert_path, "res://scenes/loading/sideways.tscn")
+
+	# ui_transition_sideways.visible = true
+	# transition.play("rect_in")
+	# await transition.animation_finished
+	# call_deferred("_change_scene_to_blood_forest_desert")
 
 func _change_scene_to_blood_forest_desert():
 	if blood_forest_desert:

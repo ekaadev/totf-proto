@@ -26,11 +26,14 @@ func _process(_delta: float) -> void:
 func _on_start_button_pressed() -> void:
 	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
 
-	ui_transition_sideways.visible = true
-	transition.play("rect_in")
+	LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/sideways.tscn")
 	AudioAssets.stop_music()
-	await transition.animation_finished
-	call_deferred("_change_scene_to_green_garden")
+
+	# ui_transition_sideways.visible = true
+	# transition.play("rect_in")
+	# AudioAssets.stop_music()
+	# await transition.animation_finished
+	# call_deferred("_change_scene_to_green_garden")
 
 func _change_scene_to_green_garden() -> void:
 	get_tree().change_scene_to_packed(green_garden)
@@ -41,10 +44,12 @@ func _on_exit_button_pressed() -> void:
 func _on_option_button_pressed() -> void:
 	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
 
-	ui_transition_sideways.visible = true
-	transition.play("rect_in")
-	await transition.animation_finished
-	call_deferred("_change_scene_to_option_group")
+	LoadManager.load_scene("res://scenes/ui/option_group.tscn", "res://scenes/loading/sideways.tscn")
+
+	# ui_transition_sideways.visible = true
+	# transition.play("rect_in")
+	# await transition.animation_finished
+	# call_deferred("_change_scene_to_option_group")
 
 func _change_scene_to_option_group() -> void:
 	get_tree().change_scene_to_packed(option_group)

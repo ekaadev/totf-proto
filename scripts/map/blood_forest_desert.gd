@@ -34,16 +34,20 @@ func _ready() -> void:
 	notification_energy_collected.connect(_on_notification_energy_collected)
 	player_game_over.connect(on_player_game_over)
 
-	ui_scene_transition.visible = true
-	transition.play("rect_out")
+	print("Blood Forest Desert Scene Loaded")
+	# ui_scene_transition.visible = true
+	# transition.play("rect_out")
 	wave_timer.start()
-	await transition.animation_finished
-	ui_scene_transition.visible = false
+	# await transition.animation_finished
+	# ui_scene_transition.visible = false
 
 func _process(_delta: float) -> void:
-	if !transition.is_playing():
-		if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause"):
 			_on_pause_button_pressed()
+
+	# if !transition.is_playing():
+	# 	if Input.is_action_just_pressed("pause"):
+	# 		_on_pause_button_pressed()
 
 	wait_timer = wave_timer.wait_time
 
@@ -134,11 +138,7 @@ func process_notification_queue() -> void:
 	emit_signal("notification_energy_collected", beast_energy)
 
 func on_player_game_over() -> void:
-	ui_scene_transition_fade.visible = true
-	transition_fade.play("fade_in")
-	await get_tree().create_timer(0.5).timeout
-	await transition_fade.animation_finished
-	call_deferred("_change_scene_to_game_over")
+	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
 
 func _change_scene_to_game_over() -> void:
 	get_tree().change_scene_to_packed(game_over_scene)

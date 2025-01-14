@@ -26,6 +26,7 @@ DamageNumbers="*res://scripts/DamageNumbers.gd"
 AudioManager="*res://scripts/AudioManager.gd"
 AudioAssets="*res://scripts/AudioAssets.gd"
 DisplayManager="*res://scripts/DisplayManager.gd"
+LoadManager="*res://scripts/LoadManager.gd"
 
 [display]
 

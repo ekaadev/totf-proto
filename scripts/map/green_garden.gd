@@ -8,16 +8,17 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ui_scene_transition_sideways.visible = true
-	transition_sideways.play("rect_out")
-	await transition_sideways.animation_finished
-	ui_scene_transition_sideways.visible = false
+	pass
+
+	# ui_scene_transition_sideways.visible = true
+	# transition_sideways.play("rect_out")
+	# await transition_sideways.animation_finished
+	# ui_scene_transition_sideways.visible = false
 
 func _process(_delta: float) -> void:
-	if !transition_sideways.is_playing():
-		if Input.is_action_just_pressed("pause"):
-			_on_pause_button_pressed()
-	
+	if Input.is_action_just_pressed("pause"):
+		_on_pause_button_pressed()
+		
 
 func _on_pause_button_pressed() -> void:
 	resume_button.grab_focus()

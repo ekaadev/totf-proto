@@ -1,0 +1,153 @@
+[gd_scene load_steps=6 format=3 uid="uid://dffmgb18bno2f"]
+
+[ext_resource type="Script" path="res://scripts/loading/sideways.gd" id="1_bm0in"]
+
+[sub_resource type="Animation" id="Animation_sw11m"]
+resource_name = "start_load"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(2080, -922), Vector2(355, -922)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.55, 0.1),
+"update": 0,
+"values": [Vector2(2080, -922), Vector2(355, -922)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"loading_screen_has_full_coverage"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gqkno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2080, -922)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2080, -922)]
+}
+
+[sub_resource type="Animation" id="Animation_y63bd"]
+resource_name = "end_load"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(0.49, 0.1),
+"update": 0,
+"values": [Vector2(355, -922), Vector2(-1792, -922)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(0.45, 0.45),
+"update": 0,
+"values": [Vector2(355, -922), Vector2(-1792, -922)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7jue"]
+_data = {
+"RESET": SubResource("Animation_gqkno"),
+"end_load": SubResource("Animation_y63bd"),
+"start_load": SubResource("Animation_sw11m")
+}
+
+[node name="Sideways" type="CanvasLayer"]
+layer = 5
+follow_viewport_enabled = true
+script = ExtResource("1_bm0in")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2080.0
+offset_top = -922.0
+offset_right = 2800.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.436332
+color = Color(0.572549, 0.192157, 0.188235, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 2080.0
+offset_top = -922.0
+offset_right = 4080.0
+offset_bottom = 1078.0
+rotation = 0.436332
+color = Color(0.054902, 0.0313726, 0.0392157, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationLoading" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v7jue")
+}
+autoplay = "start_load"
