@@ -1913,6 +1913,10 @@ visibility_rect = Rect2(-640, -100, 1280, 500)
 wait_time = 5.0
 autostart = true
 
+[node name="SpiderSpawnTimer" type="Timer" parent="."]
+
+[node name="ElectroDogSpawnTimer" type="Timer" parent="."]
+
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 

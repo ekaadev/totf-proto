@@ -28,9 +28,9 @@ func update_animation():
 		owner.sprite.play("run_side")
 	
 	if direction.x > 0:
-		owner.sprite.flip_h = true
-	else:
 		owner.sprite.flip_h = false
+	else:
+		owner.sprite.flip_h = true
 
 func enter():
 	super.enter()
