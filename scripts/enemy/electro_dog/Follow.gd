@@ -45,6 +45,7 @@ func exit():
 func transition():
 	if player_entered:
 		player_entered = false
+		owner.playerDetection.disabled = true
 		get_parent().change_state("Attack")
 
 func _on_player_detection_body_entered(body: Node2D) -> void:

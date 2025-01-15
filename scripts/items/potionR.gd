@@ -19,7 +19,7 @@ func _onPlayerEntered(body: Node2D) -> void:
 	
 	var healthComponent = body.find_child("HealthComponent")
 	
-	if healthComponent.health >= healthComponent.enity_max_health:
+	if healthComponent.health >= healthComponent.entity_max_health:
 		return
 	
 	# heal the player

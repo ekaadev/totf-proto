@@ -10,9 +10,10 @@ func enter():
 	await owner.sprite.animation_finished
 	
 	anim_finished = true
-	owner.playerDetectionCooldown = 1.0
+	# owner.playerDetectionCooldown = 1.0
 
 func transition():
 	if anim_finished:
 		anim_finished = false
+		owner.playerDetection.disabled = false
 		get_parent().change_state("Follow")

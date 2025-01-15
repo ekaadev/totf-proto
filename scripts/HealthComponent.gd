@@ -13,7 +13,7 @@ extends Node
 # Hurtbox Component
 @onready var hurtbox = $"../HurtboxComponent/CollisionShape2D"
 
-@export var enity_max_health: int = 100
+@export var entity_max_health: int = 100
 
 var DEF = 0
 # Health Value
@@ -28,7 +28,7 @@ var DEF = 0
 		if health_bar_player:
 			health_bar_player.value = value
 
-		print(str(health) + " ", owner.name)
+		# print(str(health) + " ", owner.name)
 		
 		# Check if health is less than or equal to 0
 		# call the set_off_health_component functions
@@ -37,5 +37,6 @@ var DEF = 0
 
 		if value <= 0:
 			owner.set_off_health_component()
-		elif value <= float(enity_max_health) / 2 and DEF == 0:
-			owner.increase_defense()
+		elif value <= float(entity_max_health) / 2 and DEF == 0:
+			if (owner.has_method("increase_defense")):
+				owner.increase_defense()

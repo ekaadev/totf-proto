@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/enemy/warrior/FollowWarrior.gd" id="5_okall"]
 [ext_resource type="Script" path="res://scripts/enemy/warrior/SpikeAttackWarrior.gd" id="6_idcoa"]
 [ext_resource type="Script" path="res://scripts/enemy/warrior/DeathWarrior.gd" id="7_gjcp2"]
-[ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="7_kcgmo"]
-[ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="8_jq16r"]
+[ext_resource type="PackedScene" uid="uid://hn17fvgf3k7r" path="res://scenes/HurtboxComponent.tscn" id="7_kcgmo"]
+[ext_resource type="PackedScene" uid="uid://qpq6mf7j2s4k" path="res://scenes/HitboxComponent.tscn" id="8_jq16r"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="9_vqdui"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="10_nj2m6"]
 

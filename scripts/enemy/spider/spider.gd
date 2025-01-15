@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
+signal add_energy
+
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $AnimatedSprite2D
-@onready var healthComponent = $HealthComponentNew
+@onready var healthComponent = $HealthComponent
 @onready var hitbox = $HitboxComponent/CollisionShape2D
+@onready var hurtbox = $HurtboxComponent/CollisionShape2D
 @onready var playerDetection = $PlayerDetection/CollisionShape2D
+@onready var damage_number_origin = $DamageNumbersOrigin
 
 var playerDetectionCooldown = 0
 
-@onready var state = $EnemyStateMachine
+@onready var stateMachine = $EnemyStateMachine
 @onready var STATE_FOLLOW = $EnemyStateMachine/Follow
 @onready var STATE_ATTACK = $EnemyStateMachine/Attack
 @onready var STATE_DEATH = $EnemyStateMachine/Death
@@ -25,11 +29,7 @@ var dirArray = [
 	Vector2(0, 1)   # down
 ]
 
-@export var maxHealth = 10
-
 func _ready() -> void:
-	healthComponent.maxHealth = maxHealth
-	
 	randomize()
 	
 	direction = dirArray[0]
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	else:
 		hitbox.disabled = true
 	
-	if state.current_state == STATE_FOLLOW:
+	if stateMachine.current_state == STATE_FOLLOW:
 		if scatterPhases > 0:
 			if direction.y == 0 and abs(distance.x) >= 8:
 				scatterPhases -= 1 if scatterPhases > 0 else 0
@@ -109,4 +109,11 @@ func _physics_process(delta: float) -> void:
 	distance += velocity * delta
 
 func take_damage(damage: int) -> void:
-	healthComponent.setHealth(healthComponent.getHealth() - damage)
+	if healthComponent:
+		DamageNumbers.display_damage_number(damage, damage_number_origin.global_position)
+		healthComponent.health -= damage
+
+func set_off_health_component() -> void:
+	hurtbox.call_deferred("set_disabled", true)
+	stateMachine.change_state("Death")
+	emit_signal("add_energy")
