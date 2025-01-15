@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+signal add_energy
+
+@export var current_level: float = 0.1
+
 @onready var player = get_parent().find_child("Player")
 @onready var sprite = $AnimatedSprite2D
 @onready var healthComponent = $HealthComponentNew
@@ -112,9 +116,12 @@ func take_damage(total_damage: int) -> void:
 	if healthComponent:
 		healthComponent.health -= total_damage - healthComponent.DEF
 		
+func get_current_level() -> float:
+	return current_level
 
 func set_off_health_component() -> void:
 	state.change_state("Death")
+	emit_signal("add_energy")
 
 func increase_defense() -> void:
 	pass

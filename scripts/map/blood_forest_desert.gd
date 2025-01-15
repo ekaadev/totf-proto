@@ -4,6 +4,9 @@ signal notification_energy_collected(energy: int)
 signal player_game_over
 
 @export var beast_scene: PackedScene
+@export var spider_scene: PackedScene
+
+# @export var max_enemies: int
 
 @onready var state_player = $Player/StateMachine
 @onready var ui_scene_transition = $UITransitionSideways
@@ -19,6 +22,8 @@ signal player_game_over
 @onready var ui_pause = $UIGamePause
 @onready var animation_pause = $UIGamePause/PauseAnimation
 @onready var resume_button = $UIGamePause/MarginContainer/HBoxContainer/VBoxContainer/ResumeButton
+@onready var beast_spawn = $BeastPath/BeastSpawnLocation
+@onready var spider_spawn = $SpiderPath/SpiderSpawnLocation
 
 var game_over_scene = preload("res://scenes/ui/ui_game_over.tscn")
 
@@ -28,6 +33,7 @@ var wait_timer = 30
 var notification_queue: Array = []
 var is_showing_notification: bool = false
 var has_emitted_game_over: bool = false
+# var current_enemies: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,15 +73,29 @@ func _process(_delta: float) -> void:
 		has_emitted_game_over = true
 		emit_signal("player_game_over")
 
+# beast spawn
 func _on_beast_timer_timeout() -> void:
 	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
-		var new_beast = beast_scene.instantiate()
+		var mob_spawn_location = beast_spawn
+		mob_spawn_location.progress_ratio = randf()
 
-		# IMPROVE POSITION WITH RANDOM POSITION
-		new_beast.position = Vector2(607, 96)
+		var new_beast = beast_scene.instantiate()
+		new_beast.position = mob_spawn_location.position
 
 		new_beast.connect("add_energy", Callable(self, "_on_beast_add_energy"))
 		add_child(new_beast)
+
+# spider spawn
+func _on_spider_timer_timeout() -> void:
+	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
+		var mob_spawn_location = spider_spawn
+		mob_spawn_location.progress_ratio = randf()
+
+		var new_spider = spider_scene.instantiate()
+		new_spider.position = mob_spawn_location.position
+
+		new_spider.connect("add_energy", Callable(self, "_on_spider_add_energy"))
+		add_child(new_spider)
 
 func convert_energy_to_string(energy: int) -> String:
 	return str(energy)
@@ -92,10 +112,18 @@ func _on_wave_timer_timeout() -> void:
 		wave_timer.wait_time = wait_timer + 5
 		wave_timer.start()
 
+# beast add energy
 func _on_beast_add_energy() -> void:
-	var beast_energy = randi_range(1, 4)
+	var beast_energy = randi_range(10, 20)
 	counter_energy += beast_energy
 	notification_queue.append(beast_energy)
+	process_notification_queue()
+
+# spider add energy
+func _on_spider_add_energy() -> void:
+	var spider_energy = randi_range(1, 4)
+	counter_energy += spider_energy
+	notification_queue.append(spider_energy)
 	process_notification_queue()
 
 func _on_notification_energy_collected(energy: int) -> void:
@@ -134,8 +162,8 @@ func process_notification_queue() -> void:
 		return
 	
 	is_showing_notification = true
-	var beast_energy = notification_queue.pop_front()
-	emit_signal("notification_energy_collected", beast_energy)
+	var energy_collected = notification_queue.pop_front()
+	emit_signal("notification_energy_collected", energy_collected)
 
 func on_player_game_over() -> void:
 	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
