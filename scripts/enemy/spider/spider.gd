@@ -103,7 +103,7 @@ func _process(delta: float) -> void:
 		sprite.flip_h = false
 
 func _physics_process(delta: float) -> void:
-	velocity = direction.normalized() * 180
+	velocity = direction.normalized() * 70
 	move_and_collide(velocity * delta)
 	
 	distance += velocity * delta

@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 			direction = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	velocity = direction.normalized() * 200
+	velocity = direction.normalized() * 100
 	move_and_collide(velocity * delta)
 
 func take_damage(damage: int) -> void:

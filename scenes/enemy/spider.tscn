@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://yhvixqyciyf" path="res://assets/enemy/Spider/run_side.png" id="6_7vhot"]
 [ext_resource type="Texture2D" uid="uid://omyi8lf2fkj2" path="res://assets/enemy/Spider/run_up.png" id="8_f4vd6"]
 [ext_resource type="Script" path="res://scripts/EnemyStateMachine.gd" id="10_cdy17"]
-[ext_resource type="PackedScene" uid="uid://hn17fvgf3k7r" path="res://scenes/HurtboxComponent.tscn" id="10_wp523"]
+[ext_resource type="PackedScene" uid="uid://bf5as2jss0yx5" path="res://scenes/HurtboxComponent.tscn" id="10_wp523"]
 [ext_resource type="Script" path="res://scripts/enemy/spider/Follow.gd" id="11_50xl7"]
-[ext_resource type="PackedScene" uid="uid://qpq6mf7j2s4k" path="res://scenes/HitboxComponent.tscn" id="11_ngl4e"]
+[ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="11_ngl4e"]
 [ext_resource type="Script" path="res://scripts/enemy/spider/Death.gd" id="11_wtmj0"]
 [ext_resource type="Script" path="res://scripts/enemy/spider/Attack.gd" id="12_vi0fd"]
 [ext_resource type="PackedScene" uid="uid://b0he3prqmydvy" path="res://scenes/HealthComponent.tscn" id="14_fprxj"]
@@ -340,7 +340,6 @@ height = 29.0
 radius = 17.5
 
 [node name="Spider" type="CharacterBody2D"]
-scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_wq7qh")

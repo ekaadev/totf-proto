@@ -934,52 +934,53 @@ tile_set = SubResource("TileSet_kiopj")
 position = Vector2(465, 461)
 
 [node name="ElectroDog2" parent="." instance=ExtResource("6_dmr55")]
-position = Vector2(80, 458)
+position = Vector2(72, 456)
 
 [node name="ElectroDog3" parent="." instance=ExtResource("6_dmr55")]
-position = Vector2(862, 463)
+position = Vector2(856, 460)
 
 [node name="ElectroDog4" parent="." instance=ExtResource("6_dmr55")]
-position = Vector2(466, 884)
+position = Vector2(464, 884)
 
 [node name="Spider" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(53, 723)
+position = Vector2(48, 716)
 
 [node name="Spider3" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(207, 876)
+visible = false
+position = Vector2(208, 876)
 
 [node name="Spider5" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(879, 724)
+position = Vector2(880, 720)
 
 [node name="Spider6" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(724, 880)
+position = Vector2(720, 880)
 
 [node name="Spider8" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(46, 204)
+position = Vector2(48, 208)
 
 [node name="Spider9" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(210, 44)
+position = Vector2(208, 48)
 
 [node name="Spider10" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(722, 43)
+position = Vector2(720, 44)
 
 [node name="Spider12" parent="." instance=ExtResource("5_7ycrx")]
-position = Vector2(881, 211)
+position = Vector2(880, 208)
 
 [node name="Potion" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(126, 122)
+position = Vector2(128, 128)
 
 [node name="Potion2" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(129, 795)
+position = Vector2(128, 800)
 
 [node name="Potion3" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(802, 795)
+position = Vector2(800, 800)
 
 [node name="Potion4" parent="." instance=ExtResource("2_bdd7p")]
-position = Vector2(802, 127)
+position = Vector2(800, 128)
 
 [node name="ElectroDog" parent="." instance=ExtResource("6_dmr55")]
-position = Vector2(463, 49)
+position = Vector2(464, 48)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 z_index = -1
