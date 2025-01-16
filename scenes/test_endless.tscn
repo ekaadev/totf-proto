@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://g7je4hp1ttns"]
+[gd_scene load_steps=20 format=4 uid="uid://g7je4hp1ttns"]
 
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="1_trgxx"]
 [ext_resource type="Texture2D" uid="uid://cfuy1yt5ql8ei" path="res://assets/tilesets/greengarden/Texture/TX Tileset Grass.png" id="1_ufg0q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0x2boss3u4dx" path="res://assets/tilesets/greengarden/wall-new.png" id="4_n8mbd"]
 [ext_resource type="PackedScene" uid="uid://2gcn2pnxxxar" path="res://scenes/enemy/spider.tscn" id="5_7ycrx"]
 [ext_resource type="PackedScene" uid="uid://dhceusdo4njxc" path="res://scenes/enemy/electro_dog.tscn" id="6_dmr55"]
+[ext_resource type="PackedScene" uid="uid://duf7lghpjxbqk" path="res://scenes/enemy/warrior.tscn" id="9_jksjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2f57"]
 texture = ExtResource("1_ufg0q")
@@ -910,10 +911,10 @@ sources/1 = SubResource("TileSetAtlasSource_bxj0r")
 size = Vector2(353, 1074)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oru3c"]
-size = Vector2(1925, 321)
+size = Vector2(1287, 321)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpkvl"]
-size = Vector2(1879, 226)
+size = Vector2(1201.5, 226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqmgf"]
 size = Vector2(344.25, 967)
@@ -997,7 +998,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
-position = Vector2(623.5, -167.5)
+position = Vector2(304.5, -167.5)
 shape = SubResource("RectangleShape2D_oru3c")
 
 [node name="BottomQWall" type="StaticBody2D" parent="."]
@@ -1006,7 +1007,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomQWall"]
-position = Vector2(667, 1041)
+position = Vector2(328.25, 1041)
 shape = SubResource("RectangleShape2D_wpkvl")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
@@ -1017,3 +1018,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(1096.88, 477.5)
 shape = SubResource("RectangleShape2D_yqmgf")
+
+[node name="warrior" parent="." instance=ExtResource("9_jksjb")]
+position = Vector2(296, 256)

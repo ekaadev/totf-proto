@@ -40,5 +40,5 @@ func exit():
 func transition():
 	var distance = owner.direction.length()
 
-	if distance < 80:
+	if distance < 60:
 		get_parent().change_state("SpikeAttack")
