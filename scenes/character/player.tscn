@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=58 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
+[ext_resource type="PackedScene" uid="uid://dlj70dqjg05vc" path="res://scenes/character/camera_shake.tscn" id="8_f3e1a"]
 [ext_resource type="Script" path="res://scripts/player/slash_attack.gd" id="11_8pr1r"]
 [ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://scenes/audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
 [ext_resource type="Texture2D" uid="uid://46cgiwm8kcos" path="res://assets/scifi-character/Sci-fi hero 64x65.png" id="13_8o4wp"]
@@ -908,9 +909,7 @@ texture = ExtResource("4_kscxm")
 position = Vector2(0, -3.33333)
 shape = SubResource("CapsuleShape2D_c5tfn")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.4, 1.4)
-position_smoothing_enabled = true
+[node name="Camera2D" parent="." instance=ExtResource("8_f3e1a")]
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -40.0

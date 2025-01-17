@@ -7,6 +7,8 @@ extends CanvasLayer
 var main_menu_scene = preload("res://scenes/ui/user_interface_main_menu.tscn")
 var green_garden_scene = preload("res://scenes/map/green_garden.tscn")
 
+var can_pressed = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +20,10 @@ func _ready() -> void:
 	# ui_scene_transition_fade.visible = false
 
 func _on_goto_green_garden_button_pressed() -> void:
-	LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/fade.tscn")
+	
+	if can_pressed:
+		LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/fade.tscn")
+		can_pressed = false
 
 	# ui_scene_transition_fade.visible = true
 	# transition_fade.play("fade_in")
@@ -27,7 +32,10 @@ func _on_goto_green_garden_button_pressed() -> void:
 	# call_deferred("_change_scene_to_green_garden")
 
 func _on_goto_main_menu_button_pressed() -> void:
-	LoadManager.load_scene("res://scenes/ui/user_interface_main_menu.tscn", "res://scenes/loading/fade.tscn")
+
+	if can_pressed:
+		LoadManager.load_scene("res://scenes/ui/user_interface_main_menu.tscn", "res://scenes/loading/fade.tscn")
+		can_pressed = false
 
 	# ui_scene_transition_fade.visible = true
 	# transition_fade.play("fade_in")

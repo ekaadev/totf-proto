@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://f4ewe5rkw7de"]
+[gd_scene load_steps=17 format=3 uid="uid://f4ewe5rkw7de"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_keybinds.gd" id="1_40r7m"]
 [ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="1_rdxoo"]
@@ -6,6 +6,14 @@
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_andru"]
 [ext_resource type="Texture2D" uid="uid://5e41hklv8nin" path="res://assets/ui/hud/keybind/mouse-right-click.png" id="4_kfnw4"]
 [ext_resource type="Texture2D" uid="uid://ewyrv7gxrmrs" path="res://assets/ui/hud/keybind/mouse-left-click.png" id="5_2dggj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o11eq"]
+atlas = ExtResource("1_rdxoo")
+region = Rect2(39, 2, 18, 12)
+
+[sub_resource type="FontVariation" id="FontVariation_x3egg"]
+base_font = ExtResource("2_andru")
+spacing_glyph = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0f075"]
 atlas = ExtResource("1_x7ax7")
@@ -49,17 +57,34 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
-offset_right = -766.0
+offset_right = -639.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 6
+
+[node name="Pause" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Pause"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_o11eq")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Pause"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("FontVariation_x3egg")
+theme_override_font_sizes/font_size = 14
+text = "Pause"
 
 [node name="Move" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

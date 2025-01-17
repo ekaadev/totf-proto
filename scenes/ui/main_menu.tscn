@@ -130,6 +130,7 @@ focus_previous = NodePath("../OptionButton")
 theme_override_fonts/font = SubResource("FontVariation_v1ipa")
 theme_override_font_sizes/font_size = 96
 theme_override_styles/focus = SubResource("StyleBoxTexture_ak6xt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ak6xt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ak6xt")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ak6xt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tsxgg")

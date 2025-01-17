@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 
 var main_menu_scene: PackedScene
+var can_pressed = true
 
 func _ready() -> void:
 	main_menu_scene = load(main_menu_scene_path)
@@ -39,8 +40,10 @@ func _on_main_menu_button_pressed() -> void:
 	# await transition_sideways.animation_finished
 	# call_deferred("_change_scene_to_main_menu")
 	
-	LoadManager.load_scene("res://scenes/ui/user_interface_main_menu.tscn", "res://scenes/loading/sideways.tscn")
-	get_tree().paused = false
+	if can_pressed:
+		LoadManager.load_scene("res://scenes/ui/user_interface_main_menu.tscn", "res://scenes/loading/sideways.tscn")
+		get_tree().paused = false
+		can_pressed = false
 
 func _change_scene_to_main_menu() -> void:
 	get_tree().change_scene_to_packed(main_menu_scene)
