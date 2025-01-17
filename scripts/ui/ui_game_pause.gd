@@ -16,18 +16,22 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("pause"):
 			_on_resume_button_pressed()
 
+# update the info label when the resume button is focused
 func _on_resume_button_focus_entered() -> void:
 	info_label.text = "INFO: Resume the game"
 	
+# update the info label when the resume button is focused
 func _on_goto_main_menu_button_focus_entered() -> void:
 	info_label.text = "INFO: Go back to the main menu"
 
+# resume the game when the resume button is pressed
 func _on_resume_button_pressed() -> void:
 	pause_animation.play("pause_out")
 	await pause_animation.animation_finished
 	visible = false
 	get_tree().paused = false
 
+# load the main menu scene when the button is pressed
 func _on_main_menu_button_pressed() -> void:
 
 	if can_pressed:

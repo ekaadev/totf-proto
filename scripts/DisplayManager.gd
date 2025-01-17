@@ -2,6 +2,7 @@ extends Node
 
 signal settings_changed
 
+# Display settings
 enum WindowMode {
     WINDOWED,
     FULLSCREEN,
@@ -29,6 +30,7 @@ var current_resolution: Vector2i = Vector2i(1920, 1080):
 func _ready() -> void:
     load_settings()
 
+# Apply the window mode
 func _apply_window_mode() -> void:
     match current_window_mode:
         WindowMode.WINDOWED:
@@ -39,6 +41,7 @@ func _apply_window_mode() -> void:
             DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
     emit_signal("settings_changed")
 
+# Apply the vsync
 func _apply_vsync() -> void:
     if vsync_enabled:
         DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
@@ -46,10 +49,12 @@ func _apply_vsync() -> void:
         DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
     emit_signal("settings_changed")
 
+# Apply the resolution
 func _apply_resolution() -> void:
     DisplayServer.window_set_size(current_resolution)
     emit_signal("settings_changed")
 
+# Save the display settings to a config file
 func save_settings() -> void:
     var config = ConfigFile.new()
     config.set_value("display", "window_mode", current_window_mode)
@@ -57,6 +62,7 @@ func save_settings() -> void:
     config.set_value("display", "resolution", current_resolution)
     config.save("user://display_settings.cfg")
 
+# Load the display settings from a config file
 func load_settings() -> void:
     var config = ConfigFile.new()
     var err = config.load("user://display_settings.cfg")

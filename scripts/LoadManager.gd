@@ -9,6 +9,9 @@ var _progress : Array = []
 
 var use_sub_threads : bool = true
 
+# load scene function
+# - load the scene
+# - load the loading screen
 func load_scene(scene_path: String, load_path: String) -> void:
 	var loading_screen = load(load_path)
 	_scene_path = scene_path
@@ -23,11 +26,13 @@ func load_scene(scene_path: String, load_path: String) -> void:
 
 	start_load()
 
+# start load function
 func start_load() -> void:
 	var state = ResourceLoader.load_threaded_request(_scene_path, "", use_sub_threads)
 	if state == OK:
 		set_process(true)
 
+# process function
 func _process(_delta: float) -> void:
 	var load_status =  ResourceLoader.load_threaded_get_status(_scene_path, _progress)
 	match load_status:

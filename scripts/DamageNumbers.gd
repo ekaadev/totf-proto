@@ -1,5 +1,8 @@
 extends Node
 
+# Display Damage Number
+# - set style, position of the damage number
+# - create a tween to animate the damage number
 func display_damage_number(total_damage: float, position: Vector2) -> void:
 	var number = Label.new()
 

@@ -10,10 +10,14 @@ extends Node2D
 func _ready() -> void:
 	pass
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+
+	# Pause the game
 	if Input.is_action_just_pressed("pause"):
 		_on_pause_button_pressed()
-		
+
+# On pause button pressed
 func _on_pause_button_pressed() -> void:
 	resume_button.grab_focus()
 	get_tree().paused = true

@@ -5,8 +5,8 @@ signal player_game_over
 
 @export var beast_scene: PackedScene
 @export var spider_scene: PackedScene
-
 # @export var max_enemies: int
+
 @onready var state_player = $Player/StateMachine
 @onready var ui_scene_transition = $UITransitionSideways
 @onready var ui_scene_transition_fade = $UITransitionFade
@@ -24,8 +24,6 @@ signal player_game_over
 @onready var beast_spawn = $BeastPath/BeastSpawnLocation
 @onready var spider_spawn = $SpiderPath/SpiderSpawnLocation
 
-var game_over_scene = preload("res://scenes/ui/ui_game_over.tscn")
-
 var counter_energy: int = 0
 var counter_wave: int = 1
 var wait_timer = 30
@@ -36,36 +34,49 @@ var has_emitted_game_over: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect signals
+	# - enegy collected signal
+	# - game over signal
 	notification_energy_collected.connect(_on_notification_energy_collected)
 	player_game_over.connect(on_player_game_over)
 
 	print("Blood Forest Desert Scene Loaded")
 
+	# Start the wave timer
 	wave_timer.start()
 
 func _process(_delta: float) -> void:
+	# Pause the game
+	# Can pause the game with escape key
 	if Input.is_action_just_pressed("pause"):
 		_on_pause_button_pressed()
 
+	# Update the variables wait timer
+	# wait_timer used to add time to the wave timer
 	wait_timer = wave_timer.wait_time
 
+	# Update the wave timer label
 	var time_left = wave_timer.time_left
 	if time_left < 3:
 		wave_timer_label.text = str(snapped(time_left, 0.1)) + " SEC"
 	else:
 		wave_timer_label.text = str(snapped(time_left, 1)) + " SEC"
 
+	# Update the energy label
 	var temp_energy = convert_energy_to_string(counter_energy)
 	energy_label.text = temp_energy
 
+	# Update the wave label
 	var temp_wave = convert_wave_to_string(counter_wave)
 	wave_label.text = "Wave " + temp_wave
 
+	# Check if the player is dead
+	# Emit the game over signal
 	if state_player.current_node_state_name == "death" and !has_emitted_game_over:
 		has_emitted_game_over = true
 		emit_signal("player_game_over")
 
-# beast spawn
+# Beast spawn
 func _on_beast_timer_timeout() -> void:
 	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
 		var mob_spawn_location = beast_spawn
@@ -77,7 +88,7 @@ func _on_beast_timer_timeout() -> void:
 		new_beast.connect("add_energy", Callable(self, "_on_beast_add_energy"))
 		add_child(new_beast)
 
-# spider spawn
+# Spider spawn
 func _on_spider_timer_timeout() -> void:
 	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
 		var mob_spawn_location = spider_spawn
@@ -89,12 +100,17 @@ func _on_spider_timer_timeout() -> void:
 		new_spider.connect("add_energy", Callable(self, "_on_spider_add_energy"))
 		add_child(new_spider)
 
+# Convert energy to string
 func convert_energy_to_string(energy: int) -> String:
 	return str(energy)
 
+# Convert wave to string
 func convert_wave_to_string(wave: int) -> String:
 	return str(wave)
 
+# Wave timer timeout
+# Stop the wave timer if the player is dead
+# Increase the wave counter and add time to the wave timer if the player is alive
 func _on_wave_timer_timeout() -> void:
 	if state_player.current_node_state_name == "death":
 		wave_timer.stop()
@@ -104,20 +120,21 @@ func _on_wave_timer_timeout() -> void:
 		wave_timer.wait_time = wait_timer + 5
 		wave_timer.start()
 
-# beast add energy
+# Beast add energy
 func _on_beast_add_energy() -> void:
 	var beast_energy = randi_range(10, 20)
 	counter_energy += beast_energy
 	notification_queue.append(beast_energy)
 	process_notification_queue()
 
-# spider add energy
+# Spider add energy
 func _on_spider_add_energy() -> void:
 	var spider_energy = randi_range(1, 4)
 	counter_energy += spider_energy
 	notification_queue.append(spider_energy)
 	process_notification_queue()
 
+# Notification energy collected
 func _on_notification_energy_collected(energy: int) -> void:
 	notification_label.text = "Energy x " + str(energy)
 
@@ -149,6 +166,7 @@ func _on_notification_energy_collected(energy: int) -> void:
 	is_showing_notification = false
 	process_notification_queue()
 
+# Process notification queue
 func process_notification_queue() -> void:
 	if is_showing_notification or notification_queue.is_empty():
 		return
@@ -157,12 +175,15 @@ func process_notification_queue() -> void:
 	var energy_collected = notification_queue.pop_front()
 	emit_signal("notification_energy_collected", energy_collected)
 
+# Player game over
+# Load the game over scene
+# load scene have 2 parameters
+# 1. scene path
+# 2. fade path
 func on_player_game_over() -> void:
 	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
 
-func _change_scene_to_game_over() -> void:
-	get_tree().change_scene_to_packed(game_over_scene)
-
+# Pause button pressed
 func _on_pause_button_pressed() -> void:
 	resume_button.grab_focus()
 	get_tree().paused = true

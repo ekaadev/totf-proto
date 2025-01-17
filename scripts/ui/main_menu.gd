@@ -8,6 +8,7 @@ extends Control
 
 var can_pressed = true
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioAssets.play_music(AudioAssets.menu_music, -60.0)
 	start_button.grab_focus()
@@ -20,6 +21,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+# on start button pressed, load the green garden scene
 func _on_start_button_pressed() -> void:
 
 	if can_pressed:
@@ -27,7 +29,8 @@ func _on_start_button_pressed() -> void:
 		LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/sideways.tscn")
 		AudioAssets.stop_music()
 		can_pressed = false
-	
+
+# load the option scene, when option button pressed
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
