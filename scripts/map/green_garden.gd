@@ -10,16 +10,10 @@ extends Node2D
 func _ready() -> void:
 	pass
 
-	# ui_scene_transition_sideways.visible = true
-	# transition_sideways.play("rect_out")
-	# await transition_sideways.animation_finished
-	# ui_scene_transition_sideways.visible = false
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		_on_pause_button_pressed()
 		
-
 func _on_pause_button_pressed() -> void:
 	resume_button.grab_focus()
 	get_tree().paused = true

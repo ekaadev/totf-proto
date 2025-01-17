@@ -7,7 +7,6 @@ signal player_game_over
 @export var spider_scene: PackedScene
 
 # @export var max_enemies: int
-
 @onready var state_player = $Player/StateMachine
 @onready var ui_scene_transition = $UITransitionSideways
 @onready var ui_scene_transition_fade = $UITransitionFade
@@ -41,19 +40,12 @@ func _ready() -> void:
 	player_game_over.connect(on_player_game_over)
 
 	print("Blood Forest Desert Scene Loaded")
-	# ui_scene_transition.visible = true
-	# transition.play("rect_out")
+
 	wave_timer.start()
-	# await transition.animation_finished
-	# ui_scene_transition.visible = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-			_on_pause_button_pressed()
-
-	# if !transition.is_playing():
-	# 	if Input.is_action_just_pressed("pause"):
-	# 		_on_pause_button_pressed()
+		_on_pause_button_pressed()
 
 	wait_timer = wave_timer.wait_time
 

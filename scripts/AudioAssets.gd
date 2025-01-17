@@ -31,4 +31,3 @@ func stop_music(fade_duration: float = 1.0) -> void:
     tween.tween_property(music_player, "volume_db", -80.0, fade_duration).set_ease(Tween.EASE_IN_OUT)
     await tween.finished
     music_player.stop()
-    # music_player.volume_db = -60.0  # Reset volume for next play

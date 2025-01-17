@@ -16,8 +16,6 @@ func _process(_delta: float) -> void:
 	else:
 		ui_keybind_idle()
 	
-
-	
 func ui_keybind_idle() -> void:
 	var tween = create_tween()
 	tween.tween_property(
