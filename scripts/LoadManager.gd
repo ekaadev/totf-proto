@@ -3,9 +3,6 @@ extends Node
 signal progress_changed(progress)
 signal load_done
 
-# can change this to a different loading screen
-# var _load_screen_path : String
-# var _load_screen = load(_load_screen_path)
 var _loaded_resource : PackedScene
 var _scene_path : String
 var _progress : Array = []
