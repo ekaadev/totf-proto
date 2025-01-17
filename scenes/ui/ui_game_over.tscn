@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://7m8wkfqqrx7u"]
+[gd_scene load_steps=17 format=3 uid="uid://7m8wkfqqrx7u"]
 
-[ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="1_1v4wg"]
 [ext_resource type="Script" path="res://scripts/ui/ui_game_over.gd" id="1_dgmme"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_o1brq"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_4tasi"]
@@ -66,8 +65,6 @@ texture_margin_right = 20.0
 
 [node name="UIGameOver" type="CanvasLayer"]
 script = ExtResource("1_dgmme")
-
-[node name="UITransitionFade" parent="." instance=ExtResource("1_1v4wg")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

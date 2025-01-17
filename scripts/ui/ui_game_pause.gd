@@ -3,8 +3,6 @@ extends CanvasLayer
 @onready var pause_animation = $PauseAnimation
 @onready var resume_button = $MarginContainer/HBoxContainer/VBoxContainer/ResumeButton
 @onready var info_label = $MarginContainer3/VBoxContainer/InformationLabel
-@onready var ui_transition_sideways = $UITransitionSideways
-@onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 
 var can_pressed = true
 

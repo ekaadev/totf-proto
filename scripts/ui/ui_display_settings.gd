@@ -5,8 +5,6 @@ const WINDOW_MODES = [
 	DisplayServer.WINDOW_MODE_FULLSCREEN
 ]
 
-@onready var ui_transition_sideways = $UITransitionSideways 
-@onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 @onready var resolution_option = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/OptionButton
 @onready var window_mode_option = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/OptionButton
 @onready var vsync_check = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/CheckButton

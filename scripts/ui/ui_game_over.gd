@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var ui_scene_transition_fade = $UITransitionFade
-@onready var transition_fade = $UITransitionFade/GameOverAnimation
 @onready var button_goto_green_garden = $MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GotoGreenGardenButton
 
 var main_menu_scene = preload("res://scenes/ui/user_interface_main_menu.tscn")

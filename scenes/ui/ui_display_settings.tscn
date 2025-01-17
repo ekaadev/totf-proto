@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://byu2m25xk5omk"]
+[gd_scene load_steps=7 format=3 uid="uid://byu2m25xk5omk"]
 
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_hyiwh"]
 [ext_resource type="Script" path="res://scripts/ui/ui_display_settings.gd" id="1_rw87e"]
 [ext_resource type="Texture2D" uid="uid://c2npknsucvily" path="res://assets/ui/bg/arcade-machine2d-nobg.png" id="2_1tjgl"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_khbqy"]
-[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="4_o776e"]
 [ext_resource type="PackedScene" uid="uid://dtedo66k400th" path="res://scenes/ui/ui_keybind_special.tscn" id="6_1cgfw"]
 
 [sub_resource type="FontVariation" id="FontVariation_6votj"]
@@ -151,9 +150,6 @@ size_flags_horizontal = 3
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="UITransitionSideways" parent="." instance=ExtResource("4_o776e")]
-visible = false
 
 [node name="UIKeybindSpecial" parent="." instance=ExtResource("6_1cgfw")]
 layer = 2

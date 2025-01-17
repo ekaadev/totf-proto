@@ -1,7 +1,5 @@
 extends Control
 
-@onready var ui_transition_sideways = $UITransitionSideways 
-@onready var transition = $UITransitionSideways/SceneTransistion/AnimationPlayer
 @onready var ui_transition_fade = $UITransitionFade
 @onready var transition_fade = $UITransitionFade/GameOverAnimation
 @onready var start_button = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/StartButton

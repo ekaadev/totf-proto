@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=16 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
-[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="3_hl4ly"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
 [ext_resource type="PackedScene" uid="uid://ukhn21vt6xrj" path="res://scenes/ui/ui_keybind_game_over.tscn" id="4_iyybv"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
@@ -64,9 +63,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op3ql")
-
-[node name="UITransitionSideways" parent="." instance=ExtResource("3_hl4ly")]
-visible = false
 
 [node name="UITransitionFade" parent="." instance=ExtResource("8_eacqh")]
 

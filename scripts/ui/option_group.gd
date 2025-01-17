@@ -1,8 +1,6 @@
 extends CanvasLayer
 
 @onready var sound_settings_button = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SoundSettingsButton
-@onready var ui_transition_sideways = $UITransitionSideways 
-@onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 @onready var info_label = $MarginContainer/VBoxContainer/MarginContainer2/InfoLabel
 
 var main_menu_scene: PackedScene

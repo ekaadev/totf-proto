@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cvfrlap20uc3b"]
+[gd_scene load_steps=22 format=3 uid="uid://cvfrlap20uc3b"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui_game_pause.gd" id="1_w7cqq"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="2_jahfs"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_oial5"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_g2j3f"]
 [ext_resource type="Texture2D" uid="uid://w1r36nc2tqbo" path="res://assets/ui/hud/keybind/Keyboard Extras.png" id="4_oiicr"]
-[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="6_mjesm"]
 
 [sub_resource type="FontVariation" id="FontVariation_s36ig"]
 base_font = ExtResource("2_oial5")
@@ -483,9 +482,6 @@ text = "Confirm"
 libraries = {
 "": SubResource("AnimationLibrary_ua4yu")
 }
-
-[node name="UITransitionSideways" parent="." instance=ExtResource("6_mjesm")]
-visible = false
 
 [connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

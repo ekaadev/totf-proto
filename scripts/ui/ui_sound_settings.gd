@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var ui_transition_sideways = $UITransitionSideways 
-@onready var transition_sideways = $UITransitionSideways/SceneTransistion/AnimationPlayer
 @onready var master_slider = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MasterSlider
 @onready var music_slider = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MusicSlider
 @onready var sfx_slider = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/SFXSlider

@@ -1,9 +1,8 @@
-[gd_scene load_steps=54 format=4 uid="uid://7dg76f6c60fu"]
+[gd_scene load_steps=53 format=4 uid="uid://7dg76f6c60fu"]
 
 [ext_resource type="Script" path="res://scripts/map/green_garden.gd" id="1_mgl6s"]
 [ext_resource type="Texture2D" uid="uid://cfuy1yt5ql8ei" path="res://assets/tilesets/greengarden/Texture/TX Tileset Grass.png" id="1_vssng"]
 [ext_resource type="Texture2D" uid="uid://2ei421spunyw" path="res://assets/tilesets/greengarden/Texture/TX Struct.png" id="2_62q84"]
-[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="2_ed2tr"]
 [ext_resource type="PackedScene" uid="uid://cvfrlap20uc3b" path="res://scenes/ui/ui_game_pause.tscn" id="3_op2kn"]
 [ext_resource type="Texture2D" uid="uid://bi60u1dbcg0ai" path="res://assets/tilesets/greengarden/Texture/TX Tileset Wall.png" id="3_tb3al"]
 [ext_resource type="Texture2D" uid="uid://blbpyhl03mhik" path="res://assets/tilesets/greengarden/Texture/TX Plant.png" id="4_776we"]
@@ -4370,9 +4369,6 @@ sources/0 = SubResource("TileSetAtlasSource_2oxjo")
 [node name="GreenGarden" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mgl6s")
-
-[node name="UITransitionSideways" parent="." instance=ExtResource("2_ed2tr")]
-visible = false
 
 [node name="UIGamePause" parent="." instance=ExtResource("3_op2kn")]
 layer = 2

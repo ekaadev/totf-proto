@@ -8,10 +8,6 @@ signal player_game_over
 # @export var max_enemies: int
 
 @onready var state_player = $Player/StateMachine
-@onready var ui_scene_transition = $UITransitionSideways
-@onready var ui_scene_transition_fade = $UITransitionFade
-@onready var transition = $UITransitionSideways/SceneTransistion/AnimationPlayer
-@onready var transition_fade = $UITransitionFade/GameOverAnimation
 @onready var energy_label = $HUDGameLevel/MarginContainer/HBoxContainer/HBoxContainer/EnergyLabel
 @onready var wave_label = $HUDGameLevel/MarginContainer2/HBoxContainer/WaveLabel
 @onready var wave_timer_label = $HUDGameLevel/MarginContainer2/HBoxContainer2/WaveTimerLabel

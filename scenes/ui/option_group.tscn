@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbvvk5rmv5eu4"]
+[gd_scene load_steps=13 format=3 uid="uid://cbvvk5rmv5eu4"]
 
 [ext_resource type="Script" path="res://scripts/ui/option_group.gd" id="1_jhjrk"]
 [ext_resource type="Theme" uid="uid://dvlbxh3u7wpfd" path="res://resources/theme/default_theme.tres" id="1_v26kv"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="2_xhin5"]
 [ext_resource type="Texture2D" uid="uid://c2npknsucvily" path="res://assets/ui/bg/arcade-machine2d-nobg.png" id="2_xhmtn"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="3_wlp4v"]
-[ext_resource type="PackedScene" uid="uid://s24h3exhkf26" path="res://scenes/ui/ui_transition_sideways.tscn" id="5_mxkkg"]
 [ext_resource type="PackedScene" uid="uid://pv5yoqyaus2v" path="res://scenes/ui/ui_keybind_option.tscn" id="7_3phu6"]
 
 [sub_resource type="FontVariation" id="FontVariation_ygud3"]
@@ -179,9 +178,6 @@ layout_mode = 2
 theme = ExtResource("1_v26kv")
 theme_override_font_sizes/font_size = 32
 text = "INFO: Information setting"
-
-[node name="UITransitionSideways" parent="." instance=ExtResource("5_mxkkg")]
-visible = false
 
 [node name="UIKeybindOption" parent="." instance=ExtResource("7_3phu6")]
 layer = 2
