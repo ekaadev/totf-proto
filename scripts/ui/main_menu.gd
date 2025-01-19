@@ -7,6 +7,7 @@ extends Control
 @onready var exit_button = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExitButton
 @onready var ui_option = $UIOption
 @onready var animation_option = $UIOption/OptionAnimation
+@onready var sound_button = $UIOption/MarginContainer/HBoxContainer/VBoxContainer/SoundButton
 
 var can_pressed = true
 
@@ -43,7 +44,9 @@ func _on_option_button_pressed() -> void:
 	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
 
 	set_buttons_focus(false)
+	sound_button.grab_focus()
 	ui_option.visible = true
+	ui_option.can_back = true
 	animation_option.play("in")
 	await animation_option.animation_finished
 
@@ -63,4 +66,4 @@ func set_buttons_focus(can_focus: bool) -> void:
 
 func _on_option_closed() -> void:
 	set_buttons_focus(true)
-	start_button.grab_focus()
+	option_button.grab_focus()

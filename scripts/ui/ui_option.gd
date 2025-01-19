@@ -11,6 +11,9 @@ signal option_closed
 @onready var window_mode_option = $MarginContainer3/HBoxContainer/VBoxContainer/HBoxContainer2/OptionButton
 
 @onready var animation = $OptionAnimation
+@onready var sound_button = $MarginContainer/HBoxContainer/VBoxContainer/SoundButton
+
+@onready var information_label = $MarginContainer5/VBoxContainer/InformationLabel
 
 const WINDOW_MODES = [
 	DisplayServer.WINDOW_MODE_WINDOWED,
@@ -24,6 +27,10 @@ var resolutions = [
 	Vector2i(1920, 1080)
 ]
 
+var can_back = false:
+	set(value):
+		can_back = value
+		
 var in_sound = false
 var in_display = false
 var is_animating = false
@@ -57,10 +64,12 @@ func _process(_delta: float) -> void:
 		return
 		
 	if in_sound and Input.is_action_just_pressed("ui_cancel"):
+		AudioAssets.play_sfx(AudioAssets.menu_cancel, -50)
 		play_animation("sound_out")
 		in_sound = false
 		
 	if in_display and Input.is_action_just_pressed("ui_cancel"):
+		AudioAssets.play_sfx(AudioAssets.menu_cancel, -50)
 		play_animation("display_out")
 		in_display = false
 
@@ -69,7 +78,8 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if event is InputEventKey:
-		if event.is_action_pressed("ui_cancel") and !in_sound and !in_display:
+		if event.is_action_pressed("ui_cancel") and !in_sound and !in_display and can_back:
+			can_back = false
 			play_animation("out")
 			emit_signal("option_closed")
 
@@ -91,16 +101,19 @@ func _on_sound_button_pressed() -> void:
 	if is_animating:
 		return
 	in_sound = true
+	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
 	play_animation("sound_in")
 
 func _on_display_button_pressed() -> void:
 	if is_animating:
 		return
 	in_display = true
+	AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
 	play_animation("display_in")
 
 func _on_option() -> void:
 	play_animation("option_in")
+	sound_button.grab_focus()
 
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioManager.master_volume = value
@@ -126,4 +139,12 @@ func _on_display_settings_changed() -> void:
 	print("Settings changed, current mode: ", DisplayManager.current_window_mode)  
 	# Update UI elements when settings change
 	resolution_option.select(resolutions.find(DisplayManager.current_resolution))
-	window_mode_option.select(WINDOW_MODES.find(DisplayManager.current_window_mode)) 
+	window_mode_option.select(WINDOW_MODES.find(DisplayManager.current_window_mode))
+
+func _on_sound_button_focus_entered() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60)
+	information_label.text = "INFO: Adjust the sound settings"
+
+func _on_display_button_focus_entered() -> void:
+	AudioAssets.play_sfx(AudioAssets.menu_cursor, -60) 
+	information_label.text = "INFO: Adjust the display settings"
