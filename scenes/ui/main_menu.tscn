@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cip2sav76d858"]
+[gd_scene load_steps=17 format=3 uid="uid://cip2sav76d858"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_op3ql"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="3_q88dm"]
 [ext_resource type="PackedScene" uid="uid://ukhn21vt6xrj" path="res://scenes/ui/ui_keybind_game_over.tscn" id="4_iyybv"]
+[ext_resource type="PackedScene" uid="uid://bn4b5ciuvj6ua" path="res://scenes/ui/ui_option.tscn" id="4_p3u61"]
 [ext_resource type="Texture2D" uid="uid://o3u4f8g50qmp" path="res://assets/ui/ui-kael.png" id="5_g01mj"]
 [ext_resource type="PackedScene" uid="uid://dl8j6kcu14q74" path="res://scenes/ui/ui_transition_fade.tscn" id="8_eacqh"]
 
@@ -68,6 +69,10 @@ script = ExtResource("1_op3ql")
 
 [node name="UIKeybindGameOver" parent="." instance=ExtResource("4_iyybv")]
 layer = 2
+
+[node name="UIOption" parent="." instance=ExtResource("4_p3u61")]
+layer = 4
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
