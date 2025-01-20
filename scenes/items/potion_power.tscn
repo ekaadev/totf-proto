@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://i3ds2anw6uqv"]
+
+[ext_resource type="Script" path="res://scripts/items/potion_power.gd" id="1_mgcwj"]
+[ext_resource type="Texture2D" uid="uid://bhlvma4epwekw" path="res://assets/items/potion-power.png" id="1_s3l43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60f2y"]
+atlas = ExtResource("1_s3l43")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exg7v"]
+atlas = ExtResource("1_s3l43")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e2q4"]
+atlas = ExtResource("1_s3l43")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf0ek"]
+atlas = ExtResource("1_s3l43")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pox2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60f2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exg7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e2q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf0ek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p23l5"]
+size = Vector2(16, 16)
+
+[node name="PotionPower" type="Area2D"]
+script = ExtResource("1_mgcwj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8pox2")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p23l5")
