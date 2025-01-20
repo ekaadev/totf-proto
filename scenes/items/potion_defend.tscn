@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyq3bt0nmh04t"]
+[gd_scene load_steps=9 format=3 uid="uid://cyq3bt0nmh04t"]
 
 [ext_resource type="Texture2D" uid="uid://ddt614nnvf2hu" path="res://assets/items/potion-def.png" id="1_ftugu"]
+[ext_resource type="Script" path="res://scripts/items/potion_defend.gd" id="1_oy66t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bhcp"]
 atlas = ExtResource("1_ftugu")
@@ -42,6 +43,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="PotionDefend" type="Area2D"]
+script = ExtResource("1_oy66t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vreyc")

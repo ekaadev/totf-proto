@@ -1,17 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://coqi6lcpihy4n"]
+[gd_scene load_steps=9 format=3 uid="uid://coqi6lcpihy4n"]
 
-[ext_resource type="Script" path="res://scripts/flame/flame.gd" id="1_jaeee"]
 [ext_resource type="Texture2D" uid="uid://d3l3wryi1hadp" path="res://assets/component/flame/Shadow.png" id="2_3kgx4"]
 [ext_resource type="Texture2D" uid="uid://c0i5s73115w1n" path="res://assets/component/flame/flame-energy.png" id="3_lqyu8"]
-[ext_resource type="PackedScene" uid="uid://dg3nfqqy8g1ig" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="3_wct68"]
 [ext_resource type="Texture2D" uid="uid://dbmdxyliolmxf" path="res://assets/component/flame/Fire+Sparks-Sheet.png" id="4_b1qdp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwvk"]
-size = Vector2(12.5556, 3.88889)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n44ln"]
-radius = 28.3333
-height = 76.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cy1a3"]
+radius = 3.0
+height = 42.0
 
 [sub_resource type="Animation" id="Animation_r0awd"]
 length = 0.001
@@ -70,47 +65,45 @@ _data = {
 }
 
 [node name="Flame" type="StaticBody2D"]
-z_index = 5
-scale = Vector2(3, 3)
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_jaeee")
 
 [node name="Shadow" type="Node2D" parent="."]
 show_behind_parent = true
-position = Vector2(-0.333333, -24)
+position = Vector2(1, -50)
 
 [node name="Sprite2D" type="Sprite2D" parent="Shadow"]
-position = Vector2(-1.33333, 9)
+position = Vector2(-2.66667, 1)
 scale = Vector2(4, 4)
 texture = ExtResource("2_3kgx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture = ExtResource("3_lqyu8")
+offset = Vector2(0, -30)
 
 [node name="Flame" type="Node2D" parent="."]
+position = Vector2(-3, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Flame"]
-position = Vector2(0, -39.3333)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -23)
 texture = ExtResource("4_b1qdp")
+offset = Vector2(0, -45)
 hframes = 4
 vframes = 5
 frame = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.166667, 25.8333)
-scale = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_8dwvk")
-
-[node name="InteractionArea" parent="." instance=ExtResource("3_wct68")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-0.333333, 11.6667)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_n44ln")
-debug_color = Color(0.623863, 0.532679, 5.77569e-07, 0.42)
+position = Vector2(0, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_cy1a3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rudes")
 }
+autoplay = "idle_on"

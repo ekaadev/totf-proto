@@ -913,7 +913,6 @@ shape = SubResource("CapsuleShape2D_c5tfn")
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -40.0
-bus = &"SFX"
 
 [node name="HitboxComponent" parent="." instance=ExtResource("13_cgujj")]
 collision_mask = 12
