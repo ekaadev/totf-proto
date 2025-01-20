@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=59 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="PackedScene" uid="uid://gokg1o4278qw" path="res://scenes/ui/hud_avatar_player.tscn" id="19_d0sir"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
+[ext_resource type="PackedScene" uid="uid://eanfff0q6m08" path="res://scenes/fx/fx_potion_health.tscn" id="21_olft4"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="25_81gg4"]
 [ext_resource type="Script" path="res://scripts/player/stamina_player_component.gd" id="25_mq4v3"]
@@ -879,6 +880,8 @@ vertical_alignment = 1
 [node name="HUDAvatarPlayer" parent="." instance=ExtResource("19_d0sir")]
 
 [node name="UIKeybinds" parent="." instance=ExtResource("19_1rq7r")]
+
+[node name="FXPotionHealth" parent="." instance=ExtResource("21_olft4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("13_8o4wp")
