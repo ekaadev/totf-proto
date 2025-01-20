@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=47 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
 [ext_resource type="PackedScene" uid="uid://coqi6lcpihy4n" path="res://scenes/components/flame.tscn" id="18_8bp86"]
 [ext_resource type="PackedScene" uid="uid://cqg8mpc8rtgi2" path="res://scenes/enemy/spider.tscn" id="20_1osry"]
+[ext_resource type="PackedScene" uid="uid://bjsgwdgr3v4st" path="res://scenes/items/potion_health.tscn" id="20_yej3w"]
 
 [sub_resource type="Environment" id="Environment_ed1ya"]
 background_mode = 3
@@ -1255,6 +1256,12 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_vjvea"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 512, 256, 0, 0, 0, 0, 704, 256, 0, 0, 0, 0, 704, 384, 0, 0, 0, 0, 512, 384, 0, 0, 0, 0, 512, 256)
+}
+point_count = 5
+
 [sub_resource type="Gradient" id="Gradient_t6uah"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.340206, 0.501718, 1)
@@ -1282,6 +1289,7 @@ y_sort_enabled = true
 script = ExtResource("1_y03tr")
 beast_scene = ExtResource("2_bxbcl")
 spider_scene = ExtResource("20_1osry")
+potion_health = ExtResource("20_yej3w")
 
 [node name="HUDGameLevel" parent="." instance=ExtResource("4_j8ifs")]
 
@@ -1911,7 +1919,7 @@ position = Vector2(683.5, 845)
 shape = SubResource("RectangleShape2D_mp8k6")
 
 [node name="Flame" parent="." instance=ExtResource("18_8bp86")]
-position = Vector2(624, 340)
+position = Vector2(608, 336)
 scale = Vector2(1.2, 1.2)
 
 [node name="BeastPath" type="Path2D" parent="."]
@@ -1926,6 +1934,12 @@ curve = SubResource("Curve2D_vfvqd")
 [node name="SpiderSpawnLocation" type="PathFollow2D" parent="SpiderPath"]
 position = Vector2(287, 213)
 rotation = 0.00139665
+
+[node name="HealthPotionPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vjvea")
+
+[node name="HealthPotionSpawnLocation" type="PathFollow2D" parent="HealthPotionPath"]
+position = Vector2(512, 256)
 
 [node name="Fireflies" type="GPUParticles2D" parent="."]
 position = Vector2(648, 246)
@@ -1946,6 +1960,10 @@ autostart = true
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 
+[node name="PotionHealthTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource("12_wnaey")]
 position = Vector2(624, 442)
 scale = Vector2(2, 2)
@@ -1953,3 +1971,4 @@ scale = Vector2(2, 2)
 [connection signal="timeout" from="BeastSpawnTimer" to="." method="_on_beast_timer_timeout"]
 [connection signal="timeout" from="SpiderSpawnTimer" to="." method="_on_spider_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="PotionHealthTimer" to="." method="_on_health_potion_timer_timeout"]

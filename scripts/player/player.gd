@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var footstep_sfx = $FootstepsPlayerSFX
 @onready var gpu_particles = $GPUParticles2D
 @onready var state = $StateMachine
+@onready var heal_animation = $FXPotionHealth/AnimationPlayer
 # attribute for player
 @export var current_level: float = 0.1
 var player_direction: Vector2
@@ -36,6 +37,7 @@ func take_stamina(stamina: int) -> void:
 	find_child("StaminaPlayerComponent").stamina -= stamina
 
 func heal(value: int) -> void:
+	heal_animation.play("in")
 	find_child("HealthComponent").health += value
 
 func set_off_health_component() -> void:

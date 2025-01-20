@@ -5,6 +5,7 @@ signal player_game_over
 
 @export var beast_scene: PackedScene
 @export var spider_scene: PackedScene
+@export var potion_health: PackedScene
 # @export var max_enemies: int
 
 @onready var state_player = $Player/StateMachine
@@ -19,6 +20,7 @@ signal player_game_over
 @onready var resume_button = $UIGamePause/MarginContainer/HBoxContainer/VBoxContainer/ResumeButton
 @onready var beast_spawn = $BeastPath/BeastSpawnLocation
 @onready var spider_spawn = $SpiderPath/SpiderSpawnLocation
+@onready var potion_health_spawn = $HealthPotionPath/HealthPotionSpawnLocation
 
 var counter_energy: int = 0
 var counter_wave: int = 1
@@ -95,6 +97,17 @@ func _on_spider_timer_timeout() -> void:
 
 		new_spider.connect("add_energy", Callable(self, "_on_spider_add_energy"))
 		add_child(new_spider)
+
+# Health potion spawn
+func _on_health_potion_timer_timeout() -> void:
+	if state_player.current_node_state_name != "death" and wave_timer.time_left > 0:
+		var spawn_location = potion_health_spawn
+		spawn_location.progress_ratio = randf()
+
+		var new_potion = potion_health.instantiate()
+		new_potion.position = spawn_location.position
+
+		add_child(new_potion)
 
 # Convert energy to string
 func convert_energy_to_string(energy: int) -> String:

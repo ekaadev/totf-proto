@@ -39,10 +39,10 @@ tracks/2/path = NodePath("Label:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_amtwq"]
@@ -101,8 +101,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -63.5
-offset_top = -48.0
+offset_top = -216.0
 offset_right = 63.5
+offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.60361, 1, 0.573066, 1)
