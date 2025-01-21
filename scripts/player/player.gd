@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var gpu_particles = $GPUParticles2D
 @onready var state = $StateMachine
 @onready var hurt_sfx = $HurtSFX
+@onready var camera_shake = $Camera2D
 # @onready var heal_animation = $FXPotionHealth/AnimationPlayer
 # attribute for player
 @export var current_level: float = 0.1
@@ -33,6 +34,7 @@ func get_current_level() -> float:
 func take_damage(total_damage: float) -> void:
 	hurt_sfx.pitch_scale = randf_range(0.8, 1.2)
 	hurt_sfx.play()
+	camera_shake.add_trauma(0.4)
 	find_child("HealthComponent").health -= total_damage
 
 # find component stamina from player and decrease the stamina with stamina from action

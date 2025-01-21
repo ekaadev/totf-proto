@@ -912,7 +912,9 @@ texture = ExtResource("4_kscxm")
 position = Vector2(0, -3.33333)
 shape = SubResource("CapsuleShape2D_c5tfn")
 
-[node name="Camera2D" parent="." instance=ExtResource("8_f3e1a")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("follow_node") instance=ExtResource("8_f3e1a")]
+position = Vector2(-0.666667, 0)
+follow_node = NodePath("..")
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -40.0
