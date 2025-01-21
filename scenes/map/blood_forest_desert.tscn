@@ -1952,7 +1952,6 @@ wait_time = 15.0
 autostart = true
 
 [node name="SpiderSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [node name="ElectroDogSpawnTimer" type="Timer" parent="."]

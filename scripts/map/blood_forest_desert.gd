@@ -192,6 +192,12 @@ func process_notification_queue() -> void:
 # 1. scene path
 # 2. fade path
 func on_player_game_over() -> void:
+	var player_energy = load_energy()
+	player_energy += counter_energy
+	var config = ConfigFile.new()
+	config.set_value("energy", "counter_energy", player_energy)
+	config.save("user://player_energy.cfg")
+
 	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
 	AudioAssets.stop_music()
 
@@ -202,3 +208,12 @@ func _on_pause_button_pressed() -> void:
 	ui_pause.visible = true
 	animation_pause.play("pause_in")
 	await animation_pause.animation_finished
+
+func load_energy() -> int:
+	var config = ConfigFile.new()
+	var energy = 0
+	var err = config.load("user://player_energy.cfg")
+	if err == OK:
+		energy = config.get_value("energy", "counter_energy")
+	
+	return energy
