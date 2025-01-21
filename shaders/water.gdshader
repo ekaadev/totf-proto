@@ -11,7 +11,7 @@ uniform float wave_strength = 0.1;
 uniform float distortion = 0.01;
 
 // Called for every vertex the material is visible on.
-void vertex() { 
+void vertex() {
     VERTEX.y += sin(TIME);
 }
 
@@ -23,5 +23,5 @@ void fragment() {
     COLOR = texture(TEXTURE, UV + noise * wave_strength);
 
     COLOR *= texture(screen_texture, SCREEN_UV + noise * distortion);
-    
+
 }

@@ -32,6 +32,8 @@ var has_emitted_game_over: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioAssets.play_music(AudioAssets.blood_forest_music, -65.0)
+
 	# Connect signals
 	# - enegy collected signal
 	# - game over signal
@@ -191,6 +193,7 @@ func process_notification_queue() -> void:
 # 2. fade path
 func on_player_game_over() -> void:
 	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
+	AudioAssets.stop_music()
 
 # Pause button pressed
 func _on_pause_button_pressed() -> void:

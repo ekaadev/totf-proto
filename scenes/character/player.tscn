@@ -1,10 +1,13 @@
-[gd_scene load_steps=59 format=3 uid="uid://ct0f10b7iq26"]
+[gd_scene load_steps=61 format=3 uid="uid://ct0f10b7iq26"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p5udc"]
 [ext_resource type="Texture2D" uid="uid://jrouo6ipxsnr" path="res://assets/character/shadow/Shadow.png" id="4_kscxm"]
 [ext_resource type="PackedScene" uid="uid://dlj70dqjg05vc" path="res://scenes/character/camera_shake.tscn" id="8_f3e1a"]
+[ext_resource type="AudioStream" uid="uid://c8dqjiipbeg4p" path="res://assets/music/sfx/CHOP_SFX.wav" id="10_j4817"]
+[ext_resource type="AudioStream" uid="uid://dukvgk02gtvtb" path="res://assets/music/sfx/SLAH_SFX.wav" id="11_5lsb0"]
 [ext_resource type="Script" path="res://scripts/player/slash_attack.gd" id="11_8pr1r"]
 [ext_resource type="PackedScene" uid="uid://c800tbbguskdg" path="res://scenes/audio/sfx/footsteps_player_sfx.tscn" id="11_fjbhe"]
+[ext_resource type="AudioStream" uid="uid://cqrkfm6qe1x74" path="res://assets/music/sfx/HURT_SFX.wav" id="12_icbuv"]
 [ext_resource type="Texture2D" uid="uid://46cgiwm8kcos" path="res://assets/scifi-character/Sci-fi hero 64x65.png" id="13_8o4wp"]
 [ext_resource type="PackedScene" uid="uid://887ht42jta6r" path="res://scenes/HitboxComponent.tscn" id="13_cgujj"]
 [ext_resource type="Script" path="res://scripts/NodeStateMachine.gd" id="14_abd0o"]
@@ -17,7 +20,6 @@
 [ext_resource type="Script" path="res://scripts/player/basic_attack_state.gd" id="19_5uauw"]
 [ext_resource type="PackedScene" uid="uid://gokg1o4278qw" path="res://scenes/ui/hud_avatar_player.tscn" id="19_d0sir"]
 [ext_resource type="Script" path="res://scripts/player/dash_state.gd" id="20_qjdlj"]
-[ext_resource type="PackedScene" uid="uid://eanfff0q6m08" path="res://scenes/fx/fx_potion_health.tscn" id="21_olft4"]
 [ext_resource type="Script" path="res://scripts/player/death_state.gd" id="23_cxyck"]
 [ext_resource type="FontFile" uid="uid://thgan232fu8p" path="res://assets/fonts/NicoBold-Regular.ttf" id="25_81gg4"]
 [ext_resource type="Script" path="res://scripts/player/stamina_player_component.gd" id="25_mq4v3"]
@@ -881,8 +883,6 @@ vertical_alignment = 1
 
 [node name="UIKeybinds" parent="." instance=ExtResource("19_1rq7r")]
 
-[node name="FXPotionHealth" parent="." instance=ExtResource("21_olft4")]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("13_8o4wp")
 offset = Vector2(12.5, -7)
@@ -916,6 +916,22 @@ shape = SubResource("CapsuleShape2D_c5tfn")
 
 [node name="FootstepsPlayerSFX" parent="." instance=ExtResource("11_fjbhe")]
 volume_db = -40.0
+bus = &"SFX"
+
+[node name="ChopAttackSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_5lsb0")
+volume_db = -40.0
+bus = &"SFX"
+
+[node name="SlashAttackSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_j4817")
+volume_db = -40.0
+bus = &"SFX"
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_icbuv")
+volume_db = -40.0
+bus = &"SFX"
 
 [node name="HitboxComponent" parent="." instance=ExtResource("13_cgujj")]
 collision_mask = 12

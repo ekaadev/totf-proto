@@ -6,11 +6,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	AudioAssets.play_music(AudioAssets.green_garden_music, -65.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-
 	# Pause the game
 	if Input.is_action_just_pressed("pause"):
 		_on_pause_button_pressed()

@@ -7,6 +7,7 @@ extends NodeState
 
 @onready var hitbox_component = owner.get_node("HitboxComponent")
 @onready var collision_shape = hitbox_component.get_node("CollisionShape2D")
+@onready var sfx_chop = owner.get_node("ChopAttackSFX")
 
 # on process function
 func _on_process(_delta : float) -> void:
@@ -33,6 +34,9 @@ func _on_next_transitions() -> void:
 # take stamina from player
 func _on_enter() -> void:
 	var direction = player.player_direction
+
+	sfx_chop.pitch_scale = randf_range(0.8, 1.2)
+	sfx_chop.play()
 
 	if direction.x != 0 and direction.y != 0:
 		if direction.y > 0:

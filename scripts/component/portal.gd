@@ -12,3 +12,4 @@ func _ready() -> void:
 # 2. loading scene path
 func _on_portal():
 	LoadManager.load_scene("res://scenes/map/blood_forest_desert.tscn", "res://scenes/loading/sideways.tscn")
+	AudioAssets.stop_music()

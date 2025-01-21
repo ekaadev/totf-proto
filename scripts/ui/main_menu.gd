@@ -15,7 +15,7 @@ var can_pressed = true
 func _ready() -> void:
 	ui_option.connect("option_closed", Callable(self, "_on_option_closed"))
 
-	AudioAssets.play_music(AudioAssets.menu_music, -60.0)
+	AudioAssets.play_music(AudioAssets.menu_music, -65.0)
 	start_button.grab_focus()
 	
 	ui_transition_fade.visible = true
