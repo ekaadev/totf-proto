@@ -31,9 +31,16 @@ func _on_start_button_pressed() -> void:
 
 	if can_pressed:
 		AudioAssets.play_sfx(AudioAssets.menu_selected, -50)
-		LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/sideways.tscn")
-		AudioAssets.stop_music()
-		can_pressed = false
+
+		# Check if the player has seen the prolog
+		if is_seen_prolog():
+			LoadManager.load_scene("res://scenes/map/green_garden.tscn", "res://scenes/loading/sideways.tscn")
+			AudioAssets.stop_music()
+			can_pressed = false
+		else:
+			LoadManager.load_scene("res://scenes/ui/ui_prolog.tscn", "res://scenes/loading/sideways.tscn")
+			AudioAssets.stop_music()
+			can_pressed = false
 
 # load the option scene, when option button pressed
 func _on_exit_button_pressed() -> void:
@@ -67,3 +74,10 @@ func set_buttons_focus(can_focus: bool) -> void:
 func _on_option_closed() -> void:
 	set_buttons_focus(true)
 	option_button.grab_focus()
+
+func is_seen_prolog() -> bool:
+	var config = ConfigFile.new()
+	var seen_prolog = config.load("user://player_config_prolog.cfg")
+	if seen_prolog == OK:
+		return config.get_value("prolog", "seen", false)
+	return false

@@ -1,9 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://ocr1lxqim0n5"]
+[gd_scene load_steps=7 format=3 uid="uid://ocr1lxqim0n5"]
 
+[ext_resource type="Script" path="res://scripts/ui/ui_prolog.gd" id="1_oof8f"]
 [ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="1_p0gw3"]
 
 [sub_resource type="FontVariation" id="FontVariation_jnad7"]
 base_font = ExtResource("1_p0gw3")
+
+[sub_resource type="Animation" id="Animation_63hic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrologLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PrologLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["You are an adventurer trapped on The Thera following a mysterious light,"]
+}
 
 [sub_resource type="Animation" id="Animation_rnubr"]
 resource_name = "in"
@@ -33,33 +61,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_63hic"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PrologLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PrologLabel:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["You are an adventurer trapped on The Thera following a mysterious light,"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dt4dc"]
 _data = {
 "RESET": SubResource("Animation_63hic"),
@@ -67,6 +68,7 @@ _data = {
 }
 
 [node name="UIProlog" type="CanvasLayer"]
+script = ExtResource("1_oof8f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -77,6 +79,7 @@ grow_vertical = 2
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="PrologLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -98,4 +101,3 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_dt4dc")
 }
-autoplay = "in"

@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://bptqkl7077igf"]
+
+[ext_resource type="FontFile" uid="uid://io0dv0y58fak" path="res://assets/fonts/m6x11plus.ttf" id="1_mdaah"]
+[ext_resource type="Script" path="res://scripts/ui/ui_ending.gd" id="1_wa2ks"]
+
+[sub_resource type="Animation" id="Animation_dd6tv"]
+resource_name = "in"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndingLabel:text")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.2, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["With all the Flame Energy collected, the ecosystem in The Thera is slowly stabilizing. The light that once brought you to this world is now paving the way for your return to Earth.", "With all the Flame Energy collected, the ecosystem in The Thera is slowly stabilizing. The light that once brought you to this world is now paving the way for your return to Earth.", "THANK YOU FOR PLAYING !", "THANK YOU FOR PLAYING !"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingLabel:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.53333, 4, 5, 5.2, 5.8, 7, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0.00234485), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m8g4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["With all the Flame Energy collected, the ecosystem in The Thera is slowly stabilizing. The light that once brought you to this world is now paving the way for your return to Earth."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1amjt"]
+_data = {
+"RESET": SubResource("Animation_m8g4p"),
+"in": SubResource("Animation_dd6tv")
+}
+
+[node name="UIEnding" type="CanvasLayer"]
+script = ExtResource("1_wa2ks")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="EndingLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.0
+offset_top = -96.0
+offset_right = 531.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mdaah")
+theme_override_font_sizes/font_size = 36
+text = "With all the Flame Energy collected, the ecosystem in The Thera is slowly stabilizing. The light that once brought you to this world is now paving the way for your return to Earth."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EndingAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1amjt")
+}
