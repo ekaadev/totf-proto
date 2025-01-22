@@ -201,6 +201,7 @@ func on_player_game_over() -> void:
 	# Save combined total
 	var config = ConfigFile.new()
 	config.set_value("energy", "counter_energy", total_energy)
+	config.set_value("energy", "energy_collected", counter_energy)
 	config.save("user://player_energy.cfg")
 
 	LoadManager.load_scene("res://scenes/ui/ui_game_over.tscn", "res://scenes/loading/fade.tscn")
