@@ -3,3 +3,13 @@
 /android/
 test.tscn
 .vscode/
+*.zip
+*.exe
+*.tar.gz
+*.apk
+
+# Backup and temporary files
+*.log 
+*.tmp                
+*.bak                
+*.~                  
