@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://ft15mhdulp45"]
+[gd_scene load_steps=46 format=4 uid="uid://ft15mhdulp45"]
 
 [ext_resource type="Texture2D" uid="uid://7m4i66eda405" path="res://assets/tilesets/bloodforestdesert/background.png" id="1_prkem"]
 [ext_resource type="Script" path="res://scripts/map/blood_forest_desert.gd" id="1_y03tr"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cvfrlap20uc3b" path="res://scenes/ui/ui_game_pause.tscn" id="6_d8ly8"]
 [ext_resource type="PackedScene" uid="uid://ct0f10b7iq26" path="res://scenes/character/player.tscn" id="12_wnaey"]
 [ext_resource type="PackedScene" uid="uid://067ylbweu5ys" path="res://scenes/components/fog.tscn" id="14_mrr87"]
-[ext_resource type="PackedScene" uid="uid://coqi6lcpihy4n" path="res://scenes/components/flame.tscn" id="18_8bp86"]
 [ext_resource type="PackedScene" uid="uid://cqg8mpc8rtgi2" path="res://scenes/enemy/spider.tscn" id="20_1osry"]
 [ext_resource type="PackedScene" uid="uid://bjsgwdgr3v4st" path="res://scenes/items/potion_health.tscn" id="20_yej3w"]
 
@@ -1917,10 +1916,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomQWall"]
 position = Vector2(683.5, 845)
 shape = SubResource("RectangleShape2D_mp8k6")
-
-[node name="Flame" parent="." instance=ExtResource("18_8bp86")]
-position = Vector2(608, 336)
-scale = Vector2(1.2, 1.2)
 
 [node name="BeastPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_b3lrq")
