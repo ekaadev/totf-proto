@@ -13,7 +13,9 @@ config_version=5
 config/name="totf-mekanik"
 run/main_scene="res://scenes/ui/user_interface_main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.113725, 0.0745098, 0.0862745, 1)
+boot_splash/image="res://assets/SPLASH.png"
+config/icon="res://assets/ui/logo-game.png"
 
 [audio]
 
